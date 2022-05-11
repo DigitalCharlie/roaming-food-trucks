@@ -18,6 +18,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <h3>Testing the git commands with this change</h3>
     </div>
   );
 }
