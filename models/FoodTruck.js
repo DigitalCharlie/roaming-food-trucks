@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const foodTruckSchema = new Schema(
     {
         foodTruckName: String,
+        description:String,
         img: String,
         phone: String,
         location: [{
