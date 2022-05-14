@@ -18,7 +18,7 @@ const foodTruckSchema = new mongoose.Schema(
         cuisine: [{
             type: String,
             enum: [
-                "American", "Chinese", "Japanese", "Mediteranean", "Thai", "Indian", "Filipino", "French", "Haitian", "Cuban", "Tex-Mex", "Vietnamese", "Mexican", "Korean", "Soul Food", "Polish", "Ethiopian", "Greek", "Asian-Fusion"
+                "American", "Chinese", "Japanese", "Mediteranean", "Thai", "Indian", "Filipino", "French", "Haitian", "Cuban", "Tex-Mex", "Vietnamese", "Mexican", "Korean", "Soul Food", "Polish", "Ethiopian", "Greek", "Asian-Fusion", "Nigerian"
             ]
         }],
         reviews: [{
