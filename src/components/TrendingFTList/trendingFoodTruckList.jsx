@@ -18,7 +18,7 @@ export default function TrendingFoodTruck({foodTrucks}) {
                                         <p>{foodTruck.currentRating.toFixed(1)}</p>
                                     </div>
                                     <p>Wait time</p>
-                                    <p>{foodTruck.location[0].street}, {foodTruck.location[0].city} </p>
+                                    <p>{foodTruck.location.street}, {foodTruck.location.city} </p>
                                 </div>
                             </div>
                         )
