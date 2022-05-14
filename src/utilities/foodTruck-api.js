@@ -18,11 +18,6 @@ export function getByIdAndUpdate(id) {
     return sendRequest(`${BASE_URL}/${id}`, 'PUT', payload)
 }
 
-// Create food truck
-export function createFT() {
-    return sendRequest(BASE_URL, 'POST', payload)
-}
-
 //Delete food truck
 export function getByIdAndDelete(id) {
     return sendRequest(`${BASE_URL}/${id}`, 'DELETE')
