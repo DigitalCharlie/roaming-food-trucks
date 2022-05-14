@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const foodTruckSchema = new mongoose.Schema(
+const foodTruckSchema = new Schema(
     {
         foodTruckName: String,
         img: String,
+        phone: String,
         location: [{
             locationName: String,
             street: String,
@@ -59,9 +61,11 @@ const foodTruckSchema = new mongoose.Schema(
 );
 
 foodTruckSchema.pre('save', async function (next) {
-    await this.populate('reviews')
-    let aggregateRating = this.reviews.reduce((acc, review) => acc + parseInt(review.rating), 0)
-    this.currentRating = aggregateRating
+    if (this.reviews.length > 0) {
+        await this.populate('reviews')
+        let aggregateRating = this.reviews.reduce((acc, review) => acc + parseInt(review.rating), 0)
+        this.currentRating = aggregateRating
+    }
     return next();
 });
 
