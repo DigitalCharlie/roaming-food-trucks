@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 
 const foodTruckSchema = new mongoose.Schema(
     {
+        foodTruckName: String,
+        img: String,
         location: [{
             locationName: String,
             street: String,
