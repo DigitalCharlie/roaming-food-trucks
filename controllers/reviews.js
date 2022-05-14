@@ -1,5 +1,5 @@
-const Reviews = require('../models/reviews')
-const FoodTruck = require('../models/FoodTruck')
+const Reviews = require('../models/review')
+const FoodTruck = require('../models/foodtruck')
 
 
 module.exports = {createReview, getReview, updateReview}
@@ -9,7 +9,7 @@ async function createReview(req,res){
     try {
         const createdReview = await Reviews.create(req.body)
         addReviewToUser()
-        res.status(200).json('Successful review creation')
+        res.status(200).json(createdReview + ' Successful review creation')
     }
     catch(error){
         res.status(400).json(error + ' Failed to create review.')
