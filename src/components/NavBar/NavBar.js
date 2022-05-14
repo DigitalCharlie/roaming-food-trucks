@@ -11,7 +11,7 @@ export default function NavBar() {
   return (
     <Navbar>
       <Container>
-        <Navbar.Brand href="#home"><img src="assets/roaming-spoon-logo.png" alt="logo" className={styles.logo} /> </Navbar.Brand>
+        <Navbar.Brand href="#home"><img src="assets/roaming-spoon-logo.png" alt="logo" className={styles.Logo} /> </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
