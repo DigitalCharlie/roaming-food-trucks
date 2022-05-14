@@ -8,19 +8,19 @@ export default function Slider() {
             <Carousel.Item>
                 <img
                     className="auto"
-                    src="/Images/1.png"
+                    src="/assets/hero1.png"
                 />
             </Carousel.Item>
             <Carousel.Item>
                 <img
                     className="auto"
-                    src="/Images/2.png"
+                    src="/assets/hero2.png"
                 />
             </Carousel.Item>
             <Carousel.Item>
                 <img
                     className="auto"
-                    src="/Images/3.png"
+                    src="/assets/hero3.png"
                 />
             </Carousel.Item>
         </Carousel>
