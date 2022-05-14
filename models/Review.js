@@ -11,7 +11,8 @@ const reviewSchema = new mongoose.Schema(
             ref: 'FoodTruck'
         }],
         rating: Number,
-        review: String
+        review: String,
+        img: Array
     }
 );
 
