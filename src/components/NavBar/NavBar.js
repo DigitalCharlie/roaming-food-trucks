@@ -15,7 +15,7 @@ export default function NavBar() {
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-            <button className={styles.button}>Sign Up</button>
+            <button className="button">Sign Up</button>
             <a href="#" className={styles.anchor}> <img src="assets/login_user_icon.png" alt="login-icon" /> Sign In</a>
           </Navbar.Text>
         </Navbar.Collapse>

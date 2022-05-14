@@ -6,18 +6,16 @@
     --orange: #F2782F; 
     --black: #000000; 
     --white: #ffffff; 
-    --button-border-radius: 10%;
-    --button-background: var(--white);
-    --button-margin: 15px;
-    --button-border: 2px solid var(--orange);
-    --button-padding: 6px 15px;
-    --buton-font-size: 15px;
-
 }
-
-
-
-
 body{
     margin: 0; 
+}
+
+.button{ 
+   border-radius: 10%;
+    background: var(--white);
+    margin: 15px;
+    border: 2px solid var(--orange);
+    padding: 6px 15px;
+    font-size: 15px;
 }
