@@ -1,12 +1,15 @@
+import NavBar from "../components/NavBar/NavBar"
 import Footer from "../components/Footer/Footer"
 import TrendingFoodTruck from "../components/TrendingFTList/trendingFoodTruckList"
 
 
 export default function HomePage({foodTrucks}){
     return (
-        <main>
+        <>
             <TrendingFoodTruck foodTrucks={foodTrucks}/>
+            <NavBar />
             <Footer />
-        </main>
+        </>
+  
     )
 }
