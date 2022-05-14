@@ -1,0 +1,14 @@
+*{
+    box-sizing: border-box;
+}
+
+:root{
+    --orange: #F2782F; 
+    --black: #000000; 
+    --white: #ffffff; 
+
+}
+
+body{
+    margin: 0; 
+}
