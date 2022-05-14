@@ -32,7 +32,7 @@ const foodTruckSchema = new mongoose.Schema(
                 description: String,
                 price: Number
             }],
-            entree: [{
+            entrees: [{
                 dishName: String,
                 description: String,
                 price: Number
@@ -65,4 +65,4 @@ foodTruckSchema.pre('save', async function (next) {
 
 const FoodTrucks = mongoose.model('FoodTrucks', foodTruckSchema);
 
-module.exportss = FoodTrucks;
+module.exports = FoodTrucks;
