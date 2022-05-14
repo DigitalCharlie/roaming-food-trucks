@@ -63,6 +63,6 @@ foodTruckSchema.pre('save', async function (next) {
     return next();
 });
 
-const FoodTrucks = mongoose.model('FoodTrucks', foodTruckSchema);
+const FoodTruck = mongoose.model('FoodTruck', foodTruckSchema);
 
-module.exports = FoodTrucks;
+module.exports = FoodTruck;
