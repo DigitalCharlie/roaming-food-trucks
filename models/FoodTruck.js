@@ -7,7 +7,7 @@ const foodTruckSchema = new Schema(
         description:String,
         img: String,
         phone: String,
-        location: [{
+        location: {
             locationName: String,
             street: String,
             city: String,
@@ -19,7 +19,7 @@ const foodTruckSchema = new Schema(
                     end: Number
                 }]
             }]
-        }],
+        },
         cuisine: [{
             type: String,
             enum: [
@@ -31,7 +31,7 @@ const foodTruckSchema = new Schema(
             ref: 'Review'
         }],
         currentRating: Number,
-        menu: [{
+        menu: {
             apps: [{
                 dishName: String,
                 description: String,
@@ -57,7 +57,7 @@ const foodTruckSchema = new Schema(
                 description: String,
                 price: Number
             }]
-        }]
+        }
     }
 );
 
