@@ -32,7 +32,7 @@ const foodTruckSchema = new mongoose.Schema(
                 description: String,
                 price: Number
             }],
-            entree: [{
+            entrees: [{
                 dishName: String,
                 description: String,
                 price: Number
@@ -63,6 +63,6 @@ foodTruckSchema.pre('save', async function (next) {
     return next();
 });
 
-const FoodTrucks = mongoose.model('FoodTrucks', foodTruckSchema);
+const FoodTruck = mongoose.model('FoodTruck', foodTruckSchema);
 
-module.exportss = FoodTrucks;
+module.exports = FoodTruck;
