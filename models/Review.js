@@ -15,13 +15,6 @@ const reviewSchema = new mongoose.Schema(
     }
 );
 
-reviewSchema.pre('save', async function (next) {
-    await this.populate('user') && this.populate('foodTruck')
-    let aggregateRating = this.reviews.reduce((acc, review) => acc + parseInt(review.rating), 0)
-    this.currentRating = aggregateRating
-    return next();
-});
-
 const Reviews = mongoose.model('Reviews', reviewSchema);
 
 module.exports = Reviews;
