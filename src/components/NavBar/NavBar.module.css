@@ -1,5 +1,5 @@
 .button {
-    border-radius: var(--buton-border-radius);
+    border-radius: var(--button-border-radius);
     background-color: var(--white);
     margin: var(--button-margin);
     border: var(--button-border);
