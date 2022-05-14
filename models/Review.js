@@ -11,10 +11,11 @@ const reviewSchema = new mongoose.Schema(
             ref: 'FoodTruck'
         }],
         rating: Number,
-        review: String
+        review: String,
+        img: Array
     }
 );
 
-const Reviews = mongoose.model('Reviews', reviewSchema);
+const Review = mongoose.model('Review', reviewSchema);
 
-module.exports = Reviews;
+module.exports = Review;
