@@ -1,0 +1,14 @@
+.Button {
+    border-radius: 10%;
+    background-color: var(--white);
+    margin: 15px;
+    border: 2px solid var(--orange);
+    padding: 6px 15px;
+    font-size: 15px;
+}
+
+.Anchor {
+    text-decoration: none;
+    font-size: 15px;
+    margin: 7px;
+}
