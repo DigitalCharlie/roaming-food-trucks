@@ -1,4 +1,4 @@
-const FoodTruck = require('../../models/FoodTruck.js');
+const FoodTruck = require('../models/FoodTruck.js');
 module.exports = { index, create, show };
 
 // Index Route \\
