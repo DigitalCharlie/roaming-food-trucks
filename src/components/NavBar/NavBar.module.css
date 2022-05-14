@@ -1,18 +1,18 @@
-.Button {
-    border-radius: 10%;
+.button {
+    border-radius: var(--buton-border-radius);
     background-color: var(--white);
-    margin: 15px;
-    border: 2px solid var(--orange);
-    padding: 6px 15px;
-    font-size: 15px;
+    margin: var(--button-margin);
+    border: var(--button-border);
+    padding: var(--button-padding);
+    font-size: var(--button-font-size);
 }
 
-.Anchor {
+.anchor {
     text-decoration: none;
     font-size: 15px;
     margin: 7px;
 }
 
-.Logo{
+.logo{
     height: 35px;
 }

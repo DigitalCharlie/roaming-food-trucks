@@ -11,12 +11,12 @@ export default function NavBar() {
   return (
     <Navbar>
       <Container>
-        <Navbar.Brand href="#home"><img src="assets/roaming-spoon-logo.png" alt="logo" className={styles.Logo} /> </Navbar.Brand>
+        <Navbar.Brand href="#home"><img src="assets/roaming-spoon-logo.png" alt="logo" className={styles.logo} /> </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-            <button className={styles.Button}>Sign Up</button>
-            <a href="#" className={styles.Anchor}> <img src="assets/login_user_icon.png" alt="login-icon" /> Sign In</a>
+            <button className={styles.button}>Sign Up</button>
+            <a href="#" className={styles.anchor}> <img src="assets/login_user_icon.png" alt="login-icon" /> Sign In</a>
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>
