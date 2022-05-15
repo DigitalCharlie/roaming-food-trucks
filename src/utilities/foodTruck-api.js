@@ -14,7 +14,7 @@ export function getById(id) {
 }
 
 //Update food truck
-export function getByIdAndUpdate(id) {
+export function getByIdAndUpdate(id, payload) {
     return sendRequest(`${BASE_URL}/${id}`, 'PUT', payload)
 }
 
