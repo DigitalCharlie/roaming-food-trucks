@@ -1,6 +1,6 @@
 import './App.css';
 import HomePage from './pages/HomePage';
-import * as FooftruckAPI from './utilities/foodTruck-api'
+import * as FoodtruckAPI from './utilities/foodTruck-api'
 import {useState, useEffect} from 'react'
 import {Routes, Route, Navigate} from 'react-router-dom'
 
@@ -10,10 +10,10 @@ function App() {
   useEffect(() => {
     (async () => {
       try {
-        const data = await FooftruckAPI.getAll()
+        const data = await FoodtruckAPI.getAll()
         setFoodTrucks(data)
       } catch(e) {
-        console.log(e)
+        console.log(`Error is ${e}`)
       }
     })()
   }, [])

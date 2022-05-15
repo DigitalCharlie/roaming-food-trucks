@@ -1,6 +1,6 @@
 import sendRequest from './send-request'
 
-const BASE_URL = '/foodtrucks'
+const BASE_URL = 'http://localhost:8080/foodtrucks'
 
 
 // All the food trucks
