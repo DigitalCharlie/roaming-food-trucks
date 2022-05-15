@@ -1,6 +1,6 @@
 import sendRequest from './send-request'
 
-const BASE_URL = '/foodtrucks'
+const BASE_URL = 'http://localhost:8080/foodtrucks'
 
 
 // All the food trucks
@@ -14,7 +14,7 @@ export function getById(id) {
 }
 
 //Update food truck
-export function getByIdAndUpdate(id) {
+export function getByIdAndUpdate(id, payload) {
     return sendRequest(`${BASE_URL}/${id}`, 'PUT', payload)
 }
 
