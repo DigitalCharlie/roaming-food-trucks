@@ -7,8 +7,8 @@ import TrendingFoodTruck from "../components/TrendingFTList/trendingFoodTruckLis
 export default function HomePage({ foodTrucks }) {
     return (
         <>
-            {/* <TrendingFoodTruck foodTrucks={foodTrucks} /> */}
-            {/* <NavBar /> */}
+            <TrendingFoodTruck foodTrucks={foodTrucks} />
+            <NavBar />
             <Hero />
             <Footer />
         </>
