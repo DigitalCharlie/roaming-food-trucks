@@ -1,6 +1,6 @@
 import sendRequest from './send-request'
 
-const BASE_URL = '/api/foodTruck'
+const BASE_URL = '/foodtruck'
 
 
 // All the food trucks
