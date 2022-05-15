@@ -24,10 +24,22 @@ async function create(req, res) {
 // Show Route \\
 async function show(req, res) {
     try {
-        const { foodTruck } = await req.params;
-        const foodTrucks = await FoodTruck.find({ foodTruck: foodTruck });
-        res.status(200).json(foodTrucks);
-    } catch (err) {
-        res.status(400).json(err);
+        const getTruck = await FoodTruck.findById({ _id: req.params.id })
+        res.status(200).json(getTruck)
+    }
+    catch (err) {
+        res.status(400).json(err + 'Show Function')
     }
 };
+
+
+// Not Working Show Route \\
+// async function show(req, res) {
+//     try {
+//         const { foodTruck } = await req.params;
+//         const foodTrucks = await FoodTruck.findById({ foodTruck: foodTruck });
+//         res.status(200).json(foodTrucks);
+//     } catch (err) {
+//         res.status(400).json(err);
+//     }
+// };

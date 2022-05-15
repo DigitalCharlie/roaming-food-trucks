@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const foodTruckCtlrs = require('../controllers/foodTrucks');
 
-router.get('/', foodTruckCtlrs.index);
+router.get('/foodtrucks', foodTruckCtlrs.index);
 router.post('/', foodTruckCtlrs.create);
-router.get('/:foodtruck', foodTruckCtlrs.show);
+router.get('/:id', foodTruckCtlrs.show);
 
 module.exports = router;
