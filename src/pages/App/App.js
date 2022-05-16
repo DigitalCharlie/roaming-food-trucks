@@ -1,5 +1,5 @@
 import './App.css';
-import HomePage from '../HomePage/Homepage';
+import HomePage from '../HomePage/HomePage';
 import * as FooftruckAPI from '../../utilities/foodTruck-api'
 import {useState, useEffect} from 'react'
 
