@@ -1,12 +1,12 @@
-// import sendRequest from './send-request'
+import sendRequest from './send-request'
 
-const BASE_URL = 'http://localhost:8080/foodtrucks'
+const BASE_URL = '/foodtrucks'
 
 
-// // All the food trucks
-// export function getAll() {
-//     return sendRequest(BASE_URL)
-// }
+// All the food trucks
+export function getAll() {
+    return sendRequest(BASE_URL)
+}
 
 // //Individual Food trucks
 // export function getById(id) {
