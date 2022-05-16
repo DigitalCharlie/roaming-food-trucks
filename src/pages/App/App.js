@@ -1,6 +1,6 @@
 import './App.css';
 import HomePage from '../HomePage/HomePage';
-import * as FooftruckAPI from '../../utilities/foodTruck-api'
+import * as FoodtruckAPI from '../../utilities/foodTruck-api'
 import {useState, useEffect} from 'react'
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     (async () => {
       try {
-        const data = await FooftruckAPI.getAll()
+        const data = await FoodtruckAPI.getAll()
         setFoodTrucks(data)
       } catch(e) {
         console.log(e)
