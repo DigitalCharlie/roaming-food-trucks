@@ -1,6 +1,6 @@
 import './App.css';
-import HomePage from './pages/HomePage';
-import * as FooftruckAPI from './utilities/foodTruck-api'
+import HomePage from '../HomePage';
+import * as FooftruckAPI from '../../utilities/foodTruck-api'
 import {useState, useEffect} from 'react'
 
 function App() {
