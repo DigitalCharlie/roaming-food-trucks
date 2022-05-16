@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 
-export default function TrendingFoodTruck({foodTrucks}) {
+export default function TrendingFoodTruck({ foodTrucks }) {
     const navigate = useNavigate()
     return (
         <main>
@@ -8,10 +8,10 @@ export default function TrendingFoodTruck({foodTrucks}) {
             <div className="cards-grid">
                 {
                     foodTrucks.map((foodTruck, idx) => {
-                        return(
+                        return (
                             // returns only the first 6 fodd trucks
                             idx < 6 &&
-                            <div key={foodTruck._id} onClick={() => {navigate(`${foodTruck._id}`)}} className="card" style={{backgroundImage: `url(${foodTruck.image})`}} >
+                            <div key={foodTruck._id} onClick={() => { navigate(`${foodTruck._id}`) }} className="card" style={{ backgroundImage: `url(${foodTruck.image})` }} >
                                 <div className="banner">
                                     <div className="banner-title">
                                         <h3>{foodTruck}</h3>

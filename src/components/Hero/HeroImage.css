@@ -1,0 +1,20 @@
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    display: none;
+}
+
+#hi {
+    background-color: aqua;
+}
+
+.carousel {
+    width: 100%
+}
+
+button {
+    display: none;
+}
+
+.auto {
+    width: 100%
+}
