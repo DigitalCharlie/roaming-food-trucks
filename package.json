@@ -1,4 +1,5 @@
 {
+  "proxy": "http://localhost:8080/",
   "name": "roaming-food-trucks",
   "version": "0.1.0",
   "private": true,
