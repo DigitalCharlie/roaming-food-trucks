@@ -8,7 +8,7 @@ export default function HomePage({ foodTrucks }) {
         <>
             <TrendingFoodTruck foodTrucks={foodTrucks} />
             <NavBar />
-            <Hero />
+            {/* <Hero /> */}
             <Footer />
         </>
 

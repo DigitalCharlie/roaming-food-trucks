@@ -1,0 +1,31 @@
+.Card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1em;
+    padding: 10px 0 0 30px;
+}
+
+.Card > div {
+    height: 350px;
+    width: 300px;
+    border-radius: 5px;
+    background-color: aliceblue;
+}
+
+.Card > div > img {
+    border-radius: 5px 5px 0 0;
+}
+
+.Banner {
+    display: flex;
+    flex-direction: column;
+}
+
+.Banner > p {
+    padding-left: 30px;
+}
+
+.BannerTitle {
+    display: flex;
+    justify-content: space-between;
+}
