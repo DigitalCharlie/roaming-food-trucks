@@ -1,8 +1,9 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Select from "react-select"
+import { useSearchParams } from "react-router-dom"
 
 export default function SearchBar() {
-    const [selectedOption] = useState(null)
+    const [searchParams, setSearchParams] = useSearchParams()
     const [formData, setFormData] = useState({
         zipcode: '',
         cuisine: ''
@@ -40,8 +41,20 @@ export default function SearchBar() {
 
     const handleSubmit = (evt) => {
         evt.preventDefault()
+        setSearchParams(formData)
         console.log(formData)
     }
+    // useEffect(() => {
+    //     (async () => {
+    //         try {
+    //             setFormData({ zipcode: "00000" })
+    //             console.log(searchParams.get("zipcode"))
+    //             // setFormData({ zipcode: searchParams.get("zipcode") })
+    //         } catch (err) {
+    //             console.log("error")
+    //         }
+    //     })()
+    // })
 
     return (
         <div>
@@ -49,7 +62,7 @@ export default function SearchBar() {
                 <input type="text" onChange={handleChange} name="zipcode" value={formData.zipcode} placeholder="Location">
                 </input>
                 <Select
-                    defaultValue={selectedOption}
+                    // defaultValue={selectedOption}
                     onChange={(e) => { handleSelect(e) }}
                     options={cuisineOptions}
                     name="cuisine"
