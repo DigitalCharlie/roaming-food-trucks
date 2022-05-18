@@ -1,0 +1,26 @@
+.StarRating{
+    border: none;
+}
+
+.StarRating > button {
+    color: grey;
+    border: none;
+    background: none;
+    padding: 0 2px;
+}
+
+.StarRating > button > span:hover {
+    color: red
+}
+
+.StarRating > div {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+}
+
+.StarRating > div > button {
+    color: grey;
+    border: none;
+    background: none;
+}
