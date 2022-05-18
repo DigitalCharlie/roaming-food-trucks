@@ -31,6 +31,7 @@ const foodTruckSchema = new Schema(
             ref: 'Review'
         }],
         currentRating: Number,
+        priceRating: Number,
         menu: {
             apps: [{
                 dishName: String,
