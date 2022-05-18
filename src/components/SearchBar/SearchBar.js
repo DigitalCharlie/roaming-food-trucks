@@ -8,27 +8,28 @@ export default function SearchBar() {
         zipcode: '',
         cuisine: ''
     })
+    const [selectedOption, setSelectedOption] = useState({ value: searchParams.get("cuisine"), label: searchParams.get("cuisine") })
     const cuisineOptions = [
-        { value: "american", label: "American", name: 'cuisine' },
-        { value: "chinese", label: "Chinese" },
-        { value: "japanese", label: "Japanese" },
-        { value: "mediteranean", label: "Mediteranean" },
-        { value: "thai", label: "Thai" },
-        { value: "indian", label: "Indian" },
-        { value: "filipino", label: "Filipino" },
-        { value: "french", label: "French" },
-        { value: "haitian", label: "Haitian" },
-        { value: "cuban", label: "Cuban" },
-        { value: "tex-mex", label: "Tex-Mex" },
-        { value: "vietnamese", label: "Vietnamese" },
-        { value: "mexican", label: "Mexican" },
-        { value: "korean", label: "Korean" },
-        { value: "soul food", label: "Soul Food" },
-        { value: "polish", label: "Polish" },
-        { value: "ethiopian", label: "Ethiopian" },
-        { value: "greek", label: "Greek" },
-        { value: "asian-fusion", label: "Asian-Fusion" },
-        { value: "nigerian", label: "Nigerian" }
+        { value: "american", label: "american", },
+        { value: "chinese", label: "chinese" },
+        { value: "japanese", label: "japanese" },
+        { value: "mediteranean", label: "mediteranean" },
+        { value: "thai", label: "thai" },
+        { value: "indian", label: "indian" },
+        { value: "filipino", label: "filipino" },
+        { value: "french", label: "french" },
+        { value: "haitian", label: "haitian" },
+        { value: "cuban", label: "cuban" },
+        { value: "tex-mex", label: "tex-mex" },
+        { value: "vietnamese", label: "vietnamese" },
+        { value: "mexican", label: "mexican" },
+        { value: "korean", label: "korean" },
+        { value: "soul food", label: "soul food" },
+        { value: "polish", label: "polish" },
+        { value: "ethiopian", label: "ethiopian" },
+        { value: "greek", label: "greek" },
+        { value: "asian-fusion", label: "asian-fusion" },
+        { value: "nigerian", label: "nigerian" }
     ]
 
     const handleChange = (evt) => {
@@ -44,25 +45,17 @@ export default function SearchBar() {
         setSearchParams(formData)
         console.log(formData)
     }
-    // useEffect(() => {
-    //     (async () => {
-    //         try {
-    //             setFormData({ zipcode: "00000" })
-    //             console.log(searchParams.get("zipcode"))
-    //             // setFormData({ zipcode: searchParams.get("zipcode") })
-    //         } catch (err) {
-    //             console.log("error")
-    //         }
-    //     })()
-    // })
-
+    useEffect(() => {
+        setFormData({ zipcode: searchParams.get("zipcode"), cuisine: searchParams.get("cuisine") })
+    }, [])
+    console.log(formData)
     return (
         <div>
             <form>
                 <input type="text" onChange={handleChange} name="zipcode" value={formData.zipcode} placeholder="Location">
                 </input>
                 <Select
-                    // defaultValue={selectedOption}
+                    defaultValue={selectedOption}
                     onChange={(e) => { handleSelect(e) }}
                     options={cuisineOptions}
                     name="cuisine"
