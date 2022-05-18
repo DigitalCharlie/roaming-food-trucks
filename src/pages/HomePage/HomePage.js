@@ -1,6 +1,7 @@
 import NavBar from "../../components/NavBar/NavBar"
 import Footer from "../../components/Footer/Footer"
 import TrendingFoodTruck from "../../components/TrendingFTList/trendingFoodTruckList"
+import Hero from "../../components/Hero/HeroImage"
 
 
 export default function HomePage({ foodTrucks }) {
@@ -8,7 +9,7 @@ export default function HomePage({ foodTrucks }) {
         <>
             <TrendingFoodTruck foodTrucks={foodTrucks} />
             <NavBar />
-            {/* <Hero /> */}
+            <Hero />
             <Footer />
         </>
 
