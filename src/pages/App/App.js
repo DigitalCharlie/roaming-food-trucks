@@ -2,6 +2,8 @@ import './App.css';
 import HomePage from '../HomePage/HomePage';
 import * as FoodtruckAPI from '../../utilities/foodTruck-api'
 import {useState, useEffect} from 'react'
+import {Routes, Route} from 'react-router-dom'
+import Footer from '../../components/Footer/Footer';
 
 function App() {
   const [foodTrucks, setFoodTrucks] = useState([])
@@ -20,7 +22,10 @@ function App() {
 
   return (
     <div className="App">
-   <HomePage foodTrucks={foodTrucks} />
+      <Routes>
+        <Route path="/" element={<HomePage foodTrucks={foodTrucks} />} />
+      </Routes>
+      <Footer />
     </div>
   );
 }
