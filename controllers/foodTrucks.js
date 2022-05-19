@@ -1,5 +1,5 @@
 const FoodTruck = require('../models/FoodTruck.js');
-module.exports = { index, create, show };
+module.exports = { index, create, show, search };
 
 // Index Route \\
 async function index(req, res) {
@@ -10,6 +10,16 @@ async function index(req, res) {
         res.status(400).json(err);
     }
 };
+
+// Search Route \\
+async function search(req, res){
+    try{
+        const truckResult = await FoodTruck.find({cuisine: {$in:[req.query.cuisine]} })
+        res.status(200).json(truckResult)
+    } catch(err) {
+        res.status(400).json(err)
+    }
+}
 
 // Create Route \\
 async function create(req, res) {
