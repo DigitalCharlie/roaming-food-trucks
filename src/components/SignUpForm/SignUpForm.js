@@ -1,8 +1,7 @@
 import { useState } from "react";
-import * as usersService from '../../utilities/users-service';
 import { signUp } from '../../utilities/users-service';
 
-export default function SignUpForm({user, setUser}) {
+export default function SignUpForm({ setUser}) {
 
     const [formData, setFormData] = useState({})
 
