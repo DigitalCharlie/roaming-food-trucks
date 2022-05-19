@@ -6,21 +6,22 @@ export default function EntreeList({ foodTrucks }) {
     return (
         <main>
             <div>
-                <h1>This is the Entree Menu</h1>
+                <h4>Entrees</h4>
                 {
                     foodTrucks.map((foodTruck) => {
+                        console.log(foodTruck)
                         return (
                             <div key={foodTruck._id}>
-                                <img src={foodTruck.img} height='250' width='300' />
                                 <div>
                                     <h5>{foodTruck.foodTruckName}</h5>
-                                    <p>{foodTruck.menu.entrees.description}</p>
+                                    {foodTruck.menu.entrees.map((entree) =>{
+                                        return <p>{entree.description}</p>
+                                    })}
                                 </div>
                             </div>
                         )
                     })
                 }
-                
             </div>
         </main>
     );
