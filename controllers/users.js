@@ -8,7 +8,7 @@ module.exports = { createUser, getUser, updateUser, Delete, signin, logout }
 async function createUser(req, res) {
     try {
         const encryptedPassword = await bcrypt.hash(req.body.password, 10)
-        const createUser = await User.create({ userid: user._id, password: encryptedPassword })
+        const createUser = await User.create({ ...req.body, password: encryptedPassword })
         const token = createJWT(createUser);
         res.status(200).json(token)
     }
@@ -57,21 +57,21 @@ async function Delete(req, res) {
 
 async function signin(req, res) {
     try {
-        const userSignin = await User.findOne({ email: req.body.email })
-        if (!userSignin) {
+        const user = await User.findOne({ email: req.body.email })
+        if (!user) {
             throw new Error()
         }
         if (!await bcrypt.compare(req.body.password, user.password)) {
             throw new Error()
         }
-        const token = createJWTToken(user)
+        const token = createJWT(user)
         res.status(200).json(token)
     }
     catch (error) {
         res.status(400).json(error + ' Failed to sign in, username or password is incorrect')
     }
 }
-function createJWTToken(user) {
+function createJWT(user) {
     return jwt.sign({ user }, process.env.SECRET, { expiresIn: '24h' })
 }
 
