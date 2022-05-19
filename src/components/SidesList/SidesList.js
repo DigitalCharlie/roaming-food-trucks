@@ -1,10 +1,10 @@
-export default function DrinksList({ foodTrucks }) {
+export default function SidesList({ foodTrucks }) {
     
 
     return (
         <main>
             <div>
-                <h4>Drinks</h4>
+                <h4>Sides</h4>
                 {
                     foodTrucks.map((foodTruck) => {
                         console.log(foodTruck)
@@ -12,8 +12,8 @@ export default function DrinksList({ foodTrucks }) {
                             <div key={foodTruck._id}>
                                 <div>
                                     <h5>{foodTruck.foodTruckName}</h5>
-                                    {foodTruck.menu.drinks.map((drink) =>{
-                                        return <p>{drink.description}</p>
+                                    {foodTruck.menu.sides.map((side) =>{
+                                        return <p>{side}</p>
                                     })}
                                 </div>
                             </div>
