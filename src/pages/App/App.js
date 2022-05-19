@@ -1,5 +1,6 @@
 import './App.css';
 import HomePage from '../HomePage/HomePage';
+import AuthPage from'../AuthPage/AuthPage'; 
 import CreateReviewPage from '../CreateReviewPage/CreateReviewPage';
 import DashboardPage from '../DashboardPage/DashboardPage';
 import FTDetailsPage from '../FTDetailsPage/FTDetailsPage';
@@ -9,9 +10,11 @@ import * as FoodtruckAPI from '../../utilities/foodTruck-api'
 import {useState, useEffect} from 'react'
 import {Routes, Route} from 'react-router-dom'
 import Footer from '../../components/Footer/Footer';
+import { getUser } from '../../utilities/users-service';
 
 function App() {
   const [foodTrucks, setFoodTrucks] = useState([])
+  const [user, setUser] = useState(getUser())
 
   useEffect(() => {
     (async () => {
@@ -29,6 +32,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<HomePage foodTrucks={foodTrucks} />} />
+        <Route path="/signup" element={<AuthPage user={user} setUser={setUser} />} />
         <Route path="/user/dashboard/:userid" element={<DashboardPage foodTrucks={foodTrucks} />} />
         <Route path="/foodtruck/resultspage" element={<ResultsPage foodTrucks={foodTrucks} />} />
         <Route path="/foodtruck/detailpage/:foodtruckid" element={<FTDetailsPage foodTrucks={foodTrucks} />} />
