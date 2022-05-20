@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import Select from "react-select"
-import { useSearchParams } from "react-router-dom"
+import { useSearchParams, useNavigate } from "react-router-dom"
 
 export default function SearchBar() {
+    const navigate = useNavigate()
     const [searchParams, setSearchParams] = useSearchParams()
     const [formData, setFormData] = useState({
         zipcode: '',
@@ -44,6 +45,7 @@ export default function SearchBar() {
         evt.preventDefault()
         setSearchParams(formData)
         console.log(formData)
+        navigate(`/foodtruck/resultspage?zipcode=${formData.zipcode}&cuisine=${formData.cuisine}`)
     }
     useEffect(() => {
         setFormData({ zipcode: searchParams.get("zipcode"), cuisine: searchParams.get("cuisine") })

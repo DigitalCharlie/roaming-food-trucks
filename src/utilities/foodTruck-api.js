@@ -19,8 +19,8 @@ export function getByIdAndUpdate(id, payload) {
 }
 
 //Search result
-export function getResultTruck(){
-    return sendRequest(`${BASE_URL}/search`)
+export function getResultTruck(zipcode, cuisine){
+    return sendRequest(`${BASE_URL}/search?zipcode=${zipcode}&cuisine=${cuisine}`)
 }
 
 // //Delete food truck
