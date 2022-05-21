@@ -1,5 +1,6 @@
 import './App.css';
 import HomePage from '../HomePage/HomePage';
+import LogInPage from '../LogInPage/LogInPage';
 import AuthPage from'../AuthPage/AuthPage'; 
 import NavBar from '../../components/NavBar/NavBar';
 import CreateReviewPage from '../CreateReviewPage/CreateReviewPage';
@@ -37,6 +38,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage foodTrucks={foodTrucks} />} />
         <Route path="/signup" element={<AuthPage user={user} setUser={setUser} />} />
+        <Route path="/login" element={<LogInPage setUser={setUser} />} />
         <Route path="/user/dashboard/:userid" element={<DashboardPage foodTrucks={foodTrucks} />} />
         <Route path="/foodtruck/resultspage" element={<ResultsPage foodTrucks={foodTrucks} />} />
         <Route path="/foodtruck/detailpage/:foodtruckid" element={<FTDetailsPage foodTrucks={foodTrucks} />} />
