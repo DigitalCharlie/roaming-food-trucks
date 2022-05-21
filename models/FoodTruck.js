@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const axios = require('axios')
 
 const foodTruckSchema = new Schema(
     {
@@ -13,6 +14,8 @@ const foodTruckSchema = new Schema(
             city: String,
             state: String,
             zipCode: String,
+            lat: String,
+            lng: String,
             hours: [{
                 day: [{
                     start: Number,
@@ -23,7 +26,7 @@ const foodTruckSchema = new Schema(
         cuisine: [{
             type: String,
             enum: [
-                "American", "Chinese", "Japanese", "Mediteranean", "Thai", "Indian", "Filipino", "French", "Haitian", "Cuban", "Tex-Mex", "Vietnamese", "Mexican", "Korean", "Soul Food", "Polish", "Ethiopian", "Greek", "Asian-Fusion", "Nigerian"
+                "american", "chinese", "japanese", "mediteranean", "thai", "indian", "filipino", "french", "haitian", "cuban", "tex-mex", "vietnamese", "mexican", "korean", "soul food", "polish", "ethiopian", "greek", "asian-fusion", "nigerian"
             ]
         }],
         reviews: [{
@@ -67,6 +70,14 @@ foodTruckSchema.pre('save', async function (next) {
         await this.populate('reviews')
         let aggregateRating = this.reviews.reduce((acc, review) => acc + parseInt(review.rating), 0)
         this.currentRating = aggregateRating
+    }
+    if (this.isModified("location")) {
+        const locationStringToSearch = `https://maps.googleapis.com/maps/api/geocode/json?key=${process.env.MAPS_KEY}&address=${this.location.street}%20${this.location.city}%20${this.location.state}%20${this.location.zipCode}%20USA`.replaceAll(" ", '%20')
+        console.log(locationStringToSearch)
+        const geoLocation = await axios.get(locationStringToSearch)
+        console.log(geoLocation.data.results.geometry)
+        this.location.lat = geoLocation.data.results[0].geometry.location.lat
+        this.location.lng = geoLocation.data.results[0].geometry.location.lng
     }
     return next();
 });
