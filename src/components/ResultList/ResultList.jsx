@@ -6,7 +6,7 @@ export default function ({resultTruck, starRate, priceRate}) {
                 resultTruck.map((truck) => {
                     return (
                         // if star rating was clicked
-                        starRate ?
+                        starRate !== 0 ?
                         // if star rating on filter matches or is less than the truck's current rating
                         starRate <= truck.currentRating ?
                         <div>
@@ -16,7 +16,7 @@ export default function ({resultTruck, starRate, priceRate}) {
                         </div> :
                         null :
                         //if star rating wasn't, but price was
-                        priceRate ?
+                        priceRate !== 0 ?
                         // price rating on filter matches or is less than the truck's current price rating
                         priceRate <= truck.priceRating ?
                         <div>
