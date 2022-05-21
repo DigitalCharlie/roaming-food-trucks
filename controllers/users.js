@@ -3,13 +3,16 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const User = require('../models/user')
 
-module.exports = { createUser, getUser, updateUser, Delete, signin, logout }
+module.exports = { createUser, getUser, updateUser, Delete, signin, logout, getUserFavorites }
 
+//changed create user and token to equal createJWTToken
 async function createUser(req, res) {
     try {
         const encryptedPassword = await bcrypt.hash(req.body.password, 10)
         const createUser = await User.create({ userid: user._id, password: encryptedPassword })
-        const token = createJWT(createUser);
+        // req.body.password = encryptedPassword
+        // const createUser = await User.create(req.body)
+        const token = createJWTToken(createUser);
         res.status(200).json(token)
     }
     catch (error) {
@@ -20,6 +23,18 @@ async function createUser(req, res) {
 async function getUser(req, res) {
     try {
         const getUser = await User.findOne({ userid: req.params.userid })
+        if (!getUser) {
+            throw new Error()
+        }
+        res.status(200).json(getUser)
+    }
+    catch (error) {
+        res.status(400).json(error + ' Failed to retrieve user data')
+    }
+}
+async function getUserFavorites(req, res) {
+    try {
+        const getUser = await User.find({ _id: req.params.id }).populate("favorites")
         if (!getUser) {
             throw new Error()
         }

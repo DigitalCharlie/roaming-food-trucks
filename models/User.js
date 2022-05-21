@@ -24,7 +24,7 @@ const userSchema = new Schema(
             minLength: 3,
             required: true
         },
-        favorites: Array
+        favorites: [{ type: Schema.Types.ObjectId, ref: 'FoodTruck' }]
     }
 );
 
