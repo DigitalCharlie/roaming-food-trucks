@@ -1,20 +1,20 @@
-import styles from "./DrinksList.module.css";
+import styles from "./AppetizersList.module.css";
 
-export default function DrinksList({ foodTruck }) {
+export default function AppetizersList({ foodTruck }) {
     const menu = foodTruck.menu;
 
     return (
-        <div className={styles.DrinksList}>
+        <div className={styles.AppetizersList}>
             <div>
                 <ul>
-                    <li className={styles.drinksList}>
+                    <li className={styles.appsList}>
                         {
                             menu ?
-                            menu.drinks.map((drink, idx) => {
+                            menu.apps.map((app, idx) => {
                                 return (
                                     <div key={idx}>
-                                        <p>{drink.description}</p>
-                                        <p>${drink.price}</p>
+                                        <p>{app.description}</p>
+                                        <p>${app.price}</p>
                                     </div>
                                 )
                             })
