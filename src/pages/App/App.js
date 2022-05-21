@@ -41,8 +41,8 @@ function App() {
         <Route path="/login" element={<LogInPage setUser={setUser} />} />
         <Route path="/user/dashboard/:userid" element={<DashboardPage foodTrucks={foodTrucks} />} />
         <Route path="/foodtruck/resultspage" element={<ResultsPage foodTrucks={foodTrucks} />} />
-        <Route path="/foodtruck/detailpage/:foodtruckid" element={<FTDetailsPage foodTrucks={foodTrucks} />} />
-        <Route path="/foodtruck/reviews/:foodtruckid" element={<FTReviewsPage foodTrucks={foodTrucks} />} />
+        <Route path="/foodtruck/detailpage/:id" element={<FTDetailsPage foodTrucks={foodTrucks} />} />
+        <Route path="/foodtruck/reviews/:id" element={<FTReviewsPage foodTrucks={foodTrucks} />} />
         <Route path="/foodtruck/review/create" element={<CreateReviewPage foodTrucks={foodTrucks} />} />
       </Routes>
       <Footer />
