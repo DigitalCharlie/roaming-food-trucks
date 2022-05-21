@@ -1,28 +1,29 @@
+import styles from "./EntreeList.module.css";
 
-
-export default function EntreeList({ foodTrucks }) {
+export default function EntreeList({ foodTruck }) {
+    const menu = foodTruck.menu;
     
-
     return (
-        <main>
+        <div className={styles.EntreeList}>
             <div>
-                <h4>Entrees</h4>
-                {
-                    foodTrucks.map((foodTruck) => {
-                        console.log(foodTruck)
-                        return (
-                            <div key={foodTruck._id}>
-                                <div>
-                                    <h5>{foodTruck.foodTruckName}</h5>
-                                    {foodTruck.menu.entrees.map((entree) =>{
-                                        return <p>{entree.description}</p>
-                                    })}
-                                </div>
-                            </div>
-                        )
-                    })
-                }
-            </div>
-        </main>
+                <ul>
+                    <li className={styles.entreeList}>
+                        {
+                            menu ?
+                            menu.entrees.map((entree, idx) => {
+                                return (
+                                    <div key={idx}>
+                                        <p>{entree.description}</p>
+                                        <p>${entree.price}</p>
+                                    </div>
+                                )
+                            })
+                            :
+                            null
+                        }
+                    </li>
+                </ul>
+            </div>      
+        </div>
     );
 };

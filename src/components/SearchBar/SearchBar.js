@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Select from "react-select"
 import { useSearchParams, useNavigate } from "react-router-dom"
+import styles from './SearchBar.module.css';
 
 export default function SearchBar() {
     const navigate = useNavigate()
@@ -14,7 +15,7 @@ export default function SearchBar() {
         { value: "american", label: "american", },
         { value: "chinese", label: "chinese" },
         { value: "japanese", label: "japanese" },
-        { value: "mediteranean", label: "mediteranean" },
+        { value: "mediterranean", label: "mediterranean" },
         { value: "thai", label: "thai" },
         { value: "indian", label: "indian" },
         { value: "filipino", label: "filipino" },
@@ -52,11 +53,12 @@ export default function SearchBar() {
     }, [])
     console.log(formData)
     return (
-        <div>
-            <form>
-                <input type="text" onChange={handleChange} name="zipcode" value={formData.zipcode} placeholder="Location" required>
+        <div className={styles.searchbar}>
+            <form className={styles.form} >
+                <input type="text" onChange={handleChange} name="zipcode" value={formData.zipcode} placeholder="Location" className={styles.input} required>
                 </input>
-                <Select
+                <Select 
+                    className={styles.input}
                     defaultValue={selectedOption}
                     onChange={(e) => { handleSelect(e) }}
                     options={cuisineOptions}
@@ -65,8 +67,8 @@ export default function SearchBar() {
                     isSearchable
                     isClearable
                 />
-                <button type="submit" onClick={handleSubmit}>Submit</button>
+             <img type="submit" onClick={handleSubmit} src="/assets/search_circle_icon.png" alt="search-icon"/>
             </form>
-        </div>
+        </div> 
     )
 }
