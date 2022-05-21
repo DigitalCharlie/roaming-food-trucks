@@ -1,0 +1,14 @@
+/* .FTDetailsPage {
+
+} */
+
+.FTDetailsPage .foodTruckImage {
+    width: 60%;
+    height: 20%;
+    border-radius: 8%;
+}
+
+.FTDetailsPage .foodTruckDescription {
+    border: 1px solid black;
+    width: 50%;
+}
