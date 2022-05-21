@@ -15,17 +15,8 @@ async function index(req, res) {
 // Search Route \\
 async function search(req, res){
     try{
-        const {cuisine, zipcode} = req.query
-        if(zipcode !== 'null' && cuisine !== 'null'){
-             truckResult = await FoodTruck.find({cuisine: {$in:[cuisine]}, "location.zipCode": req.query.zipcode })
-             console.log('result 1')
-        } else if(zipcode !== 'null'){
-             truckResult = await FoodTruck.find({"location.zipCode": zipcode })
-             console.log('result 2')
-        } else if(cuisine !== 'null') {
-             truckResult = await FoodTruck.find({cuisine: {$in:[cuisine]}})
-             console.log('result 3')
-        }
+        const {zipcode} = req.query
+            truckResult = await FoodTruck.find({"location.zipCode": zipcode })
         res.status(200).json(truckResult)
     } catch(err) {
         res.status(400).json(err)
