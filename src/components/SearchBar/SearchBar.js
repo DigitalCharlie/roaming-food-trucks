@@ -15,7 +15,7 @@ export default function SearchBar() {
         { value: "american", label: "american", },
         { value: "chinese", label: "chinese" },
         { value: "japanese", label: "japanese" },
-        { value: "mediteranean", label: "mediteranean" },
+        { value: "mediterranean", label: "mediterranean" },
         { value: "thai", label: "thai" },
         { value: "indian", label: "indian" },
         { value: "filipino", label: "filipino" },

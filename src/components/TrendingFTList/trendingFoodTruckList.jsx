@@ -1,8 +1,21 @@
 // import { useNavigate } from "react-router-dom"
 import styles from './trendingFoodTruckList.module.css'
+import { useState } from 'react'
+import * as userAPI from '../../utilities/users-api'
 
-export default function TrendingFoodTruck({ foodTrucks }) {
+export default function TrendingFoodTruck({ foodTrucks, user }) {
     // const navigate = useNavigate()
+    const [id, setId] = useState("")
+    const addFavorites = async (truckId) => {
+        try {
+            const favoriteTruck = { truck: truckId }
+            const editedUser = await userAPI.newFavorite(user._id, favoriteTruck)
+            console.log(editedUser)
+        } catch (err) {
+            console.log(err)
+        }
+    }
+    console.log(user)
     return (
         <main>
             <h3>Top Trending Food Trucks</h3>
@@ -12,7 +25,7 @@ export default function TrendingFoodTruck({ foodTrucks }) {
                         return (
                             // returns only the first 6 food trucks
                             idx < 6 &&
-                            <div key={foodTruck._id} /*onClick={() => { navigate(`${foodTruck._id}`) }}*/ >
+                            <div key={foodTruck._id} onClick={() => { addFavorites(foodTruck._id) }} /*onClick={() => { navigate(`${foodTruck._id}`) }}*/ >
                                 <img src={foodTruck.img} height='250' width='300' />
                                 <div className={styles.Banner}>
                                     <div className={styles.BannerTitle}>
