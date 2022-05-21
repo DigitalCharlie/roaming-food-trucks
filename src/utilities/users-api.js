@@ -1,8 +1,9 @@
 import sendRequest from './send-request'
 const BASE_URL = 'http://localhost:3000/users'
 
+
 export async function signUp(userData) {
-    const res = await fetch('/api/users', {
+    const res = await fetch('/users', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(userData)
@@ -16,9 +17,5 @@ export async function signUp(userData) {
 }
 
 export function login(credentials) {
-    return sendRequest('/api/users/login', 'POST'.credentials)
-}
-
-export function getUserFavorites(id) {
-    return sendRequest(`${BASE_URL}/${id}`)
+    return sendRequest('/users/signin', 'POST', credentials)
 }
