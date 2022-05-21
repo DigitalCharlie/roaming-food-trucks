@@ -4,6 +4,7 @@ import * as FoodtruckAPI from '../../utilities/foodTruck-api'
 import PriceList from '../../components/PriceList/PriceList'
 import StarRating from '../../components/StarRating.js/StarRating'
 import ResultList from '../../components/ResultList/ResultList'
+import CuisineList from '../../components/CuisineList/CuisineList'
 
 
 export default function DashboardPage() {
