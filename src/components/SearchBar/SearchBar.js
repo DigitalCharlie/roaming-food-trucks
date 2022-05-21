@@ -54,7 +54,7 @@ export default function SearchBar() {
     return (
         <div>
             <form>
-                <input type="text" onChange={handleChange} name="zipcode" value={formData.zipcode} placeholder="Location">
+                <input type="text" onChange={handleChange} name="zipcode" value={formData.zipcode} placeholder="Location" required>
                 </input>
                 <Select
                     defaultValue={selectedOption}
