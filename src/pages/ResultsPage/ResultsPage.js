@@ -12,6 +12,7 @@ export default function DashboardPage() {
     const [resultTruck, setResultTruck] = useState([])
     const [starRate, setStarRate] = useState(0)
     const [priceRate, setPriceRate] = useState(0)
+    const [cuisine, setCuisine] = useState('')
     useEffect(() => {
         (async () => {
           try {
@@ -29,10 +30,11 @@ export default function DashboardPage() {
             <button onClick={() => navigate('/')}>Home Page</button>
             <div>
               <h2>Filters</h2>
+              <CuisineList cuisine={cuisine} setCuisine={setCuisine} />
               <StarRating starRate={starRate} setStarRate={setStarRate} />
               {/* <PriceList resultPageState={resultTruck} /> */}
             </div>
-            <ResultList resultTruck={resultTruck} starRate={starRate} priceRate={priceRate} />
+            <ResultList resultTruck={resultTruck} starRate={starRate} priceRate={priceRate} cuisine={cuisine} />
         </div>
     );
 };
