@@ -1,6 +1,9 @@
 import {useState, useEffect} from 'react'
 import { useSearchParams, useNavigate } from "react-router-dom"
 import * as FoodtruckAPI from '../../utilities/foodTruck-api'
+import PriceList from '../../components/PriceList/PriceList'
+import StarRating from '../../components/StarRating.js/StarRating'
+import ResultList from '../../components/ResultList/ResultList'
 
 
 export default function DashboardPage() {
@@ -10,7 +13,7 @@ export default function DashboardPage() {
     useEffect(() => {
         (async () => {
           try {
-            const data = await FoodtruckAPI.getResultTruck(searchParams.get("zipcode"), searchParams.get("cuisine"))
+            const data = await FoodtruckAPI.getResultTruck(searchParams.get("zipcode"))
             setResultTruck(data)
           } catch(e) {
             console.log(e)
@@ -22,17 +25,12 @@ export default function DashboardPage() {
         <div>
             <h1>This is the Results Page</h1>
             <button onClick={() => navigate('/')}>Home Page</button>
-            {
-                resultTruck.map((truck) => {
-                    return (
-                        <div>
-                            <p>{truck.foodTruckName}</p>
-                            <p>Zip code: {truck.location.zipCode}</p>
-                            <p>Cuisine: {truck.cuisine}</p>
-                        </div>
-                    )
-                })
-            }
+            <div>
+              <h2>Filters</h2>
+              <StarRating />
+              {/* <PriceList resultPageState={resultTruck} /> */}
+            </div>
+            <ResultList resultTruck={resultTruck} />
         </div>
     );
 };
