@@ -3,7 +3,15 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const User = require('../models/user')
 
-module.exports = { createUser, getUser, updateUser, Delete, signin, logout, getUserFavorites }
+module.exports = {
+    createUser,
+    getUser,
+    Delete,
+    signin,
+    logout,
+    getUserFavorites,
+    addNewFavorite
+}
 
 //changed create user and token to equal createJWTToken
 async function createUser(req, res) {
@@ -32,24 +40,26 @@ async function getUser(req, res) {
 }
 async function getUserFavorites(req, res) {
     try {
-        const getUser = await User.find({ _id: req.params.id }).populate("favorites")
+        const getUser = await User.findOne({ _id: req.params.id }).populate("favorites")
         if (!getUser) {
             throw new Error()
         }
-        res.status(200).json(getUser)
+        res.status(200).json(getUser.favorites)
     }
     catch (error) {
         res.status(400).json(error + ' Failed to retrieve user data')
     }
 }
 
-async function updateUser(req, res) {
+async function addNewFavorite(req, res) {
     try {
-        const userUpdate = await User.findOneAndUpdate({ userid: req.params.userid }, { ...req.body })
-        if (!userUpdate) {
+        const updatedUser = await User.findById(req.params.userid)
+        if (!updatedUser) {
             throw new Error()
         }
-        res.status(200).json('Successful update')
+        updatedUser.favorites.push(req.body.truck)
+        updatedUser.save()
+        res.status(200).json(updatedUser)
     }
     catch (error) {
         res.status(400).json(error + ' Failed to update')

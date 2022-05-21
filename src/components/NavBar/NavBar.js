@@ -3,10 +3,10 @@ import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import styles from './NavBar.module.css';
 import SearchBar from '../SearchBar/SearchBar';
-
+import { useNavigate } from 'react-router-dom';
 
 export default function NavBar() {
-
+  const navigate = useNavigate()
 
   return (
     <Navbar>
@@ -16,7 +16,7 @@ export default function NavBar() {
         <Navbar.Collapse className="justify-content-end">
           <SearchBar />
           <Navbar.Text>
-            <button className="button">Sign Up</button>
+            <button className="button" onClick={() => { navigate("/signup") }}>Sign Up</button>
             <a href="#" className={styles.anchor}> <img src="assets/login_user_icon.png" alt="login-icon" /> Sign In</a>
           </Navbar.Text>
         </Navbar.Collapse>

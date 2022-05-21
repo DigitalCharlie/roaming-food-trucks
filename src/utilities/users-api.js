@@ -1,5 +1,5 @@
 import sendRequest from './send-request'
-const BASE_URL = 'http://localhost:3000/users'
+const BASE_URL = '/users'
 
 
 export async function signUp(userData) {
@@ -18,4 +18,12 @@ export async function signUp(userData) {
 
 export function login(credentials) {
     return sendRequest('/users/signin', 'POST', credentials)
+}
+
+export function getUserFavorites(id) {
+    return sendRequest(`${BASE_URL}/${id}/favorites`)
+}
+
+export function newFavorite(userId, favoriteToAdd) {
+    return sendRequest(`${BASE_URL}/${userId}/favorite`, 'PUT', favoriteToAdd)
 }

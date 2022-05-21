@@ -4,10 +4,10 @@ import TrendingFoodTruck from "../../components/TrendingFTList/trendingFoodTruck
 import Hero from "../../components/Hero/HeroImage"
 
 
-export default function HomePage({ foodTrucks }) {
+export default function HomePage({ foodTrucks, user }) {
     return (
         <>
-            <TrendingFoodTruck foodTrucks={foodTrucks} />
+            <TrendingFoodTruck foodTrucks={foodTrucks} user={user} />
             <NavBar />
             <Hero />
             <Footer />

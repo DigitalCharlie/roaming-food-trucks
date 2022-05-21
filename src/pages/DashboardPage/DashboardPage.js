@@ -5,7 +5,7 @@ export default function DashboardPage({ user }) {
     return (
         <div>
             <h1>This is the Dashboard Page</h1>
-            {/* <Favorites user={user} /> */}
+            <Favorites user={user} />
         </div>
     );
 };

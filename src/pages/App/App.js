@@ -31,7 +31,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<HomePage foodTrucks={foodTrucks} />} />
+        <Route path="/" element={<HomePage foodTrucks={foodTrucks} user={user} />} />
         <Route path="/signup" element={<AuthPage user={user} setUser={setUser} />} />
         <Route path="/user/dashboard/:userid" element={<DashboardPage foodTrucks={foodTrucks} user={user} />} />
         <Route path="/foodtruck/resultspage" element={<ResultsPage foodTrucks={foodTrucks} />} />
