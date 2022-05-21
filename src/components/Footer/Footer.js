@@ -16,11 +16,10 @@ const Footer = () => {
         <Row>
           <Column>
             <Heading>Get to know us</Heading>
-            <FooterLink href="#">Lorem ipsum dolor</FooterLink>
-            <FooterLink href="#">Lorem ipsum dolor</FooterLink>
-            <FooterLink href="#">Lorem ipsum dolor</FooterLink>
-            <FooterLink href="#">Lorem ipsum dolor</FooterLink>
-            <FooterLink href="#">Lorem ipsum dolor</FooterLink>
+            <FooterLink href="#">About Us</FooterLink>
+            <FooterLink href="#">Our Photos</FooterLink>
+            <FooterLink href="#">Contact Us</FooterLink>
+            <FooterLink href="#">FAQ</FooterLink>
           </Column>
           <Column>
             <Heading>Top cuisine</Heading>
