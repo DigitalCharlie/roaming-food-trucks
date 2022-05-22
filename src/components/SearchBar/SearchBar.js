@@ -55,7 +55,7 @@ export default function SearchBar() {
     return (
         <div className={styles.searchbar}>
             <form className={styles.form} >
-                <input type="text" onChange={handleChange} name="zipcode" value={formData.zipcode} placeholder="Location" className={styles.input}>
+                <input type="text" onChange={handleChange} name="zipcode" value={formData.zipcode} placeholder="Location" className={styles.input} required>
                 </input>
                 <Select 
                     className={styles.input}
