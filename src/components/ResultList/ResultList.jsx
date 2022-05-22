@@ -1,5 +1,4 @@
-
-export default function ({resultTruck, starRate, priceRate, cuisine}) {
+export default function ({resultTruck, starRate, priceRate, cuisines}) {
 
 
     const starFilter = (truck) => {
@@ -12,12 +11,17 @@ export default function ({resultTruck, starRate, priceRate, cuisine}) {
         if (truck.priceRating >= priceRate) return truck
     }
 
+    const cuisineFilter = (truck) => {
+        if (cuisines.length === 0) return truck
+        if (cuisines.some(cuisine => truck.cuisine.includes(cuisine))) return truck
+    }
+
     return (
         <>
             <div>
                 <p>Test</p>
                 {
-                    resultTruck.filter(starFilter).filter(priceFilter).map((truck) => (
+                    resultTruck.filter(starFilter).filter(priceFilter).filter(cuisineFilter).map((truck) => (
                         <div>
                                 <p>{truck.foodTruckName}</p>
                                 <p>Zip code: {truck.location.zipCode}</p>

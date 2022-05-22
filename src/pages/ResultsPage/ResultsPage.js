@@ -13,36 +13,49 @@ export default function DashboardPage() {
   const [resultTruck, setResultTruck] = useState([])
   const [starRate, setStarRate] = useState(0)
   const [priceRate, setPriceRate] = useState(0)
-  const [cuisine, setCuisine] = useState('')
+  const [cuisines, setCuisines] = useState([])
   const [zipRadius, setZipRadius] = useState(5)
 
-    useEffect(() => {
-        (async () => {
-          try {
-            // const data = await FoodtruckAPI.getResultTruck(searchParams.get("zipcode"))
-            // setResultTruck(data)         
-            let zipcode = searchParams.get("zipcode")
-            let radius = searchParams.get("radius")
-            const zipRadiusData = await FoodtruckAPI.zipRadiusSearch(zipcode,radius)
-            console.log(zipRadiusData)
-            setResultTruck(zipRadiusData)
-          } catch(e) {
-            console.log(e)
-          }
-        })()
-      }, [])
+  useEffect(() => {
+      (async () => {
+        try {
+          // const data = await FoodtruckAPI.getResultTruck(searchParams.get("zipcode"))
+          // setResultTruck(data)         
+          let zipcode = searchParams.get("zipcode")
+          let radius = searchParams.get("radius")
+          const zipRadiusData = await FoodtruckAPI.zipRadiusSearch(zipcode,radius)
+          console.log(zipRadiusData)
+          setResultTruck(zipRadiusData)
+        } catch(e) {
+          console.log(e)
+        }
+      })()
+    }, [])
 
-    return (
-        <div>
-            <h1>This is the Results Page</h1>
-            <button onClick={() => navigate('/')}>Home Page</button>
-            <div>
-              <h2>Filters</h2>
-              <CuisineList cuisine={cuisine} setCuisine={setCuisine} />
-              <StarRating starRate={starRate} setStarRate={setStarRate} />
-              {/* <PriceList resultPageState={resultTruck} /> */}
-            </div>
-            <ResultList resultTruck={resultTruck} starRate={starRate} priceRate={priceRate} cuisine={cuisine} />
-        </div>
-    );
+  console.log(cuisines)
+
+  const handleCuisineChange = (cuisine) => {
+    const cuisineArray = [...cuisines]
+    if (cuisineArray.indexOf(cuisine) === -1) {
+      cuisineArray.push(cuisine)
+    } else {
+      let toDelete = cuisineArray.indexOf(cuisine)
+      cuisineArray.splice(toDelete, 1)
+    }
+    setCuisines(cuisineArray)
+  }
+
+  return (
+      <div>
+          <h1>This is the Results Page</h1>
+          <button onClick={() => navigate('/')}>Home Page</button>
+          <div>
+            <h2>Filters</h2>
+            <CuisineList cuisines={cuisines} setCuisines={setCuisines} handleCuisineChange={handleCuisineChange} />
+            <StarRating starRate={starRate} setStarRate={setStarRate} />
+            {/* <PriceList resultPageState={resultTruck} /> */}
+          </div>
+          <ResultList resultTruck={resultTruck} starRate={starRate} priceRate={priceRate} cuisines={cuisines} />
+      </div>
+  );
 };
