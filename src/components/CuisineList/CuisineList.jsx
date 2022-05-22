@@ -1,3 +1,4 @@
+import styles from './CuisineList.module.css'
 
 export default function CuisineList({ cuisine, setCuisine }) {
 
@@ -16,13 +17,12 @@ export default function CuisineList({ cuisine, setCuisine }) {
 
     const cuisines = ["american", "asian-fusion", "chinese", "cuban", "ethiopian", "filipino", "french", "greek", "haitian", "indian", "japanese", "korean", "mediteranean", "mexican", "nigerian", "polish", "tex-mex", "thai", "vietnamese"];
     return (
-        <div>
+        <div className={styles.Cuisines}>
             {
                 cuisines.map((element, idx) => {
                     return (
                         <div key={idx}>
-                            <input onClick={() => {checkboxCuisine(idx)}} name={element} type="checkbox" id={element} />
-                            {element}
+                            <input onClick={() => {checkboxCuisine(idx)}} name={element} type="checkbox" id={element} /> {element}
                         </div>
                     )
                 })
