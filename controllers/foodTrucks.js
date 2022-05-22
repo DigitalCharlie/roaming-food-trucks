@@ -1,5 +1,7 @@
 const { isCompositeComponent } = require('react-dom/test-utils');
 const FoodTruck = require('../models/FoodTruck.js');
+const axios = require('axios')
+
 module.exports = { index, create, show, search, zipSearch };
 
 // Index Route \\
@@ -46,11 +48,13 @@ async function show(req, res) {
 
 async function zipSearch (req,res) {
     try {
-        console.log(req.body.lng)
-        console.log(req.body.lat)
+        const {zipcode,radius} = req.query
+        console.log(zipcode)
+        console.log(radius)
+        const zipCoordinates = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?key=${process.env.MAPS_KEY}&address=${zipcode}`)
         const relevantTrucks = await FoodTruck.find({
             "location.geoLocation": { 
-                $geoWithin: { $centerSphere: [ [ req.body.lng, req.body.lat ], 10/3963.2 ] } 
+                $geoWithin: { $centerSphere: [ [ zipCoordinates.data.results[0].geometry.location.lng, zipCoordinates.data.results[0].geometry.location.lat ], radius/3963.2 ] } 
                 // $near: {
                 //     $geometry:  { 
                 //         type: "Point",  

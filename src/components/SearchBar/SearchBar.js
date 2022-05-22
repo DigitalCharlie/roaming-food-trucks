@@ -8,7 +8,8 @@ export default function SearchBar() {
     const [searchParams, setSearchParams] = useSearchParams()
     const [formData, setFormData] = useState({
         zipcode: '',
-        cuisine: ''
+        cuisine: '',
+        radius:5
     })
     const [selectedOption, setSelectedOption] = useState({ value: searchParams.get("cuisine"), label: searchParams.get("cuisine") })
     const cuisineOptions = [
@@ -46,7 +47,7 @@ export default function SearchBar() {
         evt.preventDefault()
         setSearchParams(formData)
         console.log(formData)
-        navigate(`/foodtruck/resultspage?zipcode=${formData.zipcode}&cuisine=${formData.cuisine}`)
+        navigate(`/foodtruck/resultspage?zipcode=${formData.zipcode}&cuisine=${formData.cuisine}&radius=5`)
     }
     useEffect(() => {
         setFormData({ zipcode: searchParams.get("zipcode"), cuisine: searchParams.get("cuisine") })
