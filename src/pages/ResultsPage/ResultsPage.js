@@ -19,19 +19,13 @@ export default function DashboardPage() {
     useEffect(() => {
         (async () => {
           try {
-            const data = await FoodtruckAPI.getResultTruck(searchParams.get("zipcode"))
-            setResultTruck(data)
-            // const zipAsLatLng = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?key=${process.env.MAPS_KEY}&address=${searchParams.get("zipcode")}`)
-            // console.log(zipAsLatLng)
-            // const zipSearchPayload = {
-            //   lat:zipAsLatLng.data.results[0].geometry.location.lat,
-            //   lng:zipAsLatLng.data.results[0].geometry.location.lng,
-            //   radius:zipRadius
-            // }              
+            // const data = await FoodtruckAPI.getResultTruck(searchParams.get("zipcode"))
+            // setResultTruck(data)         
             let zipcode = searchParams.get("zipcode")
             let radius = searchParams.get("radius")
-            const zipRadius = await FoodtruckAPI.zipRadiusSearch(zipcode,radius)
-            console.log(zipRadius)
+            const zipRadiusData = await FoodtruckAPI.zipRadiusSearch(zipcode,radius)
+            console.log(zipRadiusData)
+            setResultTruck(zipRadiusData)
           } catch(e) {
             console.log(e)
           }

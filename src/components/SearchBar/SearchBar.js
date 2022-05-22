@@ -68,7 +68,7 @@ export default function SearchBar() {
                     isSearchable
                     isClearable
                 />
-             <img type="submit" onClick={handleSubmit} src="/assets/search_circle_icon.png" alt="search-icon"/>
+             <button type="submit" onClick={handleSubmit} alt="search-icon"><img src="/assets/search_circle_icon.png" /></button>
             </form>
         </div> 
     )
