@@ -5,7 +5,7 @@ import PriceList from '../../components/PriceList/PriceList'
 import StarRating from '../../components/StarRating.js/StarRating'
 import ResultList from '../../components/ResultList/ResultList'
 import CuisineList from '../../components/CuisineList/CuisineList'
-
+import ResultMap from '../../components/ResultMap/ResultMap'
 
 export default function DashboardPage() {
   const navigate = useNavigate()
@@ -56,6 +56,7 @@ export default function DashboardPage() {
             {/* <PriceList resultPageState={resultTruck} /> */}
           </div>
           <ResultList resultTruck={resultTruck} starRate={starRate} priceRate={priceRate} cuisines={cuisines} />
+          <ResultMap resultTruck={resultTruck}/>
       </div>
   );
 };
