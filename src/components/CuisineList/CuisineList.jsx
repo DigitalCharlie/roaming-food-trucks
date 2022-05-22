@@ -1,14 +1,27 @@
+
 export default function CuisineList({ cuisine, setCuisine }) {
-    const cuisines = ["american", "asian-fusion", "chinese", "cuban", "ethiopian", "filipino", "french", "greek", "haitian", "indian", "japanese", "korean", "mediteranean", "mexican", "nigerian", "polish", "tex-mex", "vietnamese"];
+
+    const checkboxCuisine = (index) => {
+        const input = document.getElementById(cuisines[index])
+        if(input && input.checked){
+            // only one checkbox can be checked
+            for(let i = 0; i < cuisines.length; i++){
+                document.getElementById(cuisines[i]).checked = false
+            }
+            input.checked = true
+        } else if(input && !input.checked) {
+            setCuisine('')
+        }
+    }
+
+    const cuisines = ["american", "asian-fusion", "chinese", "cuban", "ethiopian", "filipino", "french", "greek", "haitian", "indian", "japanese", "korean", "mediteranean", "mexican", "nigerian", "polish", "tex-mex", "thai", "vietnamese"];
     return (
         <div>
             {
                 cuisines.map((element, idx) => {
                     return (
                         <div key={idx}>
-                            <input onClick={() => {
-                                setCuisine(element)
-                            }} name={element} type="checkbox" />
+                            <input onClick={() => {checkboxCuisine(idx)}} name={element} type="checkbox" id={element} />
                             {element}
                         </div>
                     )
