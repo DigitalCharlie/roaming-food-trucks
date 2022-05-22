@@ -1,0 +1,5 @@
+.Cuisines {
+    border-top: solid grey;
+    height: 200px;
+    overflow: scroll;
+}
