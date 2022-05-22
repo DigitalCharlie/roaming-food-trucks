@@ -9,12 +9,12 @@ import ResultMap from '../../components/ResultMap/ResultMap'
 
 export default function DashboardPage() {
   const navigate = useNavigate()
+  const [loaded, setLoaded] = useState(null)
   const [searchParams, setSearchParams] = useSearchParams()
   const [resultTruck, setResultTruck] = useState([])
   const [starRate, setStarRate] = useState(0)
   const [priceRate, setPriceRate] = useState(0)
   const [cuisines, setCuisines] = useState([])
-  const [zipRadius, setZipRadius] = useState(5)
 
   useEffect(() => {
       (async () => {
@@ -26,6 +26,7 @@ export default function DashboardPage() {
           const zipRadiusData = await FoodtruckAPI.zipRadiusSearch(zipcode,radius)
           console.log(zipRadiusData)
           setResultTruck(zipRadiusData)
+          setLoaded(true)
         } catch(e) {
           console.log(e)
         }
@@ -47,6 +48,9 @@ export default function DashboardPage() {
 
   return (
       <div>
+        {
+          loaded === true &&
+          <>
           <h1>This is the Results Page</h1>
           <button onClick={() => navigate('/')}>Home Page</button>
           <div>
@@ -56,7 +60,9 @@ export default function DashboardPage() {
             {/* <PriceList resultPageState={resultTruck} /> */}
           </div>
           <ResultList resultTruck={resultTruck} starRate={starRate} priceRate={priceRate} cuisines={cuisines} />
-          <ResultMap resultTruck={resultTruck}/>
+          <ResultMap resultTruck={resultTruck} zipcode={searchParams.get("zipcode")}/>
+          </>
+        }
       </div>
   );
 };

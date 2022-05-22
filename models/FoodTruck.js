@@ -81,7 +81,7 @@ foodTruckSchema.pre('save', async function (next) {
         this.currentRating = aggregateRating
     }
     if (this.isModified("location")) {
-        const locationStringToSearch = `https://maps.googleapis.com/maps/api/geocode/json?key=${process.env.MAPS_KEY}&address=${this.location.street}%20${this.location.city}%20${this.location.state}%20${this.location.zipCode}%20USA`.replaceAll(" ", '%20')
+        const locationStringToSearch = `https://maps.googleapis.com/maps/api/geocode/json?key=${process.env.REACT_APP_MAPS_KEY}&address=${this.location.street}%20${this.location.city}%20${this.location.state}%20${this.location.zipCode}%20USA`.replaceAll(" ", '%20')
         console.log(locationStringToSearch)
         const geoLocation = await axios.get(locationStringToSearch)
         this.location.geoLocation.type="Point"

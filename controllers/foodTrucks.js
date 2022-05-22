@@ -51,7 +51,7 @@ async function zipSearch (req,res) {
         const {zipcode,radius} = req.query
         console.log(zipcode)
         console.log(radius)
-        const zipCoordinates = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?key=${process.env.MAPS_KEY}&address=${zipcode}`)
+        const zipCoordinates = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?key=${process.env.REACT_APP_MAPS_KEY}&address=${zipcode}`)
         const relevantTrucks = await FoodTruck.find({
             "location.geoLocation": { 
                 $geoWithin: { $centerSphere: [ [ zipCoordinates.data.results[0].geometry.location.lng, zipCoordinates.data.results[0].geometry.location.lat ], radius/3963.2 ] } 
