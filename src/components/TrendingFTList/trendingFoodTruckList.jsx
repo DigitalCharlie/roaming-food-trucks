@@ -17,7 +17,7 @@ export default function TrendingFoodTruck({ foodTrucks, user }) {
     }
     console.log(user)
     return (
-        <main>
+        <div>
             <h3>Top Trending Food Trucks</h3>
             <div className={styles.Card}>
                 {
@@ -40,6 +40,6 @@ export default function TrendingFoodTruck({ foodTrucks, user }) {
                     })
                 }
             </div>
-        </main>
+        </div>
     )
 }
