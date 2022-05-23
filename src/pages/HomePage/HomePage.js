@@ -5,7 +5,7 @@ import SearchBox from "../../components/SearchBox/SearchBox"
 export default function HomePage({ foodTrucks, user }) {
     return (
         <main>
-            <SearchBox />
+            {/* <SearchBox /> */}
             <Hero />
             <TrendingFoodTruck foodTrucks={foodTrucks} />
         </main>

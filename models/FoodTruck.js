@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const axios = require('axios')
 
-const foodTruckSchema = new Schema(
+const foodTruckSchema = new Schema (
     {
         foodTruckName: String,
         description: String,
@@ -92,7 +92,5 @@ foodTruckSchema.pre('save', async function (next) {
 });
 
 const FoodTruck = mongoose.model('FoodTruck', foodTruckSchema);
-
-FoodTruck.createIndexes()
 
 module.exports = FoodTruck;

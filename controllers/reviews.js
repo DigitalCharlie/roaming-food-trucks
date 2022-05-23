@@ -1,5 +1,5 @@
-const Reviews = require('../models/review')
-const FoodTruck = require('../models/foodtruck')
+const Review = require('../models/Review')
+const FoodTruck = require('../models/FoodTruck')
 
 
 module.exports = {createReview, getReview, updateReview}
@@ -7,7 +7,7 @@ module.exports = {createReview, getReview, updateReview}
 
 async function createReview(req,res){
     try {
-        const createdReview = await Reviews.create(req.body)
+        const createdReview = await Review.create(req.body)
         addReviewToUser(createdReview)
         res.status(200).json(createdReview + ' Successful review creation')
     }
@@ -25,7 +25,7 @@ async function addReviewToUser (createdReview){
 
 async function getReview(req,res){
     try {
-        const reviewList = await Reviews.findById(req.params.id).populate('Food Truck')
+        const reviewList = await Review.findById(req.params.id).populate('Food Truck')
         res.status(200).json(reviewList)
     }
     catch(error){
@@ -36,7 +36,7 @@ async function getReview(req,res){
 
 async function updateReview(req,res){
     try {
-        const currentReview = await Reviews.findByIdUpdate(req.params.id, ...req.body)
+        const currentReview = await Review.findByIdUpdate(req.params.id, ...req.body)
         const reviewedFoodTruck = await FoodTruck.findById(currentReview.foodTruck)
         reviewedFoodTruck.save()
         res.status(200).json('Successfully updated')

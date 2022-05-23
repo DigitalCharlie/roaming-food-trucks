@@ -1,5 +1,5 @@
 .carousel-control-prev,
-.carousel-control-next {
+.carousel-control-next, .carousel-indicators {
     display: none;
 }
 
