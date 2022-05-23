@@ -1,13 +1,45 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*{
+    box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root{
+    --orange: #F2782F; 
+    --black: #000000; 
+    --white: #ffffff; 
+}
+body{
+    margin: 0; 
+}
+
+.signup-button{ 
+    border-radius: 10px;
+    background: var(--white);
+    margin: 15px;
+    border: 2px solid var(--orange);
+    padding: 6px 15px;
+    font-size: 15px;
+    transition:.25s;
+}
+
+.signup-button:hover, signup-button > a:hover {
+    background-color:var(--orange);
+}
+
+.button {
+    background-color:var(--orange);
+    height:38px;
+    border-radius:10px;
+    border:2px solid var(--orange);
+    transition:.25s;
+}
+
+.button:hover {
+    color:black;
+    background-color:white;
+}
+
+input[type=text] {
+    padding-left:10px;
+    border:1px solid lightgray;
+    border-radius:5px;
 }

@@ -1,0 +1,32 @@
+.SearchBox {
+	width:400px;
+	height:325px;
+	position:absolute;
+	top:35%;
+	left:50%;
+	z-index:1;
+	background-color:white;
+	border-radius:20px;
+	padding:20px;
+	box-shadow: 0 0 25px 2px darkslategrey;
+}
+
+.SearchBox > h2 {
+	margin-bottom:25px;
+}
+
+.SearchBox >.searchbar {
+	margin-left:0;
+
+}
+
+.SearchBox > .searchbar > .searchbar-form {
+	display:flex;
+	flex-direction:column;
+}
+
+.SearchBox > .searchbar > .searchbar-form > .searchbar-input {
+	width:100%;
+	margin:0 0 12px 0;
+	height:40px;
+}

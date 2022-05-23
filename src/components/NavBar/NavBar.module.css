@@ -1,0 +1,22 @@
+
+.anchor {
+    text-decoration: none;
+    font-size: 15px;
+    margin: 7px;
+}
+
+.logo{
+    height: 35px;
+}
+
+.link{
+    text-decoration: none;
+}
+
+.fixedNavbar {
+    background-color: white;
+    /* position: fixed;
+    z-index: 100;
+    width: 100%;
+    box-shadow: 0 0 10px lightgray; */
+}

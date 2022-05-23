@@ -1,0 +1,25 @@
+.carousel-control-prev,
+.carousel-control-next, .carousel-indicators {
+    display: none;
+}
+
+#hi {
+    background-color: aqua;
+}
+
+.carousel {
+    width: 100%
+}
+
+.auto {
+    width: 100%
+}
+
+.carousel-inner {
+    height:100vh;
+    overflow:hidden;
+}
+
+.carousel-item {
+    top:-350px;
+}
