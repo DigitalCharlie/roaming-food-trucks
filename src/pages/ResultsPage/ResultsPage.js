@@ -5,6 +5,7 @@ import PriceList from '../../components/PriceList/PriceList'
 import StarRating from '../../components/StarRating.js/StarRating'
 import ResultList from '../../components/ResultList/ResultList'
 import CuisineList from '../../components/CuisineList/CuisineList'
+import styles from './ResultsPage.module.css'
 
 
 export default function DashboardPage() {
@@ -35,20 +36,20 @@ export default function DashboardPage() {
       }, [cuisine])
 
     return (
-        <div>
+        <div className={styles.ResultPage}>
             <h1>This is the Results Page</h1>
             <button onClick={() => navigate('/')}>Home Page</button>
-            <div className='row'>
-              <div className='first-column'>
+            <div>
+              <div className={styles.firstColumn}>
                 <h2>Filters</h2>
                 <CuisineList cuisine={cuisine} setCuisine={setCuisine} cuisineURL={cuisineURL} />
                 <StarRating starRate={starRate} setStarRate={setStarRate} />
                 {/* <PriceList resultPageState={resultTruck} /> */}
               </div>
-              <div className='second-column'>
+              <div className={styles.secondColumn}>
                 <ResultList resultTruck={resultTruck} starRate={starRate} priceRate={priceRate} cuisine={cuisine} />
               </div>
-              <div className='third-column'>
+              <div className={styles.thirdColumn}>
                 <h2>Map Picture</h2>
               </div>
             </div>
