@@ -42,7 +42,10 @@ export default function MyComponent({resultTruck}) {
 			zoom={10}
 		>
 			<Marker
-				position={markers[0]}
+				position={center}
+				title="Test"
+				label="Test"
+				name="Test"
 			/>
 			<Marker
 				position={{lat:0,lng:0}}
