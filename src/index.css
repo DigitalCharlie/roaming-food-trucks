@@ -11,6 +11,10 @@ body{
     margin: 0; 
 }
 
+main {
+    padding-top:120px;
+}
+
 .signup-button{ 
     border-radius: 10px;
     background: var(--white);
