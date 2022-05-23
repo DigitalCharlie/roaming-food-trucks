@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import styles from './NavBar.module.css';
 import SearchBar from '../SearchBar/SearchBar';
-
+import { useNavigate } from 'react-router-dom';
 
 export default function NavBar({ pathname, user }) {
 

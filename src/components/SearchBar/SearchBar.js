@@ -8,14 +8,15 @@ export default function SearchBar() {
     const [searchParams, setSearchParams] = useSearchParams()
     const [formData, setFormData] = useState({
         zipcode: '',
-        cuisine: ''
+        cuisine: '',
+        radius:5
     })
     const [selectedOption, setSelectedOption] = useState({ value: searchParams.get("cuisine"), label: searchParams.get("cuisine") })
     const cuisineOptions = [
         { value: "american", label: "american", },
         { value: "chinese", label: "chinese" },
         { value: "japanese", label: "japanese" },
-        { value: "mediteranean", label: "mediteranean" },
+        { value: "mediterranean", label: "mediterranean" },
         { value: "thai", label: "thai" },
         { value: "indian", label: "indian" },
         { value: "filipino", label: "filipino" },
@@ -46,7 +47,7 @@ export default function SearchBar() {
         evt.preventDefault()
         setSearchParams(formData)
         console.log(formData)
-        navigate(`/foodtruck/resultspage?zipcode=${formData.zipcode}&cuisine=${formData.cuisine}`)
+        navigate(`/foodtruck/resultspage?zipcode=${formData.zipcode}&cuisine=${formData.cuisine}&radius=5`)
     }
     useEffect(() => {
         setFormData({ zipcode: searchParams.get("zipcode"), cuisine: searchParams.get("cuisine") })
@@ -55,8 +56,7 @@ export default function SearchBar() {
     return (
         <div className={styles.searchbar}>
             <form className={styles.form} >
-            <span className={styles.icon}><i className="fa fa-map-marker" aria-hidden="true"></i></span>
-                <input type="text" onChange={handleChange} name="zipcode" value={formData.zipcode} placeholder="Location" className={styles.input}>
+                <input type="text" onChange={handleChange} name="zipcode" value={formData.zipcode} placeholder="Location" className={styles.input} required>
                 </input>
                 <Select 
                     className={styles.input}
@@ -68,7 +68,7 @@ export default function SearchBar() {
                     isSearchable
                     isClearable
                 />
-             <img type="submit" onClick={handleSubmit} src="/assets/search_circle_icon.png" alt="search-icon"/>
+             <button type="submit" onClick={handleSubmit} alt="search-icon"><img src="/assets/search_circle_icon.png" /></button>
             </form>
         </div> 
     )

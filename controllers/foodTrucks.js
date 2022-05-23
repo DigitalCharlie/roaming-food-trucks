@@ -1,6 +1,8 @@
 const { isCompositeComponent } = require('react-dom/test-utils');
 const FoodTruck = require('../models/FoodTruck.js');
-module.exports = { index, create, show, search };
+const axios = require('axios')
+
+module.exports = { index, create, show, search, zipSearch };
 
 // Index Route \\
 async function index(req, res) {
@@ -15,17 +17,8 @@ async function index(req, res) {
 // Search Route \\
 async function search(req, res){
     try{
-        const {cuisine, zipcode} = req.query
-        if(zipcode !== 'null' && cuisine !== 'null'){
-             truckResult = await FoodTruck.find({cuisine: {$in:[cuisine]}, "location.zipCode": req.query.zipcode })
-             console.log('result 1')
-        } else if(zipcode !== 'null'){
-             truckResult = await FoodTruck.find({"location.zipCode": zipcode })
-             console.log('result 2')
-        } else if(cuisine !== 'null') {
-             truckResult = await FoodTruck.find({cuisine: {$in:[cuisine]}})
-             console.log('result 3')
-        }
+        const {zipcode} = req.query
+            truckResult = await FoodTruck.find({"location.zipCode": zipcode })
         res.status(200).json(truckResult)
     } catch(err) {
         res.status(400).json(err)
@@ -52,6 +45,30 @@ async function show(req, res) {
         res.status(400).json(err + 'Show Function')
     }
 };
+
+async function zipSearch (req,res) {
+    try {
+        const {zipcode,radius} = req.query
+        console.log(zipcode)
+        console.log(radius)
+        const zipCoordinates = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?key=${process.env.REACT_APP_MAPS_KEY}&address=${zipcode}`)
+        const relevantTrucks = await FoodTruck.find({
+            "location.geoLocation": { 
+                $geoWithin: { $centerSphere: [ [ zipCoordinates.data.results[0].geometry.location.lng, zipCoordinates.data.results[0].geometry.location.lat ], radius/3963.2 ] } 
+                // $near: {
+                //     $geometry:  { 
+                //         type: "Point",  
+                //         coordinates: [req.body.lng, req.body.lat],
+                //         $maxDistance: 1000
+                //     }   
+                // }   
+            }
+        })
+        res.status(200).json(relevantTrucks)
+    } catch (err) {
+        res.status(400).json(err);
+    }
+}
 
 
 // Not Working Show Route \\

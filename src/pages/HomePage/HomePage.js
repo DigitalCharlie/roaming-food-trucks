@@ -1,13 +1,14 @@
 import TrendingFoodTruck from "../../components/TrendingFTList/trendingFoodTruckList"
 import Hero from "../../components/Hero/HeroImage"
+import SearchBox from "../../components/SearchBox/SearchBox"
 
-
-export default function HomePage({ foodTrucks }) {
+export default function HomePage({ foodTrucks, user }) {
     return (
-        <>
-        <Hero />
-        <TrendingFoodTruck foodTrucks={foodTrucks} />
-        </>
+        <main>
+            {/* <SearchBox /> */}
+            <Hero />
+            <TrendingFoodTruck foodTrucks={foodTrucks} />
+        </main>
 
     )
 }
