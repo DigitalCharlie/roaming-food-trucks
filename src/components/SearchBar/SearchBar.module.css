@@ -10,6 +10,20 @@
 }
 
 .input {
-    width: 200px;
-    
+    width: 100%;
+    display: block;
+    padding-left: 20px;
+    border-radius: 2%;
+}
+
+.icon {
+    position: relative;
+    left: 18px;
+    top: 7px;
+    font-size: 20px;
+    color: var(--orange);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

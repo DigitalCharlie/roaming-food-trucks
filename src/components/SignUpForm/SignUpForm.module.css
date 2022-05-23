@@ -1,0 +1,46 @@
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .signupform{
+      width: 50%;
+      border: 3px solid red; 
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+      border-radius: 4%;
+      margin-bottom: 2%;
+      margin-top: 2%; 
+  }
+
+  .formimage {
+      max-height: 500px; 
+      border-radius: 4%;
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+    }
+}
+
+  .signupinput{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+  }
+  
+  .signupfields{
+      margin-top: 2%;
+  }

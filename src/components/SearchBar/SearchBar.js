@@ -55,6 +55,7 @@ export default function SearchBar() {
     return (
         <div className={styles.searchbar}>
             <form className={styles.form} >
+            <span className={styles.icon}><i className="fa fa-map-marker" aria-hidden="true"></i></span>
                 <input type="text" onChange={handleChange} name="zipcode" value={formData.zipcode} placeholder="Location" className={styles.input}>
                 </input>
                 <Select 
