@@ -1,0 +1,24 @@
+.ResultPage > h1{
+    text-align: center;
+}
+
+.ResultPage > div {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 0 20px;
+}
+
+.firstColumn {
+    width: auto;
+}
+
+.secondColumn {
+    width: 40%;
+    overflow: scroll;
+    height: 44vh;
+}
+
+.thirdColumn {
+    width: auto;
+}
