@@ -16,7 +16,6 @@ export default function DashboardPage() {
     const [cuisine, setCuisine] = useState('null')
     const zipURL = searchParams.get("zipcode")
     const cuisineURL = searchParams.get("cuisine")
-
     // loads the page and refreshes it everytime zip code is changed in the search bar
     useEffect(() => {
         (async () => {
@@ -42,7 +41,7 @@ export default function DashboardPage() {
             <div className='row'>
               <div className='first-column'>
                 <h2>Filters</h2>
-                <CuisineList cuisine={cuisine} setCuisine={setCuisine} />
+                <CuisineList cuisine={cuisine} setCuisine={setCuisine} cuisineURL={cuisineURL} />
                 <StarRating starRate={starRate} setStarRate={setStarRate} />
                 {/* <PriceList resultPageState={resultTruck} /> */}
               </div>
