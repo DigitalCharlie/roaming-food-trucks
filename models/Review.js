@@ -3,18 +3,18 @@ const Schema = mongoose.Schema;
 
 const reviewSchema = new Schema(
     {
-        user: [{
+        user: {
             type: Schema.Types.ObjectId,
             ref: 'User'
-        }],
-        foodTruck: [{
+        },
+        foodTruck: {
             type: Schema.Types.ObjectId,
             ref: 'FoodTruck'
-        }],
+        },
         rating: Number,
         review: String,
-        img: Array,
-        waitTime:Number
+        img: String,
+        waitTime: Number
     }
 );
 
