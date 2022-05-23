@@ -44,13 +44,14 @@ export default function CreateReviewPage() {
         try {
             formData.foodTruck = id
             // formData.user = userid need a way to access user id
-            const createdReview = reviewAPI.createReview()
+            const createdReview = reviewAPI.createReview(formData)
             console.log(createdReview)
-            Navigate(`/foodtruck/detailpage/${id}`)
+            // Navigate(`/foodtruck/detailpage/${id}`)
         }   catch (err) {
             console.log(err)
         }
     };
+    console.log(formData);
 
     return (
         <div className={styles.CreateReviewPage}>
@@ -60,7 +61,7 @@ export default function CreateReviewPage() {
                     <FormGroup className="mb-3" controlId="reviewForm">
                         <div className={styles.reviewRating}>
                             <FormLabel>Select Your Rating</FormLabel>
-                            <FormSelect onChange={handleChange}>
+                            <FormSelect onChange={handleChange} value={formData.rating} name="rating">
                                 <option selected>Select Rating</option>
                                 <option value="1">1 Star</option>
                                 <option value="2">2 Star</option>
@@ -71,7 +72,7 @@ export default function CreateReviewPage() {
                         </div>
                         <div className={styles.minutesRange}>
                             <FormLabel>Minutes Waited</FormLabel>
-                            <FormSelect onChange={handleChange}>
+                            <FormSelect onChange={handleChange} value={formData.waitTime} name="waitTime">
                                 <option value="0">0 min</option>
                                 <option value="5">5 min</option>
                                 <option value="10">10 min</option>
@@ -80,7 +81,7 @@ export default function CreateReviewPage() {
                             </FormSelect>
                         </div>
                         <FormLabel>Write a Review</FormLabel>
-                        <FormControl as="textarea" rows={3} onChange={handleChange}/>
+                        <FormControl as="textarea" rows={3} onChange={handleChange} value={formData.review} name="review"/>
                     </FormGroup>
                     <Button variant="primary" type="submit">
                         Post

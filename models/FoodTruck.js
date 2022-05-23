@@ -78,7 +78,7 @@ foodTruckSchema.pre('save', async function (next) {
     if (this.reviews.length > 0) {
         await this.populate('reviews')
         let aggregateRating = this.reviews.reduce((acc, review) => acc + parseInt(review.rating), 0)
-        this.currentRating = aggregateRating
+        this.currentRating = aggregateRating/this.reviews.length
     }
     if (this.isModified("location")) {
         const locationStringToSearch = `https://maps.googleapis.com/maps/api/geocode/json?key=${process.env.REACT_APP_MAPS_KEY}&address=${this.location.street}%20${this.location.city}%20${this.location.state}%20${this.location.zipCode}%20USA`.replaceAll(" ", '%20')
