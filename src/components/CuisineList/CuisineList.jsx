@@ -13,7 +13,7 @@ export default function CuisineList({ cuisine, setCuisine }) {
             input.checked = true
             setCuisine(cuisines[index])
         } else if(input && !input.checked) {
-            setCuisine('')
+            setCuisine('null')
         }
     }
 
