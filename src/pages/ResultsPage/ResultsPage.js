@@ -15,17 +15,25 @@ export default function DashboardPage() {
     const [priceRate, setPriceRate] = useState(0)
     const [cuisine, setCuisine] = useState('null')
     const zipURL = searchParams.get("zipcode")
+    const cuisineURL = searchParams.get("cuisine")
+
+    // loads the page and refreshes it everytime zip code is changed in the search bar
     useEffect(() => {
         (async () => {
           try {
             const data = await FoodtruckAPI.getResultTruck(zipURL)
             setResultTruck(data)
-            setSearchParams({zipcode: zipURL, cuisine: cuisine})
           } catch(e) {
             console.log(e)
           }
         })()
       }, [zipURL])
+
+
+      // changes cuisine query without refreshing the page
+      useEffect(() => {
+        setSearchParams({zipcode: zipURL, cuisine: cuisine})
+      }, [cuisine])
 
     return (
         <div>
