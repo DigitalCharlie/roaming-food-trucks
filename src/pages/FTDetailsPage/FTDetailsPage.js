@@ -12,6 +12,9 @@ export default function FTDetailsPage() {
 
     const { id } = useParams();
     const userContext = useContext(UserContext);
+
+    console.log("Below is the user from UserContext")
+    console.log(userContext)
     
     useEffect(() => {
         (async () => {
