@@ -33,7 +33,7 @@ const foodTruckSchema = new Schema (
         cuisine: [{
             type: String,
             enum: [
-                "american", "chinese", "japanese", "mediteranean", "thai", "indian", "filipino", "french", "haitian", "cuban", "tex-mex", "vietnamese", "mexican", "korean", "soul food", "polish", "ethiopian", "greek", "asian-fusion", "nigerian, halal, indian, jamaican"
+                "american", "chinese", "japanese", "mediteranean", "thai", "indian", "filipino", "french", "haitian", "cuban", "tex-mex", "vietnamese", "mexican", "korean", "soul food", "polish", "ethiopian", "greek", "asian-fusion", "nigerian", "halal", "indian", "jamaican"
             ]
         }],
         reviews: [{
