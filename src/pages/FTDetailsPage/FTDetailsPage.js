@@ -23,7 +23,7 @@ export default function FTDetailsPage() {
       }, [])
     
     return (
-      <>
+      <main>
         {
           loaded &&
           <div className={styles.FTDetailsPage}>
@@ -45,6 +45,6 @@ export default function FTDetailsPage() {
             <MenuList foodTruck={foodTruck} className={styles.menuList}/>
         </div>
         }
-      </>
+      </main>
     );
 };

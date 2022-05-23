@@ -47,7 +47,7 @@ export default function DashboardPage() {
   }
 
   return (
-      <div>
+      <main>
         {
           loaded === true &&
           <>
@@ -63,6 +63,6 @@ export default function DashboardPage() {
           <ResultMap resultTruck={resultTruck} zipcode={searchParams.get("zipcode")}/>
           </>
         }
-      </div>
+      </main>
   );
 };
