@@ -1,4 +1,4 @@
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { useEffect, useState } from 'react';
 
 export default function MyComponent({resultTruck}) {
@@ -30,17 +30,25 @@ export default function MyComponent({resultTruck}) {
 
 	console.log(center)
 
+	const markers = [
+		{lng: -73.9929658, lat: 40.73763599999999}
+	]
+
 	return (
 		<LoadScript
-		googleMapsApiKey="MAP KEY"
+		googleMapsApiKey="KEY"
 		>
 		<GoogleMap
 			mapContainerStyle={containerStyle}
 			center={center}
 			zoom={10}
 		>
-			{ /* Child components, such as markers, info windows, etc. */ }
-			<></>
+			<Marker
+				position={markers[0]}
+			/>
+			<Marker
+				position={{lat:0,lng:0}}
+			/>
 		</GoogleMap>
 		</LoadScript>
 	)

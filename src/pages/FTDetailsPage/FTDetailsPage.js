@@ -2,27 +2,31 @@ import MenuList from "../../components/MenuList/MenuList";
 import BusinessInfo from "../../components/BusinessInfo/BusinessInfo";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import * as FoodtruckAPI from "../../utilities/foodTruck-api";
+import * as foodTruckAPI from "../../utilities/foodTruck-api";
 import styles from "./FTDetailsPage.module.css";
 
 export default function FTDetailsPage() {
     const { id } = useParams();
     const [foodTruck, setFoodTruck] = useState({});
+    const [loaded, setLoaded] = useState({});
     
     useEffect(() => {
         (async () => {
           try {
-            const data = await FoodtruckAPI.getById(id)
+            const data = await foodTruckAPI.getById(id)
             setFoodTruck(data)
+            setLoaded(true)
           } catch(e) {
             console.log(e)
           }
-          console.log(id)
         })()
       }, [])
     
     return (
-        <div className={styles.FTDetailsPage}>
+      <>
+        {
+          loaded &&
+          <div className={styles.FTDetailsPage}>
             {/* <h6>{foodTruck.location.city} {">"} {foodTruck.cuisine} {">"} {foodTruck.foodTruckName}</h6> */}
             <h1>{foodTruck.foodTruckName}</h1>
             <h6>{foodTruck.cuisine}</h6>
@@ -40,5 +44,7 @@ export default function FTDetailsPage() {
             <BusinessInfo foodTruck={foodTruck} />
             <MenuList foodTruck={foodTruck} className={styles.menuList}/>
         </div>
+        }
+      </>
     );
 };

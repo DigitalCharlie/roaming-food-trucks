@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export default function ({resultTruck, starRate, priceRate, cuisines}) {
 
 
@@ -22,8 +24,8 @@ export default function ({resultTruck, starRate, priceRate, cuisines}) {
                 <p>Test</p>
                 {
                     resultTruck.filter(starFilter).filter(priceFilter).filter(cuisineFilter).map((truck) => (
-                        <div>
-                                <p>{truck.foodTruckName}</p>
+                        <div key={truck._id}>
+                                <p><Link to={`/foodtruck/detailpage/${truck._id}`}>{truck.foodTruckName}</Link></p>
                                 <p>Zip code: {truck.location.zipCode}</p>
                                 <p>Cuisine: {truck.cuisine}</p>
                         </div>
