@@ -8,7 +8,6 @@ import CuisineList from '../../components/CuisineList/CuisineList'
 import ResultMap from '../../components/ResultMap/ResultMap'
 
 export default function DashboardPage() {
-  const navigate = useNavigate()
   const [loaded, setLoaded] = useState(null)
   const [searchParams, setSearchParams] = useSearchParams()
   const [resultTruck, setResultTruck] = useState([])
@@ -52,7 +51,6 @@ export default function DashboardPage() {
           loaded === true &&
           <>
           <h1>This is the Results Page</h1>
-          <button onClick={() => navigate('/')}>Home Page</button>
           <div>
             <h2>Filters</h2>
             <CuisineList cuisines={cuisines} setCuisines={setCuisines} handleCuisineChange={handleCuisineChange} />
