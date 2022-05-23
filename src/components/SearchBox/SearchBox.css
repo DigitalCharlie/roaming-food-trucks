@@ -1,6 +1,6 @@
 .SearchBox {
 	width:400px;
-	height:300px;
+	height:325px;
 	position:absolute;
 	top:40%;
 	left:50%;
@@ -28,11 +28,4 @@
 	width:100%;
 	margin:5px 0;
 	height:40px;
-	border-radius:5px;
-	border-color:gray;
-	border-width:1px;
-}
-
-.SearchBox > .searchbar > .searchbar-form > button {
-	background-color:var(--orange)
 }

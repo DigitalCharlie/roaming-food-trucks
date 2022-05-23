@@ -3,7 +3,7 @@ import Select from "react-select"
 import { useSearchParams, useNavigate } from "react-router-dom"
 import styles from './SearchBar.css';
 
-export default function SearchBar() {
+export default function SearchBar({buttonText, buttonClass}) {
     const navigate = useNavigate()
     const [searchParams, setSearchParams] = useSearchParams()
     const [formData, setFormData] = useState({
@@ -71,7 +71,7 @@ export default function SearchBar() {
                     isSearchable
                     isClearable
                 />
-             <button type="submit" onClick={handleSubmit} alt="search-icon"><img src="/assets/search_circle_icon.png" /></button>
+             <button type="submit" onClick={handleSubmit} alt="search-icon" className={buttonClass ? buttonClass : "button"}>{buttonText ? "Submit" : <img src="/assets/search_circle_icon.png" />}</button>
             </form>
         </div> 
     )

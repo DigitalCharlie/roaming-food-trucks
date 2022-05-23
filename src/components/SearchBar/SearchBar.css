@@ -11,5 +11,13 @@
 
 .searchbar-input {
     width: 200px;
-    
+    margin:0 1px;
+    border-radius:5px;
+}
+
+.search-bar-button {
+    border:none;
+    border-radius: 0 10px 10px 0;
+    background:none;
+    margin-left:-2px;
 }

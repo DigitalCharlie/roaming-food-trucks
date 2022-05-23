@@ -20,10 +20,10 @@ export default function NavBar({ pathname, user }) {
             :
             <>
               <Navbar.Toggle />
-              <SearchBar />
+              <SearchBar buttonClass="search-bar-button" />
               <Navbar.Collapse className="justify-content-end">
                 <Navbar.Text>
-                  <button className="button"> <Link className={styles.link} to="/signup">Sign Up</Link></button>
+                  <button className="signup-button"> <Link className={styles.link} to="/signup">Sign Up</Link></button>
                   <a className={styles.anchor}> <img src="assets/login_user_icon.png" alt="login-icon" /><Link className={styles.link} to="/login"> Sign In</Link> </a>
                 </Navbar.Text>
               </Navbar.Collapse>

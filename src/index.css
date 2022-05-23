@@ -11,15 +11,35 @@ body{
     margin: 0; 
 }
 
-.button{ 
-   border-radius: 10%;
+.signup-button{ 
+    border-radius: 10px;
     background: var(--white);
     margin: 15px;
     border: 2px solid var(--orange);
     padding: 6px 15px;
     font-size: 15px;
+    transition:.25s;
+}
+
+.signup-button:hover, signup-button > a:hover {
+    background-color:var(--orange);
+}
+
+.button {
+    background-color:var(--orange);
+    height:38px;
+    border-radius:10px;
+    border:2px solid var(--orange);
+    transition:.25s;
+}
+
+.button:hover {
+    color:black;
+    background-color:white;
 }
 
 input[type=text] {
     padding-left:10px;
+    border:1px solid lightgray;
+    border-radius:5px;
 }
