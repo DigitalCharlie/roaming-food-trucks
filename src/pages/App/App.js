@@ -13,6 +13,7 @@ import { useState, useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Footer from '../../components/Footer/Footer';
 import { getUser } from '../../utilities/users-service';
+import UserContext from '../../context/UserContext'
 
 function App() {
   const location = useLocation();
@@ -34,18 +35,20 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar pathname={location.pathname} user={user} />
-      <Routes>
-        <Route path="/" element={<HomePage foodTrucks={foodTrucks} user={user} />} />
-        <Route path="/signup" element={<AuthPage user={user} setUser={setUser} />} />
-        <Route path="/login" element={<LogInPage setUser={setUser} />} />
-        <Route path="/user/dashboard/:userid" element={<DashboardPage foodTrucks={foodTrucks} user={user} />} />
-        <Route path="/foodtruck/resultspage" element={<ResultsPage foodTrucks={foodTrucks} />} />
-        <Route path="/foodtruck/detailpage/:id" element={<FTDetailsPage foodTrucks={foodTrucks} />} />
-        <Route path="/foodtruck/reviews/:id" element={<FTReviewsPage foodTrucks={foodTrucks} />} />
-        <Route path="/foodtruck/review/create/:id" element={<CreateReviewPage foodTrucks={foodTrucks} />} />
-      </Routes>
-      <Footer />
+      <UserContext.Provider value={user}>
+        <NavBar pathname={location.pathname} user={user} />
+        <Routes>
+          <Route path="/" element={<HomePage foodTrucks={foodTrucks} user={user} />} />
+          <Route path="/signup" element={<AuthPage user={user} setUser={setUser} />} />
+          <Route path="/login" element={<LogInPage setUser={setUser} />} />
+          <Route path="/user/dashboard/:userid" element={<DashboardPage foodTrucks={foodTrucks} user={user} />} />
+          <Route path="/foodtruck/resultspage" element={<ResultsPage foodTrucks={foodTrucks} />} />
+          <Route path="/foodtruck/detailpage/:id" element={<FTDetailsPage foodTrucks={foodTrucks} />} />
+          <Route path="/foodtruck/reviews/:id" element={<FTReviewsPage foodTrucks={foodTrucks} />} />
+          <Route path="/foodtruck/review/create/:id" element={<CreateReviewPage foodTrucks={foodTrucks} />} />
+        </Routes>
+        <Footer />
+      </UserContext.Provider>
     </div>
   );
 };
