@@ -13,7 +13,8 @@ const reviewSchema = new Schema(
         }],
         rating: Number,
         review: String,
-        img: Array
+        img: Array,
+        waitTime:Number
     }
 );
 
