@@ -10,7 +10,7 @@ export default function NavBar({ pathname, user }) {
 
 
   return (
-    <Navbar>
+    <Navbar className={styles.fixedNavbar}>
 
       <Container>
         <Navbar.Brand><Link to="/"><img src="assets/roaming-spoon-logo.png" alt="logo" className={styles.logo} /></Link> </Navbar.Brand>
