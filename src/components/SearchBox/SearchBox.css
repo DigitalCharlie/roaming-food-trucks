@@ -8,6 +8,7 @@
 	background-color:white;
 	border-radius:20px;
 	padding:20px;
+	box-shadow: 0 0 25px 2px darkslategrey;
 }
 
 .SearchBox > h2 {
