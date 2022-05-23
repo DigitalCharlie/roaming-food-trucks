@@ -21,8 +21,12 @@ export default function ({resultTruck, starRate, priceRate, cuisines}) {
     return (
         <>
             <div>
-                <p>Test</p>
                 {
+                    resultTruck.filter(starFilter).filter(priceFilter).filter(cuisineFilter).length === 0 ?
+                        <>
+                            <h3>No trucks match your criteria.</h3>
+                        </>
+                    :
                     resultTruck.filter(starFilter).filter(priceFilter).filter(cuisineFilter).map((truck) => (
                         <div key={truck._id}>
                                 <p><Link to={`/foodtruck/detailpage/${truck._id}`}>{truck.foodTruckName}</Link></p>

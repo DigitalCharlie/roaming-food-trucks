@@ -6,6 +6,7 @@ import StarRating from '../../components/StarRating.js/StarRating'
 import ResultList from '../../components/ResultList/ResultList'
 import CuisineList from '../../components/CuisineList/CuisineList'
 import ResultMap from '../../components/ResultMap/ResultMap'
+import SearchBox from '../../components/SearchBox/SearchBox'
 
 export default function DashboardPage() {
   const navigate = useNavigate()
@@ -53,14 +54,25 @@ export default function DashboardPage() {
           <>
           <h1>This is the Results Page</h1>
           <button onClick={() => navigate('/')}>Home Page</button>
-          <div>
-            <h2>Filters</h2>
-            <CuisineList cuisines={cuisines} setCuisines={setCuisines} handleCuisineChange={handleCuisineChange} />
-            <StarRating starRate={starRate} setStarRate={setStarRate} />
-            {/* <PriceList resultPageState={resultTruck} /> */}
-          </div>
-          <ResultList resultTruck={resultTruck} starRate={starRate} priceRate={priceRate} cuisines={cuisines} />
-          <ResultMap resultTruck={resultTruck} zipcode={searchParams.get("zipcode")}/>
+          {
+            resultTruck.length === 0 ?
+            <>
+              <h3>No trucks found in your area. Please try again.</h3>
+              <SearchBox />
+            </>
+            :
+            <>
+              <div>
+                <h2>Filters</h2>
+                <CuisineList cuisines={cuisines} setCuisines={setCuisines} handleCuisineChange={handleCuisineChange} />
+                <StarRating starRate={starRate} setStarRate={setStarRate} />
+                {/* <PriceList resultPageState={resultTruck} /> */}
+              </div>
+              <ResultList resultTruck={resultTruck} starRate={starRate} priceRate={priceRate} cuisines={cuisines} />
+              <ResultMap resultTruck={resultTruck} zipcode={searchParams.get("zipcode")}/>
+            </>
+          }
+
           </>
         }
       </main>
