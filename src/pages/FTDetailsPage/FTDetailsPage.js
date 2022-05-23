@@ -1,14 +1,20 @@
 import MenuList from "../../components/MenuList/MenuList";
 import BusinessInfo from "../../components/BusinessInfo/BusinessInfo";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import * as foodTruckAPI from "../../utilities/foodTruck-api";
 import styles from "./FTDetailsPage.module.css";
+import UserContext from '../../context/UserContext'
 
 export default function FTDetailsPage() {
-    const { id } = useParams();
     const [foodTruck, setFoodTruck] = useState({});
     const [loaded, setLoaded] = useState({});
+
+    const { id } = useParams();
+    const userContext = useContext(UserContext);
+
+    console.log("Below is the user from UserContext")
+    console.log(userContext)
     
     useEffect(() => {
         (async () => {

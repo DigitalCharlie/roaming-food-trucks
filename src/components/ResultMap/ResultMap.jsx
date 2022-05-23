@@ -18,8 +18,8 @@ export default function MyComponent({resultTruck}) {
 		console.log(resultTruck[0])
 		if(resultTruck.length){
 			let loadingCenter = {
-				lng: resultTruck[0].location.geoLocation[0],
-				lat: resultTruck[0].location.geoLocation[1]
+				lng: resultTruck[0].location.geoLocation.coordinates[0],
+				lat: resultTruck[0].location.geoLocation.coordinates[1]
 			}
 			setCenter(loadingCenter)
 			setLoaded(true)
@@ -36,7 +36,7 @@ export default function MyComponent({resultTruck}) {
 
 	return (
 		<LoadScript
-		googleMapsApiKey="KEY"
+		googleMapsApiKey={process.env.REACT_APP_MAPS_KEY}
 		>
 		<GoogleMap
 			mapContainerStyle={containerStyle}

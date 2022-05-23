@@ -14,9 +14,9 @@
 }
 
 .fixedNavbar {
-    position: fixed;
+    background-color: white;
+    /* position: fixed;
     z-index: 100;
     width: 100%;
-    background-color: white;
-    box-shadow: 0 0 10px lightgray;
+    box-shadow: 0 0 10px lightgray; */
 }
