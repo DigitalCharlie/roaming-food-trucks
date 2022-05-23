@@ -1,7 +1,9 @@
 import styles from './ResultList.module.css'
+import { useNavigate } from 'react-router-dom'
 
 
 export default function ({resultTruck, starRate, priceRate, cuisine}) {
+    const navigate = useNavigate()
     return (
         <div className={styles.Card}>
             {
@@ -11,7 +13,7 @@ export default function ({resultTruck, starRate, priceRate, cuisine}) {
                         starRate !== 0 ?
                             // if star rating on filter matches or is less than the truck's current rating
                             starRate <= truck.currentRating ?
-                                <div key={truck._id} /*onClick={() => { navigate(`${truck._id}`) }}*/ >
+                                <div key={truck._id} onClick={() => { navigate(`/foodtruck/detailpage/${truck._id}`) }} >
                                     <img src={truck.img} height='250' width='300' />
                                     <div className={styles.Banner}>
                                         <div className={styles.BannerTitle}>
@@ -28,7 +30,7 @@ export default function ({resultTruck, starRate, priceRate, cuisine}) {
                         priceRate !== 0 ?
                             // price rating on filter matches or is less than the truck's current price rating
                             priceRate <= truck.priceRating ?
-                                    <div key={truck._id} /*onClick={() => { navigate(`${truck._id}`) }}*/ >
+                                    <div key={truck._id} onClick={() => { navigate(`/foodtruck/detailpage/${truck._id}`) }} >
                                         <img src={truck.img} height='250' width='300' />
                                         <div className={styles.Banner}>
                                             <div className={styles.BannerTitle}>
@@ -45,7 +47,7 @@ export default function ({resultTruck, starRate, priceRate, cuisine}) {
                         cuisine !== 'null' ?
                             // cuisine hook matches cuisine type on page
                             cuisine == truck.cuisine ?
-                                    <div key={truck._id} /*onClick={() => { navigate(`${truck._id}`) }}*/ >
+                                    <div key={truck._id} onClick={() => { navigate(`/foodtruck/detailpage/${truck._id}`) }} >
                                         <img src={truck.img} height='250' width='300' />
                                         <div className={styles.Banner}>
                                             <div className={styles.BannerTitle}>
@@ -59,7 +61,7 @@ export default function ({resultTruck, starRate, priceRate, cuisine}) {
                                 :
                         null :
                         // If nothing was clicked
-                        <div key={truck._id} /*onClick={() => { navigate(`${truck._id}`) }}*/ >
+                        <div key={truck._id} onClick={() => { navigate(`/foodtruck/detailpage/${truck._id}`) }} >
                             <img src={truck.img} height='250' width='300' />
                             <div className={styles.Banner}>
                                 <div className={styles.BannerTitle}>
