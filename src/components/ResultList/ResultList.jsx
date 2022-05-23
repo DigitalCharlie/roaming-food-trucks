@@ -11,11 +11,11 @@ export default function ({resultTruck, starRate, priceRate, cuisine}) {
                         starRate !== 0 ?
                             // if star rating on filter matches or is less than the truck's current rating
                             starRate <= truck.currentRating ?
-                                <div key={truck._id} onClick={() => { addFavorites(truck._id) }} /*onClick={() => { navigate(`${truck._id}`) }}*/ >
+                                <div key={truck._id} /*onClick={() => { navigate(`${truck._id}`) }}*/ >
                                     <img src={truck.img} height='250' width='300' />
                                     <div className={styles.Banner}>
                                         <div className={styles.BannerTitle}>
-                                            <h5>{truck.truckName}</h5>
+                                            <h5>{truck.foodTruckName}</h5>
                                             <p>{truck.currentRating ? truck.currentRating.toFixed(1) : null}</p>
                                         </div>
                                         <p>Wait time</p>
@@ -28,11 +28,11 @@ export default function ({resultTruck, starRate, priceRate, cuisine}) {
                         priceRate !== 0 ?
                             // price rating on filter matches or is less than the truck's current price rating
                             priceRate <= truck.priceRating ?
-                                    <div key={truck._id} onClick={() => { addFavorites(truck._id) }} /*onClick={() => { navigate(`${truck._id}`) }}*/ >
+                                    <div key={truck._id} /*onClick={() => { navigate(`${truck._id}`) }}*/ >
                                         <img src={truck.img} height='250' width='300' />
                                         <div className={styles.Banner}>
                                             <div className={styles.BannerTitle}>
-                                                <h5>{truck.truckName}</h5>
+                                                <h5>{truck.foodTruckName}</h5>
                                                 <p>{truck.currentRating ? truck.currentRating.toFixed(1) : null}</p>
                                             </div>
                                             <p>Wait time</p>
@@ -45,11 +45,11 @@ export default function ({resultTruck, starRate, priceRate, cuisine}) {
                         cuisine !== 'null' ?
                             // cuisine hook matches cuisine type on page
                             cuisine == truck.cuisine ?
-                                    <div key={truck._id} onClick={() => { addFavorites(truck._id) }} /*onClick={() => { navigate(`${truck._id}`) }}*/ >
+                                    <div key={truck._id} /*onClick={() => { navigate(`${truck._id}`) }}*/ >
                                         <img src={truck.img} height='250' width='300' />
                                         <div className={styles.Banner}>
                                             <div className={styles.BannerTitle}>
-                                                <h5>{truck.truckName}</h5>
+                                                <h5>{truck.foodTruckName}</h5>
                                                 <p>{truck.currentRating ? truck.currentRating.toFixed(1) : null}</p>
                                             </div>
                                             <p>Wait time</p>
@@ -59,11 +59,11 @@ export default function ({resultTruck, starRate, priceRate, cuisine}) {
                                 :
                         null :
                         // If nothing was clicked
-                        <div key={truck._id} onClick={() => { addFavorites(truck._id) }} /*onClick={() => { navigate(`${truck._id}`) }}*/ >
+                        <div key={truck._id} /*onClick={() => { navigate(`${truck._id}`) }}*/ >
                             <img src={truck.img} height='250' width='300' />
                             <div className={styles.Banner}>
                                 <div className={styles.BannerTitle}>
-                                    <h5>{truck.truckName}</h5>
+                                    <h5>{truck.foodTruckName}</h5>
                                     <p>{truck.currentRating ? truck.currentRating.toFixed(1) : null}</p>
                                 </div>
                                 <p>Wait time</p>
