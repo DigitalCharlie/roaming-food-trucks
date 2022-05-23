@@ -34,3 +34,11 @@
     display: flex;
     justify-content: space-between;
 }
+
+.BannerTitle > h5 > span:hover {
+    color: red;
+}
+
+.BannerTitle > h5 > span:active {
+    color: red;
+}
