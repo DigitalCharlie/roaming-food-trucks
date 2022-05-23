@@ -6,10 +6,11 @@
 }
 
 .Card > div {
-    height: 350px;
-    width: 300px;
     border-radius: 5px;
     background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .Card > div > img {
@@ -19,6 +20,7 @@
 .Banner {
     display: flex;
     flex-direction: column;
+    width: 90%;
 }
 
 .Banner > p {
@@ -28,4 +30,10 @@
 .BannerTitle {
     display: flex;
     justify-content: space-between;
+}
+
+.div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
