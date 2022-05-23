@@ -1,3 +1,10 @@
+// DEPENDNCIES
+import * as FoodtruckAPI from '../../utilities/foodTruck-api'
+import { useState, useEffect } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
+import { getUser } from '../../utilities/users-service';
+
+// PAGES AND COMPONENTS
 import './App.css';
 import HomePage from '../HomePage/HomePage';
 import LogInPage from '../LogInPage/LogInPage';
@@ -8,11 +15,7 @@ import DashboardPage from '../DashboardPage/DashboardPage';
 import FTDetailsPage from '../FTDetailsPage/FTDetailsPage';
 import FTReviewsPage from '../FTReviewsPage/FTReviewsPage';
 import ResultsPage from '../ResultsPage/ResultsPage';
-import * as FoodtruckAPI from '../../utilities/foodTruck-api'
-import { useState, useEffect } from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
 import Footer from '../../components/Footer/Footer';
-import { getUser } from '../../utilities/users-service';
 import UserContext from '../../context/UserContext'
 
 function App() {
@@ -23,7 +26,7 @@ function App() {
   useEffect(() => {
     (async () => {
       try {
-        const data = await FoodtruckAPI.getAll()
+        const data = await FoodtruckAPI.getAll() // THIS WILL NEED TO CHANGE TO NOT BE EVERY ROUTE IN THE DB BUT IS LOW PRIORITY
         setFoodTrucks(data)
         console.log(location.pathname)
       } catch (e) {
