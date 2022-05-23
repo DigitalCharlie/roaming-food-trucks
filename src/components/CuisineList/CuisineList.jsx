@@ -22,7 +22,7 @@ export default function CuisineList({ cuisine, setCuisine }) {
                 cuisines.map((element, idx) => {
                     return (
                         <div key={idx}>
-                            <input onClick={() => {checkboxCuisine(idx)}} name={element} type="checkbox" id={element} /> {element}
+                            <input onClick={() => {checkboxCuisine(idx)}} name={element} type="checkbox" id={element} /> <p>{element}</p>
                         </div>
                     )
                 })
