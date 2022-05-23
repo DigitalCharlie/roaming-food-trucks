@@ -3,6 +3,7 @@ import styles from './CuisineList.module.css'
 export default function CuisineList({ cuisine, setCuisine }) {
 
     const checkboxCuisine = (index) => {
+        console.log(cuisine)
         const input = document.getElementById(cuisines[index])
         if(input && input.checked){
             // only one checkbox can be checked
@@ -10,6 +11,7 @@ export default function CuisineList({ cuisine, setCuisine }) {
                 document.getElementById(cuisines[i]).checked = false
             }
             input.checked = true
+            setCuisine(cuisines[index])
         } else if(input && !input.checked) {
             setCuisine('')
         }
