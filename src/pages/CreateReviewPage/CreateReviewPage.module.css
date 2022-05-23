@@ -1,0 +1,11 @@
+.CreateReviewPage .reviewForm {
+    margin: 10%;
+}
+
+.CreateReviewPage .minutesRange {
+    width: 20%;
+}
+
+.CreateReviewPage .reviewRating {
+    width: 20%;
+}

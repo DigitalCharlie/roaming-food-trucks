@@ -43,7 +43,7 @@ function App() {
         <Route path="/foodtruck/resultspage" element={<ResultsPage foodTrucks={foodTrucks} />} />
         <Route path="/foodtruck/detailpage/:id" element={<FTDetailsPage foodTrucks={foodTrucks} />} />
         <Route path="/foodtruck/reviews/:id" element={<FTReviewsPage foodTrucks={foodTrucks} />} />
-        <Route path="/foodtruck/review/create" element={<CreateReviewPage foodTrucks={foodTrucks} />} />
+        <Route path="/foodtruck/review/create/:id" element={<CreateReviewPage foodTrucks={foodTrucks} />} />
       </Routes>
       <Footer />
     </div>

@@ -1,0 +1,7 @@
+.BusinessInfo {
+    align-items: right;
+}
+
+.BusinessInfo .BusinessHours {
+    list-style: none;
+}

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const axios = require('axios')
 
-const foodTruckSchema = new Schema(
+const foodTruckSchema = new Schema (
     {
         foodTruckName: String,
         description: String,
@@ -14,8 +14,15 @@ const foodTruckSchema = new Schema(
             city: String,
             state: String,
             zipCode: String,
-            lat: String,
-            lng: String,
+            geoLocation: {
+                type: {
+                    type: String,
+                    enum: ['Point'],
+                },
+                coordinates: {
+                    type: [Number]
+                },
+            },
             hours: [{
                 day: [{
                     start: Number,
@@ -65,19 +72,21 @@ const foodTruckSchema = new Schema(
     }
 );
 
+// foodTruckSchema.index({"geoLocation": "2dsphere"})
+
 foodTruckSchema.pre('save', async function (next) {
     if (this.reviews.length > 0) {
         await this.populate('reviews')
         let aggregateRating = this.reviews.reduce((acc, review) => acc + parseInt(review.rating), 0)
-        this.currentRating = aggregateRating
+        this.currentRating = aggregateRating/this.reviews.length
     }
     if (this.isModified("location")) {
-        const locationStringToSearch = `https://maps.googleapis.com/maps/api/geocode/json?key=${process.env.MAPS_KEY}&address=${this.location.street}%20${this.location.city}%20${this.location.state}%20${this.location.zipCode}%20USA`.replaceAll(" ", '%20')
+        const locationStringToSearch = `https://maps.googleapis.com/maps/api/geocode/json?key=${process.env.REACT_APP_MAPS_KEY}&address=${this.location.street}%20${this.location.city}%20${this.location.state}%20${this.location.zipCode}%20USA`.replaceAll(" ", '%20')
         console.log(locationStringToSearch)
         const geoLocation = await axios.get(locationStringToSearch)
-        console.log(geoLocation.data.results.geometry)
-        this.location.lat = geoLocation.data.results[0].geometry.location.lat
-        this.location.lng = geoLocation.data.results[0].geometry.location.lng
+        this.location.geoLocation.type="Point"
+        this.location.geoLocation.coordinates[0] = geoLocation.data.results[0].geometry.location.lng
+        this.location.geoLocation.coordinates[1] = geoLocation.data.results[0].geometry.location.lat
     }
     return next();
 });

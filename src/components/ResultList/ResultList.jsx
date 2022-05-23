@@ -1,81 +1,37 @@
-import styles from './ResultList.module.css'
-import { useNavigate } from 'react-router-dom'
+import { Link } from "react-router-dom"
+
+export default function ({resultTruck, starRate, priceRate, cuisines}) {
 
 
-export default function ({resultTruck, starRate, priceRate, cuisine}) {
-    const navigate = useNavigate()
+    const starFilter = (truck) => {
+        if (!starRate) return truck
+        if (truck.currentRating >= starRate) return truck
+    }
+
+    const priceFilter = (truck) => {
+        if (!priceRate) return truck
+        if (truck.priceRating >= priceRate) return truck
+    }
+
+    const cuisineFilter = (truck) => {
+        if (cuisines.length === 0) return truck
+        if (cuisines.some(cuisine => truck.cuisine.includes(cuisine))) return truck
+    }
+
     return (
-        <div className={styles.Card}>
-            {
-                resultTruck.map((truck) => {
-                    return (
-                        // if star rating was clicked
-                        starRate !== 0 ?
-                            // if star rating on filter matches or is less than the truck's current rating
-                            starRate <= truck.currentRating ?
-                                <div key={truck._id} onClick={() => { navigate(`/foodtruck/detailpage/${truck._id}`) }} >
-                                    <img src={truck.img} height='250' width='300' />
-                                    <div className={styles.Banner}>
-                                        <div className={styles.BannerTitle}>
-                                            <h5>{truck.foodTruckName}</h5>
-                                            <p>{truck.currentRating ? truck.currentRating.toFixed(1) : null}</p>
-                                        </div>
-                                        <p>Wait time</p>
-                                        <p>{truck.location.street}, {truck.location.city} </p>
-                                    </div>
-                                </div> 
-                            :
-                        null :
-                        //if price was clicked
-                        priceRate !== 0 ?
-                            // price rating on filter matches or is less than the truck's current price rating
-                            priceRate <= truck.priceRating ?
-                                    <div key={truck._id} onClick={() => { navigate(`/foodtruck/detailpage/${truck._id}`) }} >
-                                        <img src={truck.img} height='250' width='300' />
-                                        <div className={styles.Banner}>
-                                            <div className={styles.BannerTitle}>
-                                                <h5>{truck.foodTruckName}</h5>
-                                                <p>{truck.currentRating ? truck.currentRating.toFixed(1) : null}</p>
-                                            </div>
-                                            <p>Wait time</p>
-                                            <p>{truck.location.street}, {truck.location.city} </p>
-                                        </div>
-                                    </div> 
-                                :
-                        null :
-                        // if cuisine was clicked
-                        cuisine !== 'null' ?
-                            // cuisine hook matches cuisine type on page
-                            cuisine == truck.cuisine ?
-                                    <div key={truck._id} onClick={() => { navigate(`/foodtruck/detailpage/${truck._id}`) }} >
-                                        <img src={truck.img} height='250' width='300' />
-                                        <div className={styles.Banner}>
-                                            <div className={styles.BannerTitle}>
-                                                <h5>{truck.foodTruckName}</h5>
-                                                <p>{truck.currentRating ? truck.currentRating.toFixed(1) : null}</p>
-                                            </div>
-                                            <p>Wait time</p>
-                                            <p>{truck.location.street}, {truck.location.city} </p>
-                                        </div>
-                                    </div> 
-                                :
-                        null :
-                        // If nothing was clicked
-                        <div key={truck._id} onClick={() => { navigate(`/foodtruck/detailpage/${truck._id}`) }} >
-                            <img src={truck.img} height='250' width='300' />
-                            <div className={styles.Banner}>
-                                <div className={styles.BannerTitle}>
-                                    <h5>{truck.foodTruckName}</h5>
-                                    <p>{truck.currentRating ? truck.currentRating.toFixed(1) : null}</p>
-                                </div>
-                                <p>Wait time</p>
-                                <p>{truck.location.street}, {truck.location.city} </p>
-                            </div>
+        <>
+            <div>
+                <p>Test</p>
+                {
+                    resultTruck.filter(starFilter).filter(priceFilter).filter(cuisineFilter).map((truck) => (
+                        <div key={truck._id}>
+                                <p><Link to={`/foodtruck/detailpage/${truck._id}`}>{truck.foodTruckName}</Link></p>
+                                <p>Zip code: {truck.location.zipCode}</p>
+                                <p>Cuisine: {truck.cuisine}</p>
                         </div>
-
-                    )
-                })
-            }
-        </div>
+                    ))
+                }
+            </div>
+        </>
     )
 }

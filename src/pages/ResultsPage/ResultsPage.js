@@ -5,52 +5,64 @@ import PriceList from '../../components/PriceList/PriceList'
 import StarRating from '../../components/StarRating.js/StarRating'
 import ResultList from '../../components/ResultList/ResultList'
 import CuisineList from '../../components/CuisineList/CuisineList'
-import styles from './ResultsPage.module.css'
-
+import ResultMap from '../../components/ResultMap/ResultMap'
 
 export default function DashboardPage() {
-    const [searchParams, setSearchParams] = useSearchParams()
-    const [resultTruck, setResultTruck] = useState([])
-    const [starRate, setStarRate] = useState(0)
-    const [priceRate, setPriceRate] = useState(0)
-    const [cuisine, setCuisine] = useState('null')
-    const zipURL = searchParams.get("zipcode")
-    const cuisineURL = searchParams.get("cuisine")
-    // loads the page and refreshes it everytime zip code is changed in the search bar
-    useEffect(() => {
-        (async () => {
-          try {
-            const data = await FoodtruckAPI.getResultTruck(zipURL)
-            setResultTruck(data)
-          } catch(e) {
-            console.log(e)
-          }
-        })()
-      }, [zipURL])
+  const navigate = useNavigate()
+  const [loaded, setLoaded] = useState(null)
+  const [searchParams, setSearchParams] = useSearchParams()
+  const [resultTruck, setResultTruck] = useState([])
+  const [starRate, setStarRate] = useState(0)
+  const [priceRate, setPriceRate] = useState(0)
+  const [cuisines, setCuisines] = useState([])
 
+  useEffect(() => {
+      (async () => {
+        try {
+          // const data = await FoodtruckAPI.getResultTruck(searchParams.get("zipcode"))
+          // setResultTruck(data)         
+          let zipcode = searchParams.get("zipcode")
+          let radius = searchParams.get("radius")
+          const zipRadiusData = await FoodtruckAPI.zipRadiusSearch(zipcode,radius)
+          console.log(zipRadiusData)
+          setResultTruck(zipRadiusData)
+          setLoaded(true)
+        } catch(e) {
+          console.log(e)
+        }
+      })()
+    }, [])
 
-      // changes cuisine query without refreshing the page
-      useEffect(() => {
-        setSearchParams({zipcode: zipURL, cuisine: cuisine})
-      }, [cuisine])
+  console.log(cuisines)
 
-    return (
-        <div className={styles.ResultPage}>
-            <h1>This is the Results Page</h1>
-            <div>
-              <div className={styles.firstColumn}>
-                <h2>Filters</h2>
-                <CuisineList cuisine={cuisine} setCuisine={setCuisine} cuisineURL={cuisineURL} />
-                <StarRating starRate={starRate} setStarRate={setStarRate} />
-                {/* <PriceList resultPageState={resultTruck} /> */}
-              </div>
-              <div className={styles.secondColumn}>
-                <ResultList resultTruck={resultTruck} starRate={starRate} priceRate={priceRate} cuisine={cuisine} />
-              </div>
-              <div className={styles.thirdColumn}>
-                <h2>Map Picture</h2>
-              </div>
-            </div>
-        </div>
-    );
+  const handleCuisineChange = (cuisine) => {
+    const cuisineArray = [...cuisines]
+    if (cuisineArray.indexOf(cuisine) === -1) {
+      cuisineArray.push(cuisine)
+    } else {
+      let toDelete = cuisineArray.indexOf(cuisine)
+      cuisineArray.splice(toDelete, 1)
+    }
+    setCuisines(cuisineArray)
+  }
+
+  return (
+      <main>
+        {
+          loaded === true &&
+          <>
+          <h1>This is the Results Page</h1>
+          <button onClick={() => navigate('/')}>Home Page</button>
+          <div>
+            <h2>Filters</h2>
+            <CuisineList cuisines={cuisines} setCuisines={setCuisines} handleCuisineChange={handleCuisineChange} />
+            <StarRating starRate={starRate} setStarRate={setStarRate} />
+            {/* <PriceList resultPageState={resultTruck} /> */}
+          </div>
+          <ResultList resultTruck={resultTruck} starRate={starRate} priceRate={priceRate} cuisines={cuisines} />
+          <ResultMap resultTruck={resultTruck} zipcode={searchParams.get("zipcode")}/>
+          </>
+        }
+      </main>
+  );
 };
