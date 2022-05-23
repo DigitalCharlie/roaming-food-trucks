@@ -26,7 +26,7 @@ export default function ({resultTruck, starRate, priceRate, cuisine}) {
                         </div> :
                         null :
                         // if cuisine was clicked
-                        cuisine !== '' ?
+                        cuisine !== 'null' ?
                         // cuisine hook matches cuisine type on page
                         cuisine == truck.cuisine ?
                         <div>
