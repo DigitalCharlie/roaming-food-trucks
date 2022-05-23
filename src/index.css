@@ -19,3 +19,7 @@ body{
     padding: 6px 15px;
     font-size: 15px;
 }
+
+input[type=text] {
+    padding-left:10px;
+}

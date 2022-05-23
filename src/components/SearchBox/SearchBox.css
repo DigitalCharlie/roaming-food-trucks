@@ -1,0 +1,38 @@
+.SearchBox {
+	width:400px;
+	height:300px;
+	position:absolute;
+	top:40%;
+	left:50%;
+	z-index:1;
+	background-color:white;
+	border-radius:20px;
+	padding:20px;
+}
+
+.SearchBox > h2 {
+	margin-bottom:25px;
+}
+
+.SearchBox >.searchbar {
+	margin-left:0;
+
+}
+
+.SearchBox > .searchbar > .searchbar-form {
+	display:flex;
+	flex-direction:column;
+}
+
+.SearchBox > .searchbar > .searchbar-form > .searchbar-input {
+	width:100%;
+	margin:5px 0;
+	height:40px;
+	border-radius:5px;
+	border-color:gray;
+	border-width:1px;
+}
+
+.SearchBox > .searchbar > .searchbar-form > button {
+	background-color:var(--orange)
+}

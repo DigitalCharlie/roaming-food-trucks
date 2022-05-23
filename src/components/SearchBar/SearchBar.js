@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import Select from "react-select"
 import { useSearchParams, useNavigate } from "react-router-dom"
-import styles from './SearchBar.module.css';
+import styles from './SearchBar.css';
 
 export default function SearchBar() {
     const navigate = useNavigate()
@@ -13,6 +13,7 @@ export default function SearchBar() {
     })
     const [selectedOption, setSelectedOption] = useState({ value: searchParams.get("cuisine"), label: searchParams.get("cuisine") })
     const cuisineOptions = [
+        { value: null, label: "Select Cuisine", },
         { value: "american", label: "american", },
         { value: "chinese", label: "chinese" },
         { value: "japanese", label: "japanese" },
@@ -50,21 +51,23 @@ export default function SearchBar() {
         navigate(`/foodtruck/resultspage?zipcode=${formData.zipcode}&cuisine=${formData.cuisine}&radius=5`)
     }
     useEffect(() => {
-        setFormData({ zipcode: searchParams.get("zipcode"), cuisine: searchParams.get("cuisine") })
+        const defaultCuisine = searchParams.get("cuisine") !== null ? searchParams.get("cuisine") : { value: null, label: "Select Cuisine", }
+        console.log(defaultCuisine)
+        setFormData({ zipcode: searchParams.get("zipcode"), cuisine: defaultCuisine })
     }, [])
     console.log(formData)
     return (
-        <div className={styles.searchbar}>
-            <form className={styles.form} >
-                <input type="text" onChange={handleChange} name="zipcode" value={formData.zipcode} placeholder="Location" className={styles.input} required>
+        <div className="searchbar">
+            <form className="searchbar-form">
+                <input type="text" onChange={handleChange} name="zipcode" value={formData.zipcode} placeholder="Zipcode" className="searchbar-input" required>
                 </input>
                 <Select 
-                    className={styles.input}
-                    defaultValue={selectedOption}
+                    className="searchbar-input"
+                    defaultValue={{ value: null, label: "Select Cuisine", }}
                     onChange={(e) => { handleSelect(e) }}
                     options={cuisineOptions}
                     name="cuisine"
-                    placeholder="Cuisine"
+                    placeholder="cuisine"
                     isSearchable
                     isClearable
                 />

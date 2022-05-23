@@ -3,13 +3,13 @@
 
 }
 
-.form {
+.searchbar-form {
     display: flex;
     justify-content: center;
 
 }
 
-.input {
+.searchbar-input {
     width: 200px;
     
 }
