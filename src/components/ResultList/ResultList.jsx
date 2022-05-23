@@ -3,7 +3,7 @@ import styles from './ResultList.module.css'
 
 export default function ({resultTruck, starRate, priceRate, cuisine}) {
     return (
-        <div>
+        <div className={styles.Card}>
             {
                 resultTruck.map((truck) => {
                     return (
