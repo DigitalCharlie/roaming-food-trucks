@@ -44,9 +44,14 @@ export default function SearchBar() {
 
     const handleSubmit = (evt) => {
         evt.preventDefault()
-        setSearchParams(formData)
-        console.log(formData)
-        navigate(`/foodtruck/resultspage?zipcode=${formData.zipcode}&cuisine=${formData.cuisine}`)
+        if(formData.zipcode){
+            console.log(formData.zipcode)
+            setSearchParams(formData)
+            console.log(formData)
+            navigate(`/foodtruck/resultspage?zipcode=${formData.zipcode}&cuisine=${formData.cuisine}`)
+        } else {
+           console.log('zipcode needed')
+        }
     }
     useEffect(() => {
         setFormData({ zipcode: searchParams.get("zipcode"), cuisine: searchParams.get("cuisine") })
@@ -55,8 +60,7 @@ export default function SearchBar() {
     return (
         <div className={styles.searchbar}>
             <form className={styles.form} >
-                <input type="text" onChange={handleChange} name="zipcode" value={formData.zipcode} placeholder="Location" className={styles.input} required>
-                </input>
+                <input type="text" onChange={handleChange} name="zipcode" value={formData.zipcode} placeholder="Location" className={styles.input} />
                 <Select 
                     className={styles.input}
                     defaultValue={selectedOption}
