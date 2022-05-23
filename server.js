@@ -12,7 +12,7 @@ app.use(require('./config/checkToken'));
 
 app.use('/users', require('./routes/users'));
 app.use('/foodtrucks', require('./routes/foodTrucks'));
-// app.use('/review', require('./routes/review'));
+app.use('/reviews', require('./routes/review'));
 
 app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
