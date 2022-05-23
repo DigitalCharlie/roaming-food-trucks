@@ -28,8 +28,6 @@ export default function MyComponent({resultTruck}) {
 		}
 	  }, [])
 
-	console.log(center)
-
 	const markers = [
 		{lng: -73.9929658, lat: 40.73763599999999}
 	]
