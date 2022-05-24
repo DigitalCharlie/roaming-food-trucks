@@ -7,7 +7,6 @@ export default function BusinessInfo({ foodTruck }) {
         {    
             foodTruck.location &&
             <div className={styles.BusinessInfo}>
-                <h5>Business Info</h5>
                 <div>
                     <p>{foodTruck.location.street}</p>
                     <p>{foodTruck.location.city}, {foodTruck.location.state} {foodTruck.location.zipCode}</p>

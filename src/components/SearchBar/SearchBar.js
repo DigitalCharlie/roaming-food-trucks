@@ -47,15 +47,13 @@ export default function SearchBar({buttonText, buttonClass}) {
     const handleSubmit = (evt) => {
         evt.preventDefault()
         setSearchParams(formData)
-        console.log(formData)
         navigate(`/foodtruck/resultspage?zipcode=${formData.zipcode}&cuisine=${formData.cuisine}&radius=5`)
     }
     useEffect(() => {
         const defaultCuisine = searchParams.get("cuisine") !== null ? searchParams.get("cuisine") : { value: null, label: "Select Cuisine", }
-        console.log(defaultCuisine)
         setFormData({ zipcode: searchParams.get("zipcode"), cuisine: defaultCuisine.value })
     }, [])
-    console.log(formData)
+
     return (
         <div className="searchbar">
             <form className="searchbar-form">

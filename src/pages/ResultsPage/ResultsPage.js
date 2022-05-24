@@ -26,7 +26,6 @@ export default function DashboardPage() {
           let zipcode = searchParams.get("zipcode")
           let radius = searchParams.get("radius")
           const zipRadiusData = await FoodtruckAPI.zipRadiusSearch(zipcode,radius)
-          console.log(zipRadiusData)
           setResultTruck(zipRadiusData)
           setLoaded(true)
         } catch(e) {
