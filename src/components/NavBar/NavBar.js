@@ -4,9 +4,15 @@ import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import styles from './NavBar.module.css';
 import SearchBar from '../SearchBar/SearchBar';
-import { useNavigate } from 'react-router-dom';
+import { logOut } from '../../utilities/users-service';
 
-export default function NavBar({ pathname, user }) {
+
+export default function NavBar({ pathname, user, setUser }) {
+
+   function handleLogOut() {
+    logOut();
+    setUser(null);
+  }
 
 
   return (
@@ -32,11 +38,16 @@ export default function NavBar({ pathname, user }) {
               </Navbar.Collapse>
             </>
         }
-        {/* {
-          user ? 
-
-
-        } */}
+        { 
+          user && pathname === '/' ? 
+          <Navbar.Collapse className="justify-content-end">
+                <Navbar.Text>
+                  <button className="signup-button" onClick={handleLogOut}>Log Out </button>
+                  <a className={styles.anchor}> <img src="assets/login_user_icon.png" alt="login-icon" /> Hi, {user.firstName} </a>
+                </Navbar.Text>
+              </Navbar.Collapse> : 
+              ""
+        }
 
       </Container>
     </Navbar>
