@@ -53,7 +53,7 @@ export default function SearchBar({buttonText, buttonClass}) {
     useEffect(() => {
         const defaultCuisine = searchParams.get("cuisine") !== null ? searchParams.get("cuisine") : { value: null, label: "Select Cuisine", }
         console.log(defaultCuisine)
-        setFormData({ zipcode: searchParams.get("zipcode"), cuisine: defaultCuisine })
+        setFormData({ zipcode: searchParams.get("zipcode"), cuisine: defaultCuisine.value })
     }, [])
     console.log(formData)
     return (

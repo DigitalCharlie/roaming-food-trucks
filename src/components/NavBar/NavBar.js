@@ -20,7 +20,10 @@ export default function NavBar({ pathname, user }) {
             :
             <>
               <Navbar.Toggle />
-              <SearchBar buttonClass="search-bar-button" />
+              {
+                pathname !== '/' &&
+                <SearchBar buttonClass="search-bar-button" />
+              }
               <Navbar.Collapse className="justify-content-end">
                 <Navbar.Text>
                   <button className="signup-button"> <Link className={styles.link} to="/signup">Sign Up</Link></button>

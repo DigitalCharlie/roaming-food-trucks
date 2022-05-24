@@ -28,8 +28,6 @@ export default function MyComponent({resultTruck}) {
 		}
 	  }, [])
 
-	console.log(center)
-
 	const markers = [
 		{lng: -73.9929658, lat: 40.73763599999999}
 	]
@@ -44,7 +42,10 @@ export default function MyComponent({resultTruck}) {
 			zoom={10}
 		>
 			<Marker
-				position={markers[0]}
+				position={center}
+				title="Test"
+				label="Test"
+				name="Test"
 			/>
 			<Marker
 				position={{lat:0,lng:0}}

@@ -4,11 +4,17 @@
 
 :root{
     --orange: #F2782F; 
-    --black: #000000; 
+    --black: #222625; 
     --white: #ffffff; 
+    --lightgray:#F0F2F1;
+    --darkgray:darkgray;
 }
 body{
     margin: 0; 
+}
+
+main {
+    background-color: var(--lightgray);
 }
 
 .signup-button{ 
