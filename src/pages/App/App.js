@@ -39,7 +39,7 @@ function App() {
   return (
     <div className="App">
       <UserContext.Provider value={user}>
-        <NavBar pathname={location.pathname} user={user} />
+        <NavBar pathname={location.pathname} user={user} setUser={setUser} />
         <Routes>
           <Route path="/" element={<HomePage foodTrucks={foodTrucks} user={user} />} />
           <Route path="/signup" element={<AuthPage user={user} setUser={setUser} />} />
