@@ -1,12 +1,12 @@
 import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 import { useEffect, useState } from 'react';
-import { isCompositeComponentWithType } from 'react-dom/test-utils';
+
+import styles from './ResultMap.module.css'
 
 export default function MyComponent({resultTruck}) {
 	
 	const [loaded, setLoaded] = useState(null)
-	const [selectedElement, setSelectedElement] = useState(null);
-	const [showInfoWindow, setInfoWindow] = useState(true)
+	const [selectedTruck, setSelectedTruck] = useState(null);
 
 	const [center, setCenter] = useState({
 		lat: -3.745,
@@ -43,8 +43,12 @@ export default function MyComponent({resultTruck}) {
 			icon={"/assets/tiny_truck.png"}
 			title={truck.foodTruckName}
 			onClick={(props, marker) => {
-                setSelectedElement(truck);
+                setSelectedTruck(truck);
 			}}
+			animation={
+				selectedTruck && selectedTruck._id === truck._id ? window.google.maps.Animation.BOUNCE : null
+			}
+
 		/>
 	))
 
@@ -58,23 +62,25 @@ export default function MyComponent({resultTruck}) {
 			zoom={12}
 		>
 		{mapMarkers}
-		{selectedElement ? (
-          <InfoWindow
-            visible={showInfoWindow}
-            position={{
-				lat: selectedElement.location.geoLocation.coordinates[1],
-				lng: selectedElement.location.geoLocation.coordinates[0]
-			}}
-            onCloseClick={() => {
-              setSelectedElement(null);
-            }}
-			options={{ pixelOffset: new window.google.maps.Size(-2, -20) }}
-          >
-            <div>
-              <h1>{selectedElement.foodTruckName}</h1>
-            </div>
-          </InfoWindow>
-        ) : null
+		{
+			selectedTruck ? (
+				<InfoWindow
+					position={{
+						lat: selectedTruck.location.geoLocation.coordinates[1],
+						lng: selectedTruck.location.geoLocation.coordinates[0]
+					}}
+					onCloseClick={() => {
+						setSelectedTruck(null);
+					}}
+					options={{ 
+						pixelOffset: new window.google.maps.Size(-2, -30) 
+					}}
+				>
+					<div>
+						<h4 className={styles.infoWindowTitle}>{selectedTruck.foodTruckName}</h4>
+					</div>
+				</InfoWindow>
+			) : null
 		}
 		</GoogleMap>
 		</LoadScript>
