@@ -51,7 +51,6 @@ export default function DashboardPage() {
           loaded === true &&
           <>
           <h1>This is the Results Page</h1>
-          <button onClick={() => navigate('/')}>Home Page</button>
           {
             resultTruck.length === 0 ?
             <>

@@ -1,7 +1,7 @@
 .Cuisines {
     border-top: solid grey;
     height: 200px;
-    overflow: scroll;
+    overflow: auto;
     padding: 5px 0;
     margin-bottom: 5px;
 }
