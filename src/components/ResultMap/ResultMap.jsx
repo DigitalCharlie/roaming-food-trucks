@@ -15,8 +15,8 @@ export default function ResultsMap({resultTruck}) {
 	})
 
 	const containerStyle = {
-		width: '400px',
-		height: '400px'
+		width: '100%',
+		height: '550px',
 	};
 
 	useEffect(() => {
