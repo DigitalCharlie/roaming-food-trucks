@@ -1,10 +1,14 @@
-import MenuList from "../../components/MenuList/MenuList";
-import BusinessInfo from "../../components/BusinessInfo/BusinessInfo";
+// DEPENDENCIES
 import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import * as foodTruckAPI from "../../utilities/foodTruck-api";
 import styles from "./FTDetailsPage.module.css";
 import UserContext from '../../context/UserContext'
+
+// COMPONENTS
+import MenuList from "../../components/MenuList/MenuList";
+import BusinessInfo from "../../components/BusinessInfo/BusinessInfo";
+import SingleTruckMap from "../../components/SingleTruckMap/SingleTruckMap";
 
 export default function FTDetailsPage() {
     const [foodTruck, setFoodTruck] = useState({});
@@ -47,6 +51,7 @@ export default function FTDetailsPage() {
                   <p>{foodTruck.description}</p>
                 </div>
             </div>
+            <SingleTruckMap foodTruck={foodTruck} />
             <BusinessInfo foodTruck={foodTruck} />
             <MenuList foodTruck={foodTruck} className={styles.menuList}/>
         </div>

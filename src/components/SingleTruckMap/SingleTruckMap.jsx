@@ -2,13 +2,12 @@ import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/ap
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import styles from './ResultMap.module.css'
+import styles from '../ResultMap/ResultMap.module.css'
 
-export default function ResultsMap({resultTruck}) {
+export default function SingleTruckMap ({foodTruck}) {
 	
 	const [loaded, setLoaded] = useState(null)
 	const [selectedTruck, setSelectedTruck] = useState(null);
-
 	const [center, setCenter] = useState({
 		lat: -3.745,
 		lng: -38.523
@@ -20,10 +19,10 @@ export default function ResultsMap({resultTruck}) {
 	};
 
 	useEffect(() => {
-		if(resultTruck.length){
+		if(foodTruck){
 			let loadingCenter = {
-				lng: resultTruck[0].location.geoLocation.coordinates[0],
-				lat: resultTruck[0].location.geoLocation.coordinates[1]
+				lng: foodTruck.location.geoLocation.coordinates[0],
+				lat: foodTruck.location.geoLocation.coordinates[1]
 			}
 			setCenter(loadingCenter)
 			setLoaded(true)
@@ -33,24 +32,23 @@ export default function ResultsMap({resultTruck}) {
 	  }, [])
 
 
-	const mapMarkers = resultTruck.map((truck) => (
+	const mapMarker = 
 		<Marker
-			key={truck._id}
+			key={foodTruck._id}
 			position={{
-				lng:truck.location.geoLocation.coordinates[0],
-				lat:truck.location.geoLocation.coordinates[1]
+				lng:foodTruck.location.geoLocation.coordinates[0],
+				lat:foodTruck.location.geoLocation.coordinates[1]
 			}}
 			icon={"/assets/tiny_truck.png"}
-			title={truck.foodTruckName}
+			title={foodTruck.foodTruckName}
 			onClick={(props, marker) => {
-                setSelectedTruck(truck);
+                setSelectedTruck(foodTruck);
 			}}
 			animation={
-				selectedTruck && selectedTruck._id === truck._id ? window.google.maps.Animation.BOUNCE : null
+				selectedTruck && selectedTruck._id === foodTruck._id ? window.google.maps.Animation.BOUNCE : null
 			}
 
 		/>
-	))
 
 	return (
 		<LoadScript
@@ -61,7 +59,7 @@ export default function ResultsMap({resultTruck}) {
 			center={center}
 			zoom={12}
 		>
-		{mapMarkers}
+		{mapMarker}
 		{
 			selectedTruck ? (
 				<InfoWindow
@@ -81,8 +79,6 @@ export default function ResultsMap({resultTruck}) {
 						<p className={styles.address}>{selectedTruck.location.street}, {selectedTruck.location.city}, {selectedTruck.location.state}</p>
 						<hr className={styles.rule} />
 						<p>{selectedTruck.description}</p>
-						<Link to={`/foodtruck/detailpage/${selectedTruck._id}`}><button className={`button ${styles.button}`}>Explore the Menu</button></Link>
-						{/* <img src={selectedTruck.img} className={styles.truckThumbnail} /> */}
 					</div>
 				</InfoWindow>
 			) : null
