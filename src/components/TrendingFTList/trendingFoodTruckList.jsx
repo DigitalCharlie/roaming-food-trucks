@@ -8,9 +8,14 @@ export default function TrendingFoodTruck({ foodTrucks, user }) {
     const [id, setId] = useState("")
     const addFavorites = async (truckId) => {
         try {
-            const favoriteTruck = { truck: truckId }
-            const editedUser = await userAPI.newFavorite(user._id, favoriteTruck)
-            console.log(editedUser)
+            const userFavorites = await userAPI.getUserFavorites(user._id)
+            const check = userFavorites.find(truck => truck._id === truckId)
+            console.log("!!!", check)
+            if (!user) {
+                const favoriteTruck = { truck: truckId }
+                const editedUser = await userAPI.newFavorite(user._id, favoriteTruck)
+                console.log(editedUser)
+            }
         } catch (err) {
             console.log(err)
         }

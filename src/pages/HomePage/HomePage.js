@@ -6,7 +6,7 @@ export default function HomePage({ foodTrucks, user }) {
     return (
         <>
             <Hero />
-            <TrendingFoodTruck foodTrucks={foodTrucks} />
+            <TrendingFoodTruck foodTrucks={foodTrucks} user={user} />
         </>
 
     )
