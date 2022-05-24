@@ -7,7 +7,7 @@ export default function HomePage({ foodTrucks, user }) {
         <main>
             <SearchBox />
             <Hero />
-            <TrendingFoodTruck foodTrucks={foodTrucks} />
+            <TrendingFoodTruck foodTrucks={foodTrucks} user={user} />
         </main>
 
     )

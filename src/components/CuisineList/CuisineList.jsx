@@ -1,7 +1,9 @@
-export default function CuisineList({ cuisines, setCuisines, handleCuisineChange }) {
-    const allCuisines = ["american", "asian-fusion", "chinese", "cuban", "ethiopian", "filipino", "french", "greek", "haitian", "indian", "japanese", "korean", "mediteranean", "mexican", "nigerian", "polish", "tex-mex", "vietnamese", "thai"];
+import styles from "./Cuisine.module.css"
+
+export default function CuisineList({ handleCuisineChange }) {
+    const allCuisines = ["american", "asian-fusion", "chinese", "cuban", "ethiopian", "filipino", "french", "greek", "haitian", "indian", "japanese", "korean", "mediteranean", "mexican", "nigerian", "polish", "tex-mex", "thai", "vietnamese"];
     return (
-        <div>
+        <div className={styles.Cuisines}>
             {
                 allCuisines.map((element, idx) => {
                     return (
@@ -9,7 +11,7 @@ export default function CuisineList({ cuisines, setCuisines, handleCuisineChange
                             <input onClick={() => {
                                 handleCuisineChange(element)
                             }} name={element} type="checkbox" />
-                            {element}
+                            <p>{element}</p>
                         </div>
                     )
                 })

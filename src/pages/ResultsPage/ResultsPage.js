@@ -7,6 +7,7 @@ import ResultList from '../../components/ResultList/ResultList'
 import CuisineList from '../../components/CuisineList/CuisineList'
 import ResultMap from '../../components/ResultMap/ResultMap'
 import SearchBox from '../../components/SearchBox/SearchBox'
+import styles from './ResultsPage.module.css'
 
 export default function DashboardPage() {
   const navigate = useNavigate()
@@ -45,7 +46,7 @@ export default function DashboardPage() {
   }
 
   return (
-      <main>
+      <main className={styles.ResultPage}>
         {
           loaded === true &&
           <>
@@ -58,16 +59,20 @@ export default function DashboardPage() {
               <SearchBox />
             </>
             :
-            <>
-              <div>
+            <div>
+              <div className={styles.firstColumn}>
                 <h2>Filters</h2>
-                <CuisineList cuisines={cuisines} setCuisines={setCuisines} handleCuisineChange={handleCuisineChange} />
+                <CuisineList  handleCuisineChange={handleCuisineChange} />
                 <StarRating starRate={starRate} setStarRate={setStarRate} />
-                {/* <PriceList resultPageState={resultTruck} /> */}
+                {/* <PriceList resultPageState={resultTruck} priceRate={priceRate} setPriceRate={setPriceRate} /> */}
               </div>
-              <ResultList resultTruck={resultTruck} starRate={starRate} priceRate={priceRate} cuisines={cuisines} />
-              <ResultMap resultTruck={resultTruck} zipcode={searchParams.get("zipcode")}/>
-            </>
+              <div className={styles.secondColumn}>
+                <ResultList resultTruck={resultTruck} starRate={starRate} priceRate={priceRate} cuisines={cuisines} />
+              </div>
+              <div className={styles.thirdColumn}>
+                <ResultMap resultTruck={resultTruck} zipcode={searchParams.get("zipcode")}/>
+              </div>
+            </div>
           }
 
           </>
