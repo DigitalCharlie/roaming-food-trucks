@@ -21,4 +21,5 @@
     border-bottom:2px solid var(--darkgray);
     padding:0;
     box-shadow: 0px -2px 15px var(--darkgray);
+    height:85px;
 }
