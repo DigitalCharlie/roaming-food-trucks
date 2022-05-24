@@ -20,7 +20,8 @@
 
 .secondColumn {
     flex: 3;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x:hidden;
     height: 70vh;
 }
 
