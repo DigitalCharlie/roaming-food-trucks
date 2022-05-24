@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import styles from './ResultList.module.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function ({resultTruck, starRate, priceRate, cuisines}) {
 const navigate = useNavigate()
@@ -36,8 +37,8 @@ const navigate = useNavigate()
                                     <h5>{truck.foodTruckName}</h5>
                                     <p>{truck.currentRating ? truck.currentRating.toFixed(1) : null}</p>
                                 </div>
-                                <p>Wait time</p>
-                                <p>{truck.location.street}, {truck.location.city} </p>
+                                <p><FontAwesomeIcon className={styles.Icon} icon="fa-solid fa-clock" /> Wait time</p>
+                                <p><FontAwesomeIcon className={styles.Icon} icon="fa-solid fa-map-pin" /> {truck.location.street}, {truck.location.city} </p>
                             </div>
                         </div>
                     ))
