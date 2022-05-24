@@ -35,8 +35,6 @@ export default function DashboardPage() {
       })()
     }, [])
 
-  console.log(cuisines)
-
   const handleCuisineChange = (cuisine) => {
     const cuisineArray = [...cuisines]
     if (cuisineArray.indexOf(cuisine) === -1) {
