@@ -42,6 +42,14 @@ export default function FTDetailsPage() {
             <h6>{foodTruck.cuisine}</h6>
             {/* {"Rating Component"} */}<h6>Rating</h6>
             {/* {"Reviews Button"} */}<h6>Reviews</h6>
+            {
+              foodTruck.reviews && foodTruck.reviews.length > 0 ?
+              foodTruck.reviews.map((review) => (
+                review.review
+              ))
+              :
+              `${foodTruck.foodTruckName} has no reviews. be the first to review it!`
+            }
             <div>
                 <img src={foodTruck.img} alt="foodtruckimage" className={styles.foodTruckImage}></img>
             </div>
