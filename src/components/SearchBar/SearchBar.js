@@ -46,19 +46,8 @@ export default function SearchBar({buttonText, buttonClass}) {
 
     const handleSubmit = (evt) => {
         evt.preventDefault()
-<<<<<<< HEAD
-        if(formData.zipcode){
-            console.log(formData.zipcode)
-            setSearchParams(formData)
-            console.log(formData)
-            navigate(`/foodtruck/resultspage?zipcode=${formData.zipcode}&cuisine=${formData.cuisine}&radius=5`)
-        } else {
-           console.log('zipcode needed')
-        }
-=======
         setSearchParams(formData)
         navigate(`/foodtruck/resultspage?zipcode=${formData.zipcode}&cuisine=${formData.cuisine}&radius=5`)
->>>>>>> 94e0e510f30d2d0dc069f7a23066ddf0cfb0c6dc
     }
     useEffect(() => {
         const defaultCuisine = searchParams.get("cuisine") !== null ? searchParams.get("cuisine") : { value: null, label: "Select Cuisine", }
