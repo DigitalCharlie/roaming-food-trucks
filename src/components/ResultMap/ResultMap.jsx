@@ -1,13 +1,17 @@
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 import { useEffect, useState } from 'react';
+import { isCompositeComponentWithType } from 'react-dom/test-utils';
 
 export default function MyComponent({resultTruck}) {
+	
+	const [loaded, setLoaded] = useState(null)
+	const [selectedElement, setSelectedElement] = useState(null);
+	const [showInfoWindow, setInfoWindow] = useState(true)
 
 	const [center, setCenter] = useState({
 		lat: -3.745,
 		lng: -38.523
 	})
-	const [loaded, setLoaded] = useState(null)
 
 	const containerStyle = {
 		width: '400px',
@@ -28,9 +32,21 @@ export default function MyComponent({resultTruck}) {
 		}
 	  }, [])
 
-	const markers = [
-		{lng: -73.9929658, lat: 40.73763599999999}
-	]
+
+	const mapMarkers = resultTruck.map((truck) => (
+		<Marker
+			key={truck._id}
+			position={{
+				lng:truck.location.geoLocation.coordinates[0],
+				lat:truck.location.geoLocation.coordinates[1]
+			}}
+			icon={"/assets/tiny_truck.png"}
+			title={truck.foodTruckName}
+			onClick={(props, marker) => {
+                setSelectedElement(truck);
+			}}
+		/>
+	))
 
 	return (
 		<LoadScript
@@ -39,18 +55,28 @@ export default function MyComponent({resultTruck}) {
 		<GoogleMap
 			mapContainerStyle={containerStyle}
 			center={center}
-			zoom={10}
+			zoom={12}
 		>
-			<Marker
-				position={center}
-				title="Test"
-				label="Test"
-				name="Test"
-			/>
-			<Marker
-				position={{lat:0,lng:0}}
-			/>
+		{mapMarkers}
+		{selectedElement ? (
+          <InfoWindow
+            visible={showInfoWindow}
+            position={{
+				lat: selectedElement.location.geoLocation.coordinates[1],
+				lng: selectedElement.location.geoLocation.coordinates[0]
+			}}
+            onCloseClick={() => {
+              setSelectedElement(null);
+            }}
+			options={{ pixelOffset: new window.google.maps.Size(-2, -20) }}
+          >
+            <div>
+              <h1>{selectedElement.foodTruckName}</h1>
+            </div>
+          </InfoWindow>
+        ) : null
+		}
 		</GoogleMap>
 		</LoadScript>
 	)
-	}
+}
