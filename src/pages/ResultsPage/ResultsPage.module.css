@@ -1,24 +1,30 @@
+.ResultPage {
+    max-width:100%;
+    height:80vh
+}
+
 .ResultPage > h1{
     text-align: center;
 }
 
 .ResultPage > div {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 25px;
     padding: 0 20px;
 }
 
 .firstColumn {
-    width: auto;
+    flex: 1;
 }
 
 .secondColumn {
-    width: 40%;
-    overflow: scroll;
-    height: 44vh;
+    flex: 3;
+    overflow-y: auto;
+    overflow-x:hidden;
+    height: 70vh;
 }
 
 .thirdColumn {
-    width: auto;
-}
+    flex: 2;
+} 

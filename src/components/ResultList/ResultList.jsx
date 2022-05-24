@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import styles from './ResultList.module.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function ({resultTruck, starRate, priceRate, cuisines}) {
-
+const navigate = useNavigate()
 
     const starFilter = (truck) => {
         if (!starRate) return truck
@@ -20,7 +22,7 @@ export default function ({resultTruck, starRate, priceRate, cuisines}) {
 
     return (
         <>
-            <div>
+            <div className={styles.Card}>
                 {
                     resultTruck.filter(starFilter).filter(priceFilter).filter(cuisineFilter).length === 0 ?
                         <>
@@ -28,10 +30,16 @@ export default function ({resultTruck, starRate, priceRate, cuisines}) {
                         </>
                     :
                     resultTruck.filter(starFilter).filter(priceFilter).filter(cuisineFilter).map((truck) => (
-                        <div key={truck._id}>
-                                <p><Link to={`/foodtruck/detailpage/${truck._id}`}>{truck.foodTruckName}</Link></p>
-                                <p>Zip code: {truck.location.zipCode}</p>
-                                <p>Cuisine: {truck.cuisine}</p>
+                        <div key={truck._id} onClick={() => navigate(`/foodtruck/detailpage/${truck._id}`)} >
+                            <img src={truck.img} height='250' width='300' />
+                            <div className={styles.Banner}>
+                                <div className={styles.BannerTitle}>
+                                    <h5>{truck.foodTruckName}</h5>
+                                    <p>{truck.currentRating ? truck.currentRating.toFixed(1) : null}</p>
+                                </div>
+                                <p><FontAwesomeIcon className={styles.Icon} icon="fa-solid fa-clock" /> Wait time</p>
+                                <p><FontAwesomeIcon className={styles.Icon} icon="fa-solid fa-map-pin" /> {truck.location.street}, {truck.location.city} </p>
+                            </div>
                         </div>
                     ))
                 }

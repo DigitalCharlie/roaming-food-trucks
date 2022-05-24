@@ -15,8 +15,11 @@
 
 .fixedNavbar {
     background-color: white;
-    /* position: fixed;
-    z-index: 100;
-    width: 100%;
-    box-shadow: 0 0 10px lightgray; */
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom:2px solid var(--darkgray);
+    padding:0;
+    box-shadow: 0px -2px 15px var(--darkgray);
+    height:85px;
 }

@@ -2,66 +2,56 @@ import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/ap
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import styles from './ResultMap.module.css'
+import styles from '../ResultMap/ResultMap.module.css'
 
-export default function ResultsMap({resultTruck}) {
+export default function SingleTruckMap ({foodTruck}) {
 	
-	const [loaded, setLoaded] = useState(null)
 	const [selectedTruck, setSelectedTruck] = useState(null);
-
 	const [center, setCenter] = useState({
 		lat: -3.745,
 		lng: -38.523
 	})
 
 	const containerStyle = {
-		width: '100%',
-		height: '550px',
+		width: '400px',
+		height: '400px'
 	};
 
 	useEffect(() => {
-		if(resultTruck.length){
-			let loadingCenter = {
-				lng: resultTruck[0].location.geoLocation.coordinates[0],
-				lat: resultTruck[0].location.geoLocation.coordinates[1]
-			}
-			setCenter(loadingCenter)
-			setLoaded(true)
-		} else {
-			setLoaded(true)
+		console.log(foodTruck)
+		let loadingCenter = {
+			lng: foodTruck.location.geoLocation.coordinates[0],
+			lat: foodTruck.location.geoLocation.coordinates[1]
 		}
+		setCenter(loadingCenter)
 	  }, [])
-
-
-	const mapMarkers = resultTruck.map((truck) => (
-		<Marker
-			key={truck._id}
-			position={{
-				lng:truck.location.geoLocation.coordinates[0],
-				lat:truck.location.geoLocation.coordinates[1]
-			}}
-			icon={"/assets/tiny_truck.png"}
-			title={truck.foodTruckName}
-			onClick={(props, marker) => {
-                setSelectedTruck(truck);
-			}}
-			animation={
-				selectedTruck && selectedTruck._id === truck._id ? window.google.maps.Animation.BOUNCE : null
-			}
-
-		/>
-	))
 
 	return (
 		<LoadScript
 		googleMapsApiKey={process.env.REACT_APP_MAPS_KEY}
 		>
+
 		<GoogleMap
 			mapContainerStyle={containerStyle}
 			center={center}
 			zoom={12}
 		>
-		{mapMarkers}
+		<Marker
+			key={foodTruck._id}
+			position={{
+				lng:foodTruck.location.geoLocation.coordinates[0],
+				lat:foodTruck.location.geoLocation.coordinates[1]
+			}}
+			icon={"/assets/tiny_truck.png"}
+			title={foodTruck.foodTruckName}
+			onClick={(props, marker) => {
+                setSelectedTruck(foodTruck);
+			}}
+			animation={
+				selectedTruck && selectedTruck._id === foodTruck._id ? window.google.maps.Animation.BOUNCE : null
+			}
+
+		/>
 		{
 			selectedTruck ? (
 				<InfoWindow
@@ -81,8 +71,6 @@ export default function ResultsMap({resultTruck}) {
 						<p className={styles.address}>{selectedTruck.location.street}, {selectedTruck.location.city}, {selectedTruck.location.state}</p>
 						<hr className={styles.rule} />
 						<p>{selectedTruck.description}</p>
-						<Link to={`/foodtruck/detailpage/${selectedTruck._id}`}><button className={`button ${styles.button}`}>Explore the Menu</button></Link>
-						{/* <img src={selectedTruck.img} className={styles.truckThumbnail} /> */}
 					</div>
 				</InfoWindow>
 			) : null

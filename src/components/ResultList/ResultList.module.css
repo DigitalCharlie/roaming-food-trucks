@@ -42,3 +42,7 @@
     flex-direction: column;
     gap: 10px;
 }
+
+.Icon {
+    color: var(--orange);
+}

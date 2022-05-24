@@ -35,10 +35,20 @@
     justify-content: space-between;
 }
 
+<<<<<<< HEAD
 .BannerTitle > h5 > span:hover {
     color: red;
 }
 
 .BannerTitle > h5 > span:active {
     color: red;
+=======
+.Icon {
+    color: rgb(255 0 0);
+}
+
+.Icon:hover {
+    color: rgb(225 0 0);
+    cursor: pointer;
+>>>>>>> 94e0e510f30d2d0dc069f7a23066ddf0cfb0c6dc
 }

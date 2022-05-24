@@ -7,6 +7,7 @@ import ResultList from '../../components/ResultList/ResultList'
 import CuisineList from '../../components/CuisineList/CuisineList'
 import ResultMap from '../../components/ResultMap/ResultMap'
 import SearchBox from '../../components/SearchBox/SearchBox'
+import styles from './ResultsPage.module.css'
 
 export default function DashboardPage() {
   const [loaded, setLoaded] = useState(null)
@@ -24,7 +25,6 @@ export default function DashboardPage() {
           let zipcode = searchParams.get("zipcode")
           let radius = searchParams.get("radius")
           const zipRadiusData = await FoodtruckAPI.zipRadiusSearch(zipcode,radius)
-          console.log(zipRadiusData)
           setResultTruck(zipRadiusData)
           setLoaded(true)
         } catch(e) {
@@ -32,8 +32,6 @@ export default function DashboardPage() {
         }
       })()
     }, [])
-
-  console.log(cuisines)
 
   const handleCuisineChange = (cuisine) => {
     const cuisineArray = [...cuisines]
@@ -47,12 +45,10 @@ export default function DashboardPage() {
   }
 
   return (
-      <main>
+      <main className={styles.ResultPage}>
         {
           loaded === true &&
           <>
-          <h1>This is the Results Page</h1>
-          <button onClick={() => navigate('/')}>Home Page</button>
           {
             resultTruck.length === 0 ?
             <>
@@ -60,16 +56,20 @@ export default function DashboardPage() {
               <SearchBox />
             </>
             :
-            <>
-              <div>
+            <div>
+              <div className={styles.firstColumn}>
                 <h2>Filters</h2>
-                <CuisineList cuisines={cuisines} setCuisines={setCuisines} handleCuisineChange={handleCuisineChange} />
+                <CuisineList  handleCuisineChange={handleCuisineChange} />
                 <StarRating starRate={starRate} setStarRate={setStarRate} />
-                {/* <PriceList resultPageState={resultTruck} /> */}
+                {/* <PriceList resultPageState={resultTruck} priceRate={priceRate} setPriceRate={setPriceRate} /> */}
               </div>
-              <ResultList resultTruck={resultTruck} starRate={starRate} priceRate={priceRate} cuisines={cuisines} />
-              <ResultMap resultTruck={resultTruck} zipcode={searchParams.get("zipcode")}/>
-            </>
+              <div className={styles.secondColumn}>
+                <ResultList resultTruck={resultTruck} starRate={starRate} priceRate={priceRate} cuisines={cuisines} />
+              </div>
+              <div className={styles.thirdColumn}>
+                <ResultMap resultTruck={resultTruck} zipcode={searchParams.get("zipcode")}/>
+              </div>
+            </div>
           }
 
           </>
