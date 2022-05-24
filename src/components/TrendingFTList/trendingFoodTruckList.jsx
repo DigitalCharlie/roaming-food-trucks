@@ -46,8 +46,6 @@ export default function TrendingFoodTruck({ foodTrucks, user }) {
                 {
                     foodTrucks.map((foodTruck, idx) => {
                         return (
-                            // returns only the first 6 food trucks
-                            idx < 6 &&
                             <div key={foodTruck._id} >
                                 <img src={foodTruck.img} height='250' width='300' />
                                 <div className={styles.Banner}>
