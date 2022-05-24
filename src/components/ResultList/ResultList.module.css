@@ -6,10 +6,16 @@
 }
 
 .Card > div {
-    height: 350px;
-    width: 300px;
     border-radius: 5px;
     background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.Card > div:hover{
+    border: solid;
+    cursor: pointer;
 }
 
 .Card > div > img {
@@ -19,6 +25,7 @@
 .Banner {
     display: flex;
     flex-direction: column;
+    width: 90%;
 }
 
 .Banner > p {
@@ -30,11 +37,12 @@
     justify-content: space-between;
 }
 
-.Icon {
-    color: rgb(255 0 0);
+.div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.Icon:hover {
-    color: rgb(225 0 0);
-    cursor: pointer;
+.Icon {
+    color: orange;
 }
