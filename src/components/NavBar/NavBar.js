@@ -21,9 +21,9 @@ export default function NavBar({ pathname, user, setUser }) {
       <Container>
         <Navbar.Brand><Link to="/"><img src="assets/roaming-spoon-logo.png" alt="logo" className={styles.logo} /></Link> </Navbar.Brand>
         {
-          pathname === "/signup" || pathname === "/login" ?
+         pathname === "/signup" || pathname === "/login" ?
             ""
-            :
+            : !user ? 
             <>
               <Navbar.Toggle />
               {
@@ -37,16 +37,20 @@ export default function NavBar({ pathname, user, setUser }) {
                 </Navbar.Text>
               </Navbar.Collapse>
             </>
-        }
-        { 
-          user && pathname === '/' ? 
+            :
+          <>
+          <Navbar.Toggle />
+          {
+            pathname !== '/' &&
+            <SearchBar buttonClass="search-bar-button" />
+          }
           <Navbar.Collapse className="justify-content-end">
                 <Navbar.Text>
                   <button className="signup-button" onClick={handleLogOut}>Log Out </button>
                   <a className={styles.anchor}> <img src="assets/login_user_icon.png" alt="login-icon" /> Hi, {user.firstName} </a>
                 </Navbar.Text>
-              </Navbar.Collapse> : 
-              ""
+              </Navbar.Collapse> 
+              </>
         }
 
       </Container>
