@@ -15,6 +15,9 @@
 
 .firstColumn {
     flex: 1;
+    position:sticky;
+    top:100px;
+    align-self:flex-start
 }
 
 .secondColumn {
@@ -25,4 +28,7 @@
 
 .thirdColumn {
     flex: 2;
+    position:sticky;
+    top:100px;
+    align-self:flex-start
 } 
