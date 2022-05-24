@@ -10,15 +10,15 @@
 }
 
 .firstColumn {
-    width: auto;
+    flex: 1;
 }
 
 .secondColumn {
-    width: 40%;
+    flex: 3;
     overflow: scroll;
     height: 44vh;
 }
 
 .thirdColumn {
-    width: auto;
+    flex: 2;
 } 
