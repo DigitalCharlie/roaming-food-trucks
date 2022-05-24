@@ -2,10 +2,11 @@
 } */
 
 .FTDetailsPage .foodTruckImage {
-    width: 60%;
-    height: 20%;
-    border-radius: 8%;
+    width: 100%;
+    height: 450px;
+    border-radius: 30px;
     margin-top: 1%;
+    object-fit:cover;
 }
 
 .FTDetailsPage .foodTruckDescription {
