@@ -40,7 +40,7 @@ export default function SignInForm({ setUser }) {
                         <p className="error-message">&nbsp;{error}</p>
                     </form>
                     <div className={styles.signupdiv}>
-                        <p className={styles.signup}>Don't have an account? <Link className={styles.link} to="/signup">Sign Up</Link></p>
+                        <p className={styles.signup}>Don't have an account?<br /><Link className={styles.link} to="/signup">Sign Up</Link></p>
                     </div>
                 </div>
                 <div>

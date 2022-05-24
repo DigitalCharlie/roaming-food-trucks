@@ -44,7 +44,7 @@ export default function SignUpForm({ setUser}) {
                     </div>
                 </form>
                 <div className={styles.signindiv}>
-                    <p className={styles.signin}>Already have an account? <Link className={styles.link} to="/login">Sign In</Link></p>
+                    <p className={styles.signin}>Already have an account?<br /> <Link className={styles.link} to="/login">Sign In</Link></p>
                 </div>
             </div>
             <div>
