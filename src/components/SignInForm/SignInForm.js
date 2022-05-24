@@ -2,6 +2,7 @@ import { useState } from "react";
 import * as usersService from "../../utilities/users-service";
 import styles from './SignInForm.module.css';
 import { Link } from "react-router-dom";
+import { NonceProvider } from "react-select";
 
 export default function SignInForm({ setUser }) {
     const [credentials, setCredentials] = useState({
@@ -32,10 +33,10 @@ export default function SignInForm({ setUser }) {
                 <div>
                     <h3 className={styles.signin}>Sign In</h3>
                     <form onSubmit={handleSubmit}>
-                        <input className={styles.input} value={credentials.email} type="email" onChange={handleChange} placeholder="Email" name="email"></input>
-                        <input className={styles.input} value={credentials.password} type="password" onChange={handleChange} placeholder="Password" name="password"></input>
+                        <input className={styles.input} value={credentials.email} type="email" onChange={handleChange} placeholder="Email" name="email" required></input>
+                        <input className={styles.input} value={credentials.password} type="password" onChange={handleChange} placeholder="Password" name="password" required></input>
                         <div>
-                            <button className={styles.button} type="submit" >Sign In</button>
+                            <button className={styles.button} type="submit" > <Link style={{textDecoration: "none", color: "white"}} to="/">Sign In</Link></button>
                         </div>
                         <p className="error-message">&nbsp;{error}</p>
                     </form>
