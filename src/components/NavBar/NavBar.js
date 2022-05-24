@@ -13,7 +13,7 @@ export default function NavBar({ pathname, user }) {
     <Navbar className={styles.fixedNavbar}>
 
       <Container>
-        <Navbar.Brand><Link to="/"><img src="assets/roaming-spoon-logo.png" alt="logo" className={styles.logo} /></Link> </Navbar.Brand>
+        <Navbar.Brand><Link to="/"><img src="/assets/roaming-spoon-logo.png" alt="logo" className={styles.logo} /></Link> </Navbar.Brand>
         {
           pathname === "/signup" || pathname === "/login" ?
             ""
@@ -24,7 +24,7 @@ export default function NavBar({ pathname, user }) {
               <Navbar.Collapse className="justify-content-end">
                 <Navbar.Text>
                   <button className="signup-button"> <Link className={styles.link} to="/signup">Sign Up</Link></button>
-                  <a className={styles.anchor}> <img src="assets/login_user_icon.png" alt="login-icon" /><Link className={styles.link} to="/login"> Sign In</Link> </a>
+                  <a className={styles.anchor}> <img src="/assets/login_user_icon.png" alt="login-icon" /><Link className={styles.link} to="/login"> Sign In</Link> </a>
                 </Navbar.Text>
               </Navbar.Collapse>
             </>
