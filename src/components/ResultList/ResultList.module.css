@@ -1,0 +1,44 @@
+.Card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1em;
+    padding: 10px 0 0 30px;
+}
+
+.Card > div {
+    border-radius: 5px;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.Card > div:hover{
+    border: solid;
+    cursor: pointer;
+}
+
+.Card > div > img {
+    border-radius: 5px 5px 0 0;
+}
+
+.Banner {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.Banner > p {
+    padding-left: 30px;
+}
+
+.BannerTitle {
+    display: flex;
+    justify-content: space-between;
+}
+
+.div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
