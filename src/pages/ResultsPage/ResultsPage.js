@@ -65,9 +65,9 @@ export default function DashboardPage() {
             <div>
               <div className={styles.firstColumn}>
                 <h2>Filters</h2>
-                <CuisineList cuisines={cuisines} setCuisines={setCuisines} handleCuisineChange={handleCuisineChange} />
+                <CuisineList  handleCuisineChange={handleCuisineChange} />
                 <StarRating starRate={starRate} setStarRate={setStarRate} />
-                {/* <PriceList resultPageState={resultTruck} /> */}
+                <PriceList resultPageState={resultTruck} priceRate={priceRate} setPriceRate={setPriceRate} />
               </div>
               <div className={styles.secondColumn}>
                 <ResultList resultTruck={resultTruck} starRate={starRate} priceRate={priceRate} cuisines={cuisines} />
