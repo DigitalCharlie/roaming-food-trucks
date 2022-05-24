@@ -50,7 +50,6 @@ export default function DashboardPage() {
         {
           loaded === true &&
           <>
-          <h1>This is the Results Page</h1>
           {
             resultTruck.length === 0 ?
             <>

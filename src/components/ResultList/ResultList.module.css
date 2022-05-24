@@ -44,5 +44,5 @@
 }
 
 .Icon {
-    color: orange;
+    color: var(--orange);
 }
