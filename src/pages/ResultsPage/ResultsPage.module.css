@@ -1,3 +1,7 @@
+.ResultPage {
+    max-width:100%;
+}
+
 .ResultPage > h1{
     text-align: center;
 }

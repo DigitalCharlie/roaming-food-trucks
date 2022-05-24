@@ -4,11 +4,13 @@ import SearchBox from "../../components/SearchBox/SearchBox"
 
 export default function HomePage({ foodTrucks, user }) {
     return (
-        <main>
+        <div>
             <SearchBox />
             <Hero />
-            <TrendingFoodTruck foodTrucks={foodTrucks} user={user} />
-        </main>
+            <main>
+                <TrendingFoodTruck foodTrucks={foodTrucks} user={user} />
+            </main>
+        </div>
 
     )
 }
