@@ -6,7 +6,6 @@ import styles from '../ResultMap/ResultMap.module.css'
 
 export default function SingleTruckMap ({foodTruck}) {
 	
-	const [loaded, setLoaded] = useState(null)
 	const [selectedTruck, setSelectedTruck] = useState(null);
 	const [center, setCenter] = useState({
 		lat: -3.745,
@@ -19,20 +18,24 @@ export default function SingleTruckMap ({foodTruck}) {
 	};
 
 	useEffect(() => {
-		if(foodTruck){
-			let loadingCenter = {
-				lng: foodTruck.location.geoLocation.coordinates[0],
-				lat: foodTruck.location.geoLocation.coordinates[1]
-			}
-			setCenter(loadingCenter)
-			setLoaded(true)
-		} else {
-			setLoaded(true)
+		console.log(foodTruck)
+		let loadingCenter = {
+			lng: foodTruck.location.geoLocation.coordinates[0],
+			lat: foodTruck.location.geoLocation.coordinates[1]
 		}
+		setCenter(loadingCenter)
 	  }, [])
 
+	return (
+		<LoadScript
+		googleMapsApiKey={process.env.REACT_APP_MAPS_KEY}
+		>
 
-	const mapMarker = 
+		<GoogleMap
+			mapContainerStyle={containerStyle}
+			center={center}
+			zoom={12}
+		>
 		<Marker
 			key={foodTruck._id}
 			position={{
@@ -49,17 +52,6 @@ export default function SingleTruckMap ({foodTruck}) {
 			}
 
 		/>
-
-	return (
-		<LoadScript
-		googleMapsApiKey={process.env.REACT_APP_MAPS_KEY}
-		>
-		<GoogleMap
-			mapContainerStyle={containerStyle}
-			center={center}
-			zoom={12}
-		>
-		{mapMarker}
 		{
 			selectedTruck ? (
 				<InfoWindow

@@ -51,9 +51,14 @@ export default function FTDetailsPage() {
                   <p>{foodTruck.description}</p>
                 </div>
             </div>
-            <SingleTruckMap foodTruck={foodTruck} />
-            <BusinessInfo foodTruck={foodTruck} />
-            <MenuList foodTruck={foodTruck} className={styles.menuList}/>
+            {
+              foodTruck.location &&
+              <>
+                <SingleTruckMap foodTruck={foodTruck} />
+                <BusinessInfo foodTruck={foodTruck} />
+                <MenuList foodTruck={foodTruck} className={styles.menuList}/>
+              </>
+            }
         </div>
         }
       </main>
