@@ -8,7 +8,6 @@ import UserContext from '../../context/UserContext'
 // COMPONENTS
 import MenuList from "../../components/MenuList/MenuList";
 import BusinessInfo from "../../components/BusinessInfo/BusinessInfo";
-import SingleTruckMap from "../../components/SingleTruckMap/SingleTruckMap";
 
 export default function FTDetailsPage() {
     const [foodTruck, setFoodTruck] = useState({});
@@ -62,7 +61,6 @@ export default function FTDetailsPage() {
             {
               foodTruck.location &&
               <>
-                <SingleTruckMap foodTruck={foodTruck} />
                 <BusinessInfo foodTruck={foodTruck} />
                 <MenuList foodTruck={foodTruck} className={styles.menuList}/>
               </>
