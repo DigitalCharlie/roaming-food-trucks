@@ -1,6 +1,5 @@
 .ResultPage {
     max-width:100%;
-    height:80vh
 }
 
 .ResultPage > h1{
@@ -22,7 +21,6 @@
     flex: 3;
     overflow-y: auto;
     overflow-x:hidden;
-    height: 70vh;
 }
 
 .thirdColumn {
