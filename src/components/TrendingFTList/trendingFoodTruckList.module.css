@@ -29,3 +29,12 @@
     display: flex;
     justify-content: space-between;
 }
+
+.Icon {
+    color: rgb(255 0 0);
+}
+
+.Icon:hover {
+    color: rgb(225 0 0);
+    cursor: pointer;
+}
