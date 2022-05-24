@@ -15,3 +15,13 @@
 .Cuisines > div > p {
     margin-bottom: 3px;
 } 
+
+.cuisineLabel {
+    cursor:pointer;
+}
+
+.cuisineLabel > input {
+    margin: 5px 5px 5px 0;
+    position:relative;
+    top:1px;
+}

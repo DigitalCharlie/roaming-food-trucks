@@ -8,10 +8,11 @@ export default function CuisineList({ handleCuisineChange }) {
                 allCuisines.map((element, idx) => {
                     return (
                         <div key={idx}>
+                            <label className={styles.cuisineLabel}>
                             <input onClick={() => {
                                 handleCuisineChange(element)
                             }} name={element} type="checkbox" />
-                            <p>{element}</p>
+                            {element}</label>
                         </div>
                     )
                 })
