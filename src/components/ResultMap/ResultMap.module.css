@@ -1,4 +1,23 @@
 .infoWindowTitle {
 	font-size:1.25em;
 	font-weight:700;
+	margin-bottom:5px;
+}
+
+.truckThumbnail {
+	width:100%;
+}
+
+.address {
+	font-size:.85em;
+	margin-bottom:0;
+}
+
+.button {
+	height:30px;
+	width:100%;
+}
+
+.rule {
+	margin:10px 0;
 }

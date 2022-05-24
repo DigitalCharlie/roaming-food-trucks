@@ -1,5 +1,6 @@
 import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import styles from './ResultMap.module.css'
 
@@ -78,6 +79,11 @@ export default function MyComponent({resultTruck}) {
 				>
 					<div>
 						<h4 className={styles.infoWindowTitle}>{selectedTruck.foodTruckName}</h4>
+						<p className={styles.address}>{selectedTruck.location.street}, {selectedTruck.location.city}, {selectedTruck.location.state}</p>
+						<hr className={styles.rule} />
+						<p>{selectedTruck.description}</p>
+						<Link to={`/foodtruck/detailpage/${selectedTruck._id}`}><button className={`button ${styles.button}`}>Explore the Menu</button></Link>
+						{/* <img src={selectedTruck.img} className={styles.truckThumbnail} /> */}
 					</div>
 				</InfoWindow>
 			) : null
