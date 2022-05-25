@@ -7,15 +7,17 @@ export default function EntreeList({ foodTruck }) {
         <div className={styles.EntreeList}>
             <div>
                 <ul>
-                    <li className={styles.entreeList}>
+                    <li className={`${styles.entreeList} menu-section`}>
                         {
                             menu ?
                             menu.entrees.map((entree, idx) => {
                                 return (
-                                    <div key={idx}>
-                                        <p>{entree.dishName}</p>
+                                    <div key={idx} className="dish">
+                                        <div className="dish-topline">
+                                        <p className="dish-name">{entree.dishName}</p>
+                                        <p className="dish-price">${entree.price}</p>
+                                        </div>
                                         <p>{entree.description}</p>
-                                        <p>${entree.price}</p>
                                     </div>
                                 )
                             })

@@ -7,15 +7,17 @@ export default function SidesList({ foodTruck }) {
         <div className={styles.SidesList}>
             <div>
                 <ul>
-                    <li className={styles.sidesList}>
+                    <li className={`${styles.sidesList} menu-section`}>
                         {
                             menu ?
                             menu.sides.map((side, idx) => {
                                 return (
-                                    <div key={idx}>
-                                        <p>{side.dishName}</p>
+                                    <div key={idx} className="dish">
+                                        <div className="dish-topline">
+                                            <p className="dish-name">{side.dishName}</p>
+                                            <p className="dish-price">${side.price}</p>
+                                        </div>
                                         <p>{side.description}</p>
-                                        <p>${side.price}</p>
                                     </div>
                                 )
                             })

@@ -36,6 +36,12 @@
     font-weight:300;
     margin-top:20px;
     padding:2px 10px;
+    transition:.25s;
+}
+
+.ReviewButton:hover {
+    background-color: var(--orange);
+    color:white;
 }
 
 .Right {

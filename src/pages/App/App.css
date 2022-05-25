@@ -5,3 +5,30 @@
     font-weight:200;
     background-color: var(--lightgray);
 }
+
+/* MENU STYLES SINCE THEY'RE USED 5 TIMES */
+
+.menu-section {
+    columns:2 auto;
+    margin:20px 0 50px
+}
+
+.dish-topline {
+    display:flex;
+    justify-content: space-between;
+}
+
+.dish {
+    width:75%;
+    break-inside: avoid;
+}
+
+.dish-name {
+    font-weight: 700;
+    margin-bottom:0;
+}
+
+.dish-price {
+    margin-bottom:0;
+    color:var(--darkgray)
+}

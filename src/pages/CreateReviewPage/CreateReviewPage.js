@@ -58,9 +58,9 @@ export default function CreateReviewPage() {
     console.log(formData);
 
     return (
-        <div className={styles.CreateReviewPage}>
+        <main className={styles.CreateReviewPage}>
             <div className={styles.reviewForm}>
-                <h2>{foodTruck.foodTruckName}</h2>
+                <h2 className="heavy">{foodTruck.foodTruckName}</h2>
                 <Form onSubmit={handleSubmit} method="POST">
                     <FormGroup className="mb-3" controlId="reviewForm">
                         <div className={styles.reviewRating}>
@@ -87,11 +87,11 @@ export default function CreateReviewPage() {
                         <FormLabel>Write a Review</FormLabel>
                         <FormControl as="textarea" rows={3} onChange={handleChange} value={formData.review} name="review"/>
                     </FormGroup>
-                    <Button variant="primary" type="submit">
-                        Post
+                    <Button className={styles.SubmitButton} type="submit">
+                        Submit Review
                     </Button>
                 </Form>
             </div>
-        </div>
+        </main>
     );
 };
