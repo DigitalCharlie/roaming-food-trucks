@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { signUp } from '../../utilities/users-service';
 import styles from './SignUpForm.module.css';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function SignUpForm({ setUser}) {
+
+    const navigate = useNavigate(); 
 
     const [formData, setFormData] = useState({})
 
@@ -12,7 +14,6 @@ export default function SignUpForm({ setUser}) {
        
         setFormData({ ...formData, [name]: value })
     }
- console.log(formData)
 
  async function handleSubmit (evt)  {
         evt.preventDefault();
@@ -21,7 +22,7 @@ export default function SignUpForm({ setUser}) {
             delete formData.confirm;
             const user = await signUp(formData)
             setUser(user)
-            console.log(user)
+            navigate('/login')
         } catch (error) {
             console.log(error)
         }
