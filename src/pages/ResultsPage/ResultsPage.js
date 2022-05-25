@@ -43,12 +43,14 @@ export default function DashboardPage() {
     const cuisineArray = [...cuisines]
     if (cuisineArray.indexOf(cuisine) === -1) {
       cuisineArray.push(cuisine)
+      setCuisines(cuisineArray)
     } else {
       let toDelete = cuisineArray.indexOf(cuisine)
       cuisineArray.splice(toDelete, 1)
+      setCuisines(cuisineArray)
     }
-    setCuisines(cuisineArray)
     if(cuisineArray.length > 0){
+      console.log(cuisineArray)
       setSearchParams({zipcode: zipcode, cuisine: cuisineArray.join(', '), radius: radius})
     } else {
       setSearchParams({zipcode: zipcode, cuisine: 'null', radius: radius})
@@ -85,7 +87,7 @@ export default function DashboardPage() {
               <div className={styles.firstColumn}>
                 <h2>Filters</h2>
                 <DistanceList const handleRadiusChange={handleRadiusChange} newRadius={newRadius} />
-                <CuisineList  handleCuisineChange={handleCuisineChange} />
+                <CuisineList  handleCuisineChange={handleCuisineChange} setCuisines={setCuisines} />
                 <StarRating starRate={starRate} setStarRate={setStarRate} />
                 <PriceList resultPageState={resultTruck} priceRate={priceRate} setPriceRate={setPriceRate} />
               </div>
