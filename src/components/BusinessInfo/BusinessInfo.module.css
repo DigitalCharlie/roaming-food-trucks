@@ -1,7 +1,45 @@
 .BusinessInfo {
     align-items: right;
+    display: flex;
+    margin-top:25px
 }
 
 .BusinessInfo .BusinessHours {
     list-style: none;
+    padding-left:0;
+    color:var(--darkgray);
+    width:240px;
+}
+
+.BusinessHours > li {
+    display:flex;
+}
+
+.DayOfWeek {
+    width:90px;
+}
+
+.Today {
+    color:var(--black);
+    font-weight:500;
+}
+
+.BusinessInfo .BusinessDetails {
+    padding-left: 2%;
+}
+
+.BusinessDetails .BusinessIcons {
+    width: 5%;
+    height: 5%;
+    padding-right: 1%;
+}
+
+.contactContainer {
+    display:flex;
+    align-items:center;
+    margin:0 0 15px;
+}
+
+.Icon {
+    margin-right:10px;
 }

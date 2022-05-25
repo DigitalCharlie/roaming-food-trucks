@@ -31,9 +31,9 @@ const Footer = () => {
           </Column>
           <Column>
             <Heading>Social Media</Heading>
-            <FooterLink href="#"><img src="assets/instagram_icon.png" alt="instagram-icon" /> Instagram</FooterLink>
-            <FooterLink href="#"> <img src="assets/facebook_icon.png" alt="facebook-icon" /> Facebook</FooterLink>
-            <FooterLink href="#"> <img src="assets/twitter_icon.png" alt="twitter-icon" /> Twitter</FooterLink>
+            <FooterLink href="#"><img src="/assets/instagram_icon.png" alt="instagram-icon" /> Instagram</FooterLink>
+            <FooterLink href="#"> <img src="/assets/facebook_icon.png" alt="facebook-icon" /> Facebook</FooterLink>
+            <FooterLink href="#"> <img src="/assets/twitter_icon.png" alt="twitter-icon" /> Twitter</FooterLink>
           </Column>
         </Row>
       </Container>

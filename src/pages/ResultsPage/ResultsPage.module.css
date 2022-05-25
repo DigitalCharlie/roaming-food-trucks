@@ -1,0 +1,35 @@
+.ResultPage {
+    max-width:100%;
+}
+
+.ResultPage > h1{
+    text-align: center;
+}
+
+.ResultPage > div {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    padding: 0 20px;
+}
+
+.firstColumn {
+    flex: 1;
+    position:sticky;
+    top:100px;
+    align-self:flex-start
+}
+
+.secondColumn {
+    flex: 3;
+    overflow-y: auto;
+    overflow-x:hidden;
+    padding-bottom:10px;
+}
+
+.thirdColumn {
+    flex: 2;
+    position:sticky;
+    top:100px;
+    align-self:flex-start
+} 

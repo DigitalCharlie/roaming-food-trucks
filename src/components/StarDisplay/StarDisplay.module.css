@@ -1,0 +1,7 @@
+.starWrapper {
+	display:flex;
+}
+
+.starNumber {
+	margin-right:3px;
+}

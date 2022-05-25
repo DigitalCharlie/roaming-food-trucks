@@ -1,6 +1,6 @@
 const Review = require('../models/Review')
 const FoodTruck = require('../models/FoodTruck')
-
+const User = require('../models/User')
 
 module.exports = {createReview, getReview, updateReview}
 
@@ -9,6 +9,7 @@ async function createReview(req,res){
     try {
         const createdReview = await Review.create(req.body)
         addReviewToFoodTruck(createdReview)
+        addReviewToUser(createdReview)
         res.status(200).json(createdReview + ' Successful review creation')
     }
     catch(error){
@@ -20,6 +21,12 @@ async function addReviewToFoodTruck (createdReview){
     const reviewedFoodTruck = await FoodTruck.findById(createdReview.foodTruck)
     reviewedFoodTruck.reviews.push(createdReview._id)
     reviewedFoodTruck.save()
+}
+
+async function addReviewToUser (createdReview){
+    const reviewedUser = await User.findById(createdReview.user)
+    reviewedUser.reviews.push(createdReview._id)
+    reviewedUser.save()
 }
 
 

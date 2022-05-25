@@ -1,5 +1,5 @@
 import * as reviewAPI from "../../utilities/reviews-api"
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import * as foodTruckAPI from "../../utilities/foodTruck-api";
 import styles from "./CreateReviewPage.module.css";
@@ -11,8 +11,9 @@ import { FormText } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import FormRange from "react-bootstrap/esm/FormRange";
 import { FormSelect } from "react-bootstrap";
+import UserContext from '../../context/UserContext'
 
-export default function CreateReviewPage() {
+export default function CreateReviewPage({}) {
     const Navigate = useNavigate();
     const { id } = useParams();
     const [reviews, setReviews] = useState([]);
@@ -22,6 +23,9 @@ export default function CreateReviewPage() {
         review: "",
         waitTime: ""
     });
+
+    const userContext = useContext(UserContext);
+    const user = userContext.user
     
     useEffect(() => {
         (async () => {
@@ -43,20 +47,19 @@ export default function CreateReviewPage() {
         evt.preventDefault()
         try {
             formData.foodTruck = id
-            // formData.user = userid need a way to access user id
+            formData.user = user._id
             const createdReview = reviewAPI.createReview(formData)
             console.log(createdReview)
-            // Navigate(`/foodtruck/detailpage/${id}`)
+            Navigate(`/foodtruck/detailpage/${id}`)
         }   catch (err) {
             console.log(err)
         }
     };
-    console.log(formData);
 
     return (
-        <div className={styles.CreateReviewPage}>
+        <main className={styles.CreateReviewPage}>
             <div className={styles.reviewForm}>
-                <h2>{foodTruck.foodTruckName}</h2>
+                <h2 className="heavy">{foodTruck.foodTruckName}</h2>
                 <Form onSubmit={handleSubmit} method="POST">
                     <FormGroup className="mb-3" controlId="reviewForm">
                         <div className={styles.reviewRating}>
@@ -83,11 +86,11 @@ export default function CreateReviewPage() {
                         <FormLabel>Write a Review</FormLabel>
                         <FormControl as="textarea" rows={3} onChange={handleChange} value={formData.review} name="review"/>
                     </FormGroup>
-                    <Button variant="primary" type="submit">
-                        Post
+                    <Button className={styles.SubmitButton} type="submit">
+                        Submit Review
                     </Button>
                 </Form>
             </div>
-        </div>
+        </main>
     );
 };

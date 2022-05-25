@@ -1,7 +1,7 @@
 const express = require('express')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
-const User = require('../models/user')
+const User = require('../models/User')
 
 module.exports = {
     createUser,
@@ -10,7 +10,8 @@ module.exports = {
     signin,
     logout,
     getUserFavorites,
-    addNewFavorite
+    toggleFavorite,
+    addNewRecent
 }
 
 //changed create user and token to equal createJWTToken
@@ -28,7 +29,7 @@ async function createUser(req, res) {
 
 async function getUser(req, res) {
     try {
-        const getUser = await User.findOne({ userid: req.params.userid })
+        const getUser = await User.findOne({ userid: req.params.userid }).populate("favorites").populate("recents")
         if (!getUser) {
             throw new Error()
         }
@@ -38,26 +39,61 @@ async function getUser(req, res) {
         res.status(400).json(error + ' Failed to retrieve user data')
     }
 }
+
+// FAVORITES 
 async function getUserFavorites(req, res) {
     try {
-        const getUser = await User.findOne({ _id: req.params.id }).populate("favorites")
+        const getUser = await User.findOne({ _id: req.params.id }).populate("favorites").populate("recents").populate({
+            path: 'reviews',
+            populate: { path: 'foodTruck' }
+          })
         if (!getUser) {
             throw new Error()
         }
-        res.status(200).json(getUser.favorites)
+        res.status(200).json(getUser)
     }
     catch (error) {
         res.status(400).json(error + ' Failed to retrieve user data')
     }
 }
 
-async function addNewFavorite(req, res) {
+async function toggleFavorite(req, res) {
     try {
         const updatedUser = await User.findById(req.params.userid)
         if (!updatedUser) {
             throw new Error()
         }
-        updatedUser.favorites.push(req.body.truck)
+        if (updatedUser.favorites.indexOf(req.body.truck) === -1) {
+            updatedUser.favorites.push(req.body.truck)
+        } else {
+            updatedUser.favorites.splice(updatedUser.favorites.indexOf(req.body.truck), 1)
+        }
+        updatedUser.save()
+        res.status(200).json(updatedUser)
+    }
+    catch (error) {
+        res.status(400).json(error + ' Failed to update')
+    }
+}
+
+// RECENTS
+
+async function addNewRecent(req, res) {
+    try {
+        const updatedUser = await User.findById(req.params.userid)
+        if (!updatedUser) {
+            throw new Error()
+        }
+        if (updatedUser.recents.indexOf(req.body.truck) === -1) {
+            updatedUser.recents.push(req.body.truck)
+            if (updatedUser.recents.length > 12) {
+                updatedUser.recents.pop()
+            }
+        }
+        if (updatedUser.recents.includes(req.body.truck)) {
+            updatedUser.recents.splice(updatedUser.recents.indexOf(req.body.truck), 1)
+            updatedUser.recents.unshift(req.body.truck)
+        }
         updatedUser.save()
         res.status(200).json(updatedUser)
     }

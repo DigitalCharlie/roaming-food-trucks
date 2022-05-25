@@ -1,0 +1,16 @@
+.Cuisines {
+    height: 200px;
+    overflow: scroll;
+    padding: 5px 0;
+    margin-bottom: 5px;
+}
+
+.Cuisines > div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.Cuisines > div > p {
+    margin-bottom: 3px;
+}

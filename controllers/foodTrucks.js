@@ -4,10 +4,10 @@ const axios = require('axios')
 
 module.exports = { index, create, show, search, zipSearch };
 
-// Index Route \\
+// Index Route --> NOW TRENDING TRUCK ROUTE, SHOWS 6 HIGHEST RATED TRUCKS
 async function index(req, res) {
     try {
-        const foodTrucks = await FoodTruck.find({});
+        const foodTrucks = await FoodTruck.find({}).sort({currentRating:'desc'}).limit(6);
         res.status(200).json(foodTrucks);
     } catch (err) {
         res.status(400).json(err);
@@ -38,7 +38,7 @@ async function create(req, res) {
 // Show Route \\
 async function show(req, res) {
     try {
-        const getTruck = await FoodTruck.findById({ _id: req.params.id })
+        const getTruck = await FoodTruck.findById({ _id: req.params.id }).populate("reviews")
         res.status(200).json(getTruck)
     }
     catch (err) {
@@ -49,19 +49,10 @@ async function show(req, res) {
 async function zipSearch (req,res) {
     try {
         const {zipcode,radius} = req.query
-        console.log(zipcode)
-        console.log(radius)
         const zipCoordinates = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?key=${process.env.REACT_APP_MAPS_KEY}&address=${zipcode}`)
         const relevantTrucks = await FoodTruck.find({
             "location.geoLocation": { 
                 $geoWithin: { $centerSphere: [ [ zipCoordinates.data.results[0].geometry.location.lng, zipCoordinates.data.results[0].geometry.location.lat ], radius/3963.2 ] } 
-                // $near: {
-                //     $geometry:  { 
-                //         type: "Point",  
-                //         coordinates: [req.body.lng, req.body.lat],
-                //         $maxDistance: 1000
-                //     }   
-                // }   
             }
         })
         res.status(200).json(relevantTrucks)
