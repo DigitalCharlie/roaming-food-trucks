@@ -25,6 +25,7 @@ export default function CreateReviewPage() {
     });
 
     const userContext = useContext(UserContext);
+    const user = userContext.user
     
     useEffect(() => {
         (async () => {
@@ -46,7 +47,7 @@ export default function CreateReviewPage() {
         evt.preventDefault()
         try {
             formData.foodTruck = id
-            formData.user = userContext._id
+            formData.user = user._id
             console.log(formData)
             const createdReview = reviewAPI.createReview(formData)
             console.log(createdReview)

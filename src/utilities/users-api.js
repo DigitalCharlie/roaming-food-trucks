@@ -24,7 +24,7 @@ export function getUserFavorites(id) {
     return sendRequest(`${BASE_URL}/${id}/favorites`)
 }
 
-export function newFavorite(userId, favoriteToAdd) {
+export function toggleFavorite(userId, favoriteToAdd) {
     return sendRequest(`${BASE_URL}/${userId}/favorite`, 'PUT', favoriteToAdd)
 }
 

@@ -19,6 +19,7 @@ export default function FTDetailsPage() {
 
     const { id } = useParams();
     const userContext = useContext(UserContext);
+    const user = userContext.user
 
     const Navigate = useNavigate();
     
@@ -27,8 +28,8 @@ export default function FTDetailsPage() {
           try {
             const data = await foodTruckAPI.getById(id)
             setFoodTruck(data)
-            if (userContext._id) {
-              const updatedUser = await usersAPI.newRecent(userContext._id, {truck: id})
+            if (user._id) {
+              const updatedUser = await usersAPI.newRecent(user._id, {truck: id})
             }
             setLoaded(true)
           } catch(e) {
