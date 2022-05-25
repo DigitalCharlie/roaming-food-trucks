@@ -7,6 +7,7 @@ import ResultList from '../../components/ResultList/ResultList'
 import CuisineList from '../../components/CuisineList/CuisineList'
 import ResultMap from '../../components/ResultMap/ResultMap'
 import SearchBox from '../../components/SearchBox/SearchBox'
+import DistanceList from '../../components/DistanceList/DistanceList'
 import styles from './ResultsPage.module.css'
 
 export default function DashboardPage() {
@@ -16,14 +17,18 @@ export default function DashboardPage() {
   const [starRate, setStarRate] = useState(0)
   const [priceRate, setPriceRate] = useState(0)
   const [cuisines, setCuisines] = useState([])
+  const [newRadius, setNewRadius] = useState(0)
+  const [toggle, setToggle] = useState(false)
+  let radius = searchParams.get("radius")
+  let zipcode = searchParams.get("zipcode")
+  let cuisineQry = searchParams.get("cuisine")
+
 
   useEffect(() => {
       (async () => {
         try {
           // const data = await FoodtruckAPI.getResultTruck(searchParams.get("zipcode"))
           // setResultTruck(data)         
-          let zipcode = searchParams.get("zipcode")
-          let radius = searchParams.get("radius")
           const zipRadiusData = await FoodtruckAPI.zipRadiusSearch(zipcode,radius)
           setResultTruck(zipRadiusData)
           setLoaded(true)
@@ -31,10 +36,13 @@ export default function DashboardPage() {
           console.log(e)
         }
       })()
-    }, [])
+    }, [toggle])
 
   const handleCuisineChange = (cuisine) => {
     const cuisineArray = [...cuisines]
+    if(cuisineQry !== 'null'){
+      cuisineArray.push(cuisineQry)
+    }
     if (cuisineArray.indexOf(cuisine) === -1) {
       cuisineArray.push(cuisine)
     } else {
@@ -42,6 +50,15 @@ export default function DashboardPage() {
       cuisineArray.splice(toDelete, 1)
     }
     setCuisines(cuisineArray)
+    if(cuisineArray.length > 0){
+      setSearchParams({zipcode: zipcode, cuisine: cuisineArray.join(', '), radius: radius})
+    }
+  }
+
+  const handleRadiusChange = (rad) => {
+    setNewRadius(rad)
+    setSearchParams({zipcode: zipcode, cuisine: cuisineQry, radius: newRadius})
+    setToggle(!toggle)
   }
 
   return (
@@ -59,6 +76,7 @@ export default function DashboardPage() {
             <div>
               <div className={styles.firstColumn}>
                 <h2>Filters</h2>
+                <DistanceList />
                 <CuisineList  handleCuisineChange={handleCuisineChange} />
                 <StarRating starRate={starRate} setStarRate={setStarRate} />
                 <PriceList resultPageState={resultTruck} priceRate={priceRate} setPriceRate={setPriceRate} />
