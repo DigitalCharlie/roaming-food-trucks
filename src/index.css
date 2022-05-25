@@ -60,4 +60,5 @@ input[type=text] {
     padding-left:10px;
     border:1px solid lightgray;
     border-radius:5px;
+    font-weight:300;
 }
