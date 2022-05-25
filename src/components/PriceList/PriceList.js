@@ -1,7 +1,7 @@
 import styles from './PriceList.module.css';
 
 
-export default function priceList({ resultPageState, setPriceRate }) {
+export default function priceList({ resultPageState, setPriceRate, priceRate }) {
 
     const Click = (num) => {
         setPriceRate(num)
@@ -14,13 +14,13 @@ export default function priceList({ resultPageState, setPriceRate }) {
         <div className={styles.pricelist}>
             <div>
                 <h5>Price</h5>
-               <button onClick={clearPriceOption}>Clear</button> 
+               <button onClick={clearPriceOption} className={styles.clearButton}>Clear</button> 
             </div>
                 
-                <button className={`priceButton ${resultPageState.priceRating === 1 ? 'selectedPrice' : ''}`} onClick={() => Click(1)}>$</button>
-                <button className={`priceButton ${resultPageState.priceRating === 2 ? 'selectedPrice' : ''}`} onClick={() => Click(2)}>$$</button>
-                <button className={`priceButton ${resultPageState.priceRating === 3 ? 'selectedPrice' : ''}`} onClick={() => Click(3)}>$$$</button>
-                <button className={`priceButton ${resultPageState.priceRating === 4 ? 'selectedPrice' : ''}`} onClick={() => Click(4)}>$$$$</button>
+                <button className={`${styles.priceButton} ${priceRate === 1 ? styles.selectedPrice : ''}`} onClick={() => Click(1)}>$</button>
+                <button className={`${styles.priceButton} ${priceRate === 2 ? styles.selectedPrice : ''}`} onClick={() => Click(2)}>$$</button>
+                <button className={`${styles.priceButton} ${priceRate === 3 ? styles.selectedPrice : ''}`} onClick={() => Click(3)}>$$$</button>
+                <button className={`${styles.priceButton} ${priceRate === 4 ? styles.selectedPrice : ''}`} onClick={() => Click(4)}>$$$$</button>
             
         </div>
     )

@@ -1,10 +1,16 @@
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import styles from './ResultList.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import StarDisplay from "../StarDisplay/StarDisplay"
 
-export default function ({resultTruck, starRate, priceRate, cuisines}) {
-const navigate = useNavigate()
+export default function ({resultTruck, starRate, priceRate, cuisines, filteredList, setFilteredList}) {
+
+    useEffect(() => {
+          setFilteredList(resultTruck.filter(starFilter).filter(priceFilter).filter(cuisineFilter))
+      }, [starRate, priceRate, cuisines, resultTruck])
+
+    const navigate = useNavigate()
 
     const starFilter = (truck) => {
         if (!starRate) return truck
@@ -13,7 +19,7 @@ const navigate = useNavigate()
 
     const priceFilter = (truck) => {
         if (!priceRate) return truck
-        if (truck.priceRating >= priceRate) return truck
+        if (truck.priceRating === priceRate) return truck
     }
 
     const cuisineFilter = (truck) => {
@@ -25,12 +31,12 @@ const navigate = useNavigate()
         <>
             <div className={styles.Card}>
                 {
-                    resultTruck.filter(starFilter).filter(priceFilter).filter(cuisineFilter).length === 0 ?
+                    filteredList.length === 0 ?
                         <>
                             <h3>No trucks match your criteria.</h3>
                         </>
                     :
-                    resultTruck.filter(starFilter).filter(priceFilter).filter(cuisineFilter).map((truck) => (
+                    filteredList.map((truck) => (
                         <div key={truck._id} onClick={() => navigate(`/foodtruck/detailpage/${truck._id}`)} >
                             <img src={truck.img} height='250' width='300' />
                             <div className={styles.Banner}>

@@ -1,6 +1,11 @@
+.CuisineBox {
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
 .Cuisines {
-    border-top: solid grey;
-    height: 200px;
+    height: 250px;
     overflow: auto;
     padding: 5px 0;
     margin-bottom: 5px;
@@ -10,11 +15,9 @@
     display: flex;
     align-items: baseline;
     gap: 5px;
-    justify-content: space-between;
 }
 
 .Cuisines > div > button {
-    color: grey;
     border: none;
     background: none;
 }
@@ -37,4 +40,9 @@
     margin: 5px 5px 5px 0;
     position:relative;
     top:1px;
+}
+
+.clearButton {
+    color:var(--darkgray);
+    border:none;
 }

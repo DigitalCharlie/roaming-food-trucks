@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import styles from "./Cuisine.module.css"
 
 export default function CuisineList({ handleCuisineChange, setCuisines, cuisines }) {
+
     useEffect(() => {
         if(cuisines.length === 0){
             for(let i = 0; i < allCuisines.length; i++){
@@ -11,11 +12,12 @@ export default function CuisineList({ handleCuisineChange, setCuisines, cuisines
     }, [cuisines])
     const allCuisines = ["american", "asian-fusion", "chinese", "cuban", "ethiopian", "filipino", "french", "greek", "haitian", "indian", "japanese", "korean", "mediteranean", "mexican", "nigerian", "polish", "tex-mex", "thai", "vietnamese"];
     return (
-        <div className={styles.Cuisines}>
-            <div>
+        <div>
+            <div className={styles.CuisineBox}>
                 <h5>Cuisines</h5>
-                <button onClick={() => setCuisines([])} >Clear</button>
+                <button onClick={() => setCuisines([])} className={styles.clearButton} >Clear</button>
             </div>
+            <div className={styles.Cuisines}>
             {
                 allCuisines.map((element, idx) => {
                     return (
@@ -35,6 +37,7 @@ export default function CuisineList({ handleCuisineChange, setCuisines, cuisines
                     )
                 })
             }
+            </div>
         </div>
     )
 };

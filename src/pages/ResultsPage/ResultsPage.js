@@ -20,6 +20,7 @@ export default function DashboardPage() {
   const [newRadius, setNewRadius] = useState(5)
   const [toggle, setToggle] = useState(false)
   const [refresh, setRefresh] = useState(false)
+  const [filteredList, setFilteredList] = useState([])
   let radius = searchParams.get("radius")
   let zipcode = searchParams.get("zipcode")
   let cuisineQry = searchParams.get("cuisine")
@@ -85,17 +86,21 @@ export default function DashboardPage() {
             :
             <div>
               <div className={styles.firstColumn}>
-                <h2>Filters</h2>
+                <h3>Filters</h3>
+                <hr />
                 <DistanceList const handleRadiusChange={handleRadiusChange} newRadius={newRadius} />
+                <hr />
                 <CuisineList  handleCuisineChange={handleCuisineChange} setCuisines={setCuisines} cuisines={cuisines} />
+                <hr />
                 <StarRating starRate={starRate} setStarRate={setStarRate} />
+                <hr />
                 <PriceList resultPageState={resultTruck} priceRate={priceRate} setPriceRate={setPriceRate} />
               </div>
               <div className={styles.secondColumn}>
-                <ResultList resultTruck={resultTruck} starRate={starRate} priceRate={priceRate} cuisines={cuisines} />
+                <ResultList resultTruck={resultTruck} starRate={starRate} priceRate={priceRate} cuisines={cuisines} filteredList={filteredList} setFilteredList={setFilteredList} />
               </div>
               <div className={styles.thirdColumn}>
-                <ResultMap resultTruck={resultTruck} zipcode={searchParams.get("zipcode")}/>
+                <ResultMap resultTruck={resultTruck} zipcode={searchParams.get("zipcode")} filteredList={filteredList}/>
               </div>
             </div>
           }

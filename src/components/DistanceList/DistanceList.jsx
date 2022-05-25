@@ -13,8 +13,8 @@ useEffect(() => {
     return(
         <div className={styles.Distance}>
             <h5>Distance</h5>
-                <label className={styles.DistanceLabel}><input type='checkbox' id='near' onClick={() => {handleRadiusChange(0.5, 'near')}}></input> Walking (&lt; 1 mile)</label>
-                <label className={styles.DistanceLabel}><input type='checkbox' id='walk' onClick={() => {handleRadiusChange(1, 'walk')}}></input> Walking (1 mile)</label>
+                <label className={styles.DistanceLabel}><input type='checkbox' id='near' onClick={() => {handleRadiusChange(1, 'near')}}></input> Near by (&lt; 1 mile)</label><br />
+                <label className={styles.DistanceLabel}><input type='checkbox' id='walk' onClick={() => {handleRadiusChange(2, 'walk')}}></input> Walking (2 miles)</label><br />
                 <label className={styles.DistanceLabel}><input type='checkbox' id='drive' onClick={() => {handleRadiusChange(5, 'drive')}}></input> Driving (5 miles)</label>
         </div>
     )

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import styles from './ResultMap.module.css'
 import StarDisplay from '../StarDisplay/StarDisplay';
 
-export default function ResultsMap({resultTruck}) {
+export default function ResultsMap({resultTruck, filteredList}) {
 	
 	const [loaded, setLoaded] = useState(null)
 	const [selectedTruck, setSelectedTruck] = useState(null);
@@ -21,10 +21,10 @@ export default function ResultsMap({resultTruck}) {
 	};
 
 	useEffect(() => {
-		if(resultTruck.length){
+		if(filteredList.length){
 			let loadingCenter = {
-				lng: resultTruck[0].location.geoLocation.coordinates[0],
-				lat: resultTruck[0].location.geoLocation.coordinates[1]
+				lng: filteredList[0].location.geoLocation.coordinates[0],
+				lat: filteredList[0].location.geoLocation.coordinates[1]
 			}
 			setCenter(loadingCenter)
 			setLoaded(true)
@@ -34,7 +34,7 @@ export default function ResultsMap({resultTruck}) {
 	  }, [])
 
 
-	const mapMarkers = resultTruck.map((truck) => (
+	const mapMarkers = filteredList.map((truck) => (
 		<Marker
 			key={truck._id}
 			position={{
