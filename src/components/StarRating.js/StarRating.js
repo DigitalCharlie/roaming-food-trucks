@@ -11,7 +11,7 @@ export default function StarRating({starRate, setStarRate}) {
 
     useEffect(() => {
         if(clicked){
-            setColor('red')
+            setColor('#F2782F')
             setStarRate(index + 1)
         } else {
             setColor('grey')

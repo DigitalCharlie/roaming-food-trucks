@@ -11,7 +11,7 @@
 }
 
 .StarRating > button > span:hover {
-    color: red
+    color: var(--orange)
 }
 
 .StarRating > div {

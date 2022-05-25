@@ -21,3 +21,9 @@
 .rule {
 	margin:10px 0;
 }
+
+.mapDetails {
+	display:flex;
+	justify-content: space-between;
+	width:100%;
+}

@@ -2,6 +2,6 @@
 	display:flex;
 }
 
-.starWrapper > div {
-	margin-left:3px;
+.starNumber {
+	margin-right:3px;
 }

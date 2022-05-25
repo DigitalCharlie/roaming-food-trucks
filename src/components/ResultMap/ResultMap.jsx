@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from './ResultMap.module.css'
+import StarDisplay from '../StarDisplay/StarDisplay';
 
 export default function ResultsMap({resultTruck}) {
 	
@@ -77,8 +78,13 @@ export default function ResultsMap({resultTruck}) {
 					}}
 				>
 					<div>
-						<h4 className={styles.infoWindowTitle}>{selectedTruck.foodTruckName}</h4>
-						<p className={styles.address}>{selectedTruck.location.street}, {selectedTruck.location.city}, {selectedTruck.location.state}</p>
+						<div className={styles.mapDetails}>
+							<div>
+								<h4 className={styles.infoWindowTitle}>{selectedTruck.foodTruckName}</h4>
+								<p className={styles.address}>{selectedTruck.location.street}, {selectedTruck.location.city}, {selectedTruck.location.state}</p>
+							</div>
+							<StarDisplay foodTruck={selectedTruck} options={{displayNumber:false}} />
+						</div>
 						<hr className={styles.rule} />
 						<p>{selectedTruck.description}</p>
 						<Link to={`/foodtruck/detailpage/${selectedTruck._id}`}><button className={`button ${styles.button}`}>Explore the Menu</button></Link>

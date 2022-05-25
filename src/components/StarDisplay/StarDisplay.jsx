@@ -1,15 +1,26 @@
 // DEPENDNCY
 import ReactStars from "react-rating-stars-component";
+import { useEffect, useState } from "react";
 
 // STYLES
 import styles from './StarDisplay.module.css'
 
-export default function StarDisplay ({ foodTruck, options }) {
+export default function StarDisplay ({ foodTruck, review, options }) {
+
+	const [rating, setRating] = useState(0)
+	const [loaded, setLoaded] = useState(null)
+
+	useEffect(() => {
+        if(foodTruck) setRating(foodTruck.currentRating)
+		if(review) setRating(review.rating)
+		setLoaded(true)
+    }, [])
 
 	const starRating = {
-		value: foodTruck.currentRating,
+		value: rating,
 		isHalf:true,
-		edit: options.edit || false,
+		edit: options ? options.edit : false,
+		activeColor:'#F2782F'
 	}
 
 	const oneStar = {
@@ -18,13 +29,18 @@ export default function StarDisplay ({ foodTruck, options }) {
 	}
 
 	return (
-		<div className={styles.starWrapper}>
-			{options.displayNumber && foodTruck.currentRating.toFixed(1)}
-			{
-				options.singleStar 
-				? <ReactStars {...oneStar} />
-				: <ReactStars {...starRating} /> 
-			}
+		<>
+		{
+			loaded && rating &&
+			<div className={styles.starWrapper}>
+				{options.displayNumber && <span className={styles.starNumber}>{rating.toFixed(1)}</span>}
+				{
+					options.singleStar 
+					? <ReactStars {...oneStar} />
+					: <ReactStars {...starRating} /> 
+				}
 		</div>
+		}
+		</>
 	)
 }
