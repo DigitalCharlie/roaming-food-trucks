@@ -29,8 +29,8 @@ export default function TrendingFoodTruck({ foodTrucks, user }) {
     useEffect(() => {
         (async () => {
             try {
-                const favorites = await userAPI.getUserFavorites(user._id)
-                setUserFavorites(favorites)
+                const populatedUser = await userAPI.getUserFavorites(user._id)
+                setUserFavorites(populatedUser.favorites)
             } catch(e) {
                 console.log(e)
             }
