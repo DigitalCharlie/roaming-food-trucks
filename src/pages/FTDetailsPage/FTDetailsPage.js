@@ -6,6 +6,7 @@ import * as usersAPI from "../../utilities/users-api";
 import styles from "./FTDetailsPage.module.css";
 import UserContext from '../../context/UserContext'
 
+
 // COMPONENTS
 import MenuList from "../../components/MenuList/MenuList";
 import BusinessInfo from "../../components/BusinessInfo/BusinessInfo";
@@ -54,10 +55,8 @@ export default function FTDetailsPage() {
                 <img src={foodTruck.img} alt="foodtruckimage" className={styles.foodTruckImage}></img>
             </div>
             <div className={styles.foodTruckDescription}>
-                <div className={styles.foodTruckAbout}>
-                  <h5>About</h5>
-                  <p>{foodTruck.description}</p>
-                </div>
+              <h4 className="heavy">About</h4>
+              <p>{foodTruck.description}</p>
             </div>
             {
               foodTruck.location &&
@@ -65,6 +64,7 @@ export default function FTDetailsPage() {
                 <BusinessInfo foodTruck={foodTruck} />
                 <MenuList foodTruck={foodTruck} className={styles.menuList}/>
                 <ReviewCard foodTruck={foodTruck} />
+                <div className={styles.Right}><Link to={`/foodtruck/writereview/${foodTruck._id}`}><button className={styles.ReviewButton}>Write Review</button></Link></div>
               </>
             }
         </div>

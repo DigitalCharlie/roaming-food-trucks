@@ -9,7 +9,7 @@ import Tab from "react-bootstrap/Tab"
 
 export default function MenuList( {foodTruck }) {
     return (
-        <div className={styles.MenuList}>
+        <section className={styles.MenuList}>
             <div className={styles.menuContainer}>
                 <h4 className="heavy">Menu</h4>
                 <Tabs defaultActiveKey="apps" className="mb-3">
@@ -30,6 +30,6 @@ export default function MenuList( {foodTruck }) {
                     </Tab>
                 </Tabs>
             </div>
-        </div>
+        </section>
     );
 };

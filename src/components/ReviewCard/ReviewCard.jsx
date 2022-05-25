@@ -9,7 +9,7 @@ import StarDisplay from "../StarDisplay/StarDisplay";
 export default function ReviewCard( {foodTruck} ) {
     return (
         <>
-            <div className={styles.ReviewCard}>
+            <section className={styles.ReviewCard}>
                 <div>
                     <h4 className="heavy">Reviews</h4>
                     {
@@ -27,7 +27,7 @@ export default function ReviewCard( {foodTruck} ) {
                     `${foodTruck.foodTruckName} has no reviews. be the first to review it!`
                     }
                 </div> 
-            </div>
+            </section>
         </>
     );
 };

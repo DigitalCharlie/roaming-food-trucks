@@ -21,8 +21,12 @@ main {
     padding:30px 5px;
 }
 
+section {
+    margin:20px 0
+}
+
 .heavy {
-    font-weight:700
+    font-weight:700;
 }
 
 .signup-button{ 

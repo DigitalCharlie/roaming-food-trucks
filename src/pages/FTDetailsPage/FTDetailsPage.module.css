@@ -10,10 +10,9 @@
 }
 
 .FTDetailsPage .foodTruckDescription {
-    border: 1px solid rgb(95, 95, 95);
-    width: 50%;
-    margin-top: 1%;
-    border-radius: 10px;
+    width: 80%;
+    margin-top: 40px;
+    font-size:1.25em;
 }
 
 .FTDetailsPage .foodTruckAbout {
@@ -27,4 +26,18 @@
 .GrayText {
     color:var(--darkgray);
     margin-bottom:5px;
+}
+
+.ReviewButton {
+    border-radius:6px;
+    font-size:1.25em;
+    border:2px solid var(--orange);
+    background-color: white;
+    font-weight:300;
+    margin-top:20px;
+    padding:2px 10px;
+}
+
+.Right {
+    text-align:right;
 }

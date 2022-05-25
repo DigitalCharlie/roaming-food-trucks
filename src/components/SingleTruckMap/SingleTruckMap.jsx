@@ -13,8 +13,8 @@ export default function SingleTruckMap ({foodTruck}) {
 	})
 
 	const containerStyle = {
-		width: '400px',
-		height: '400px'
+		width: '500px',
+		height: '500px'
 	};
 
 	useEffect(() => {
