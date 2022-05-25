@@ -35,6 +35,10 @@
 	cursor:pointer;
 }
 
+.ReviewCard:hover {
+	box-shadow: 0 0 8px var(--orange);
+}
+
 .ReviewedTruck {
 	margin-bottom:0;
 }
