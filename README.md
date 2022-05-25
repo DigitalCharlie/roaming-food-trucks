@@ -29,7 +29,7 @@ HTML | CSS | JavaScript | MongoDB | Express | React | Node.js | Bootstrap / REAC
 
 ## **Getting Started**
 
-Click here to launch the app:
+Click here to launch the app: https://roaming-spoon.herokuapp.com/
 
 In The Roaming Spoon, you can sign up as a new user or login if you already have an account. Use the search bar to find food trucks available in your area. Click on any food truck to show the detail page and discover what other reviewers are saying. You can also save your favorite food trucks and write reviews. Scroll through each food truck to find all their menu items. You can also filter your search list by distance, cuisine, rating, and price. 
 
