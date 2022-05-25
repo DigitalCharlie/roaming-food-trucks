@@ -1,6 +1,14 @@
+import { useEffect } from "react";
 import styles from "./Cuisine.module.css"
 
-export default function CuisineList({ handleCuisineChange, setCuisines }) {
+export default function CuisineList({ handleCuisineChange, setCuisines, cuisines }) {
+    useEffect(() => {
+        if(cuisines.length === 0){
+            for(let i = 0; i < allCuisines.length; i++){
+                (document.getElementById(allCuisines[i]).checked = false)
+            }
+        }
+    }, [cuisines])
     const allCuisines = ["american", "asian-fusion", "chinese", "cuban", "ethiopian", "filipino", "french", "greek", "haitian", "indian", "japanese", "korean", "mediteranean", "mexican", "nigerian", "polish", "tex-mex", "thai", "vietnamese"];
     return (
         <div className={styles.Cuisines}>
@@ -18,7 +26,8 @@ export default function CuisineList({ handleCuisineChange, setCuisines }) {
                                         handleCuisineChange(element)
                                     }} 
                                     name={element} 
-                                    type="checkbox"                                 
+                                    type="checkbox"
+                                    id={element}                                 
                                 />
                                 {element}
                             </label>
