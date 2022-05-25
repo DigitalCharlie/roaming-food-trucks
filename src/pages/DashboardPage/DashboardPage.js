@@ -22,9 +22,7 @@ export default function DashboardPage() {
 
 	const userContext = useContext(UserContext);
 	const user = userContext.user
-
-    console.log(user.favorites)
-
+    
     useEffect(() => {
         (async () => {
             try {

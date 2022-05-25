@@ -28,7 +28,6 @@ function App() {
       try {
         const data = await FoodtruckAPI.getAll() // THIS WILL NEED TO CHANGE TO NOT BE EVERY ROUTE IN THE DB BUT IS LOW PRIORITY
         setFoodTrucks(data)
-        console.log(location.pathname)
       } catch (e) {
         console.log(e)
       }

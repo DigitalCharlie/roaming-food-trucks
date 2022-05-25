@@ -83,7 +83,7 @@ async function addNewRecent(req, res) {
         }
         if (updatedUser.recents.indexOf(req.body.truck) === -1) {
             updatedUser.recents.push(req.body.truck)
-            if (updatedUser.recents.length > 10) {
+            if (updatedUser.recents.length > 12) {
                 updatedUser.recents.pop()
             }
         }

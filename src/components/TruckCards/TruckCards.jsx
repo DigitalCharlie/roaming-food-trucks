@@ -1,10 +1,16 @@
+// DEPENDNCIES
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useNavigate } from 'react-router-dom'
+
 
 import styles from './TruckCards.module.css'
 import StarDisplay from '../StarDisplay/StarDisplay'
 import FavoritesIcon from "../FavoritesIcon/FavoritesIcon"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function TruckCards({truckArray}) {
+
+	const navigate = useNavigate()
+
 	return (
 		<section className={styles.CardContainer}>
 			{
@@ -14,7 +20,7 @@ export default function TruckCards({truckArray}) {
 							<FavoritesIcon truck={truck} circle={true} />
 						</div>
 						<img src={truck.img} className={styles.TruckCardImage}/>
-						<div className={styles.TruckBodyContent}>
+						<div className={styles.TruckBodyContent} onClick={() => navigate(`/foodtruck/detailpage/${truck._id}`)}>
 							<div className={styles.TruckTopline}>
 								<p className="heavy">{truck.foodTruckName}</p>
 								<p>
