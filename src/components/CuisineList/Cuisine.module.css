@@ -8,11 +8,24 @@
 
 .Cuisines > div {
     display: flex;
+    align-items: baseline;
+    gap: 5px;
+    justify-content: space-between;
+}
+
+.Cuisines > div > button {
+    color: grey;
+    border: none;
+    background: none;
+}
+
+.Cuisines > div:nth-of-type(2) {
+    display: flex;
     align-items: center;
     gap: 5px;
 }
 
-.Cuisines > div > p {
+.Cuisines > div:nth-of-type(2) > p {
     margin-bottom: 3px;
 } 
 

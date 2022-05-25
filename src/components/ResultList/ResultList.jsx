@@ -31,7 +31,6 @@ const navigate = useNavigate()
                         </>
                     :
                     resultTruck.filter(starFilter).filter(priceFilter).filter(cuisineFilter).map((truck) => (
-                        console.log(truck),
                         <div key={truck._id} onClick={() => navigate(`/foodtruck/detailpage/${truck._id}`)} >
                             <img src={truck.img} height='250' width='300' />
                             <div className={styles.Banner}>
