@@ -46,11 +46,10 @@ function App() {
           <Route path="/login" element={<LogInPage setUser={setUser} />} />
           {
             user ?
-            <Route path="/user" element={<DashboardPage foodTrucks={foodTrucks} user={user} />} />
-            : 
-            <Route path="/user" element={<AuthPage user={user} setUser={setUser} />} />
+              <Route path="/user" element={<DashboardPage foodTrucks={foodTrucks} user={user} />} />
+              :
+              <Route path="/user" element={<AuthPage user={user} setUser={setUser} />} />
           }
-          <Route path="/user" element={<DashboardPage foodTrucks={foodTrucks} user={user} />} />
           <Route path="/foodtruck/resultspage" element={<ResultsPage foodTrucks={foodTrucks} />} />
           <Route path="/foodtruck/detailpage/:id" element={<FTDetailsPage foodTrucks={foodTrucks} />} />
           <Route path="/foodtruck/reviews/:id" element={<FTReviewsPage foodTrucks={foodTrucks} />} />

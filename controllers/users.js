@@ -47,7 +47,7 @@ async function getUserFavorites(req, res) {
         if (!getUser) {
             throw new Error()
         }
-        res.status(200).json(getUser.favorites)
+        res.status(200).json(getUser)
     }
     catch (error) {
         res.status(400).json(error + ' Failed to retrieve user data')
