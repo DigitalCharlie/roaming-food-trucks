@@ -46,7 +46,7 @@ export default function CreateReviewPage() {
             // formData.user = userid need a way to access user id
             const createdReview = reviewAPI.createReview(formData)
             console.log(createdReview)
-            // Navigate(`/foodtruck/detailpage/${id}`)
+            Navigate(`/foodtruck/detailpage/${id}`)
         }   catch (err) {
             console.log(err)
         }

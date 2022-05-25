@@ -38,7 +38,12 @@ const navigate = useNavigate()
                                 <div className={styles.BannerTitle}>
                                     <h5>{truck.foodTruckName}</h5>
                                 </div>
-                                    {/* <StarDisplay foodTruck={truck} options={{edit:false, displayNumber:true}} /> */}
+                                    {
+                                        truck.currentRating ?
+                                        <StarDisplay foodTruck={truck} options={{edit:false, displayNumber:true}} />
+                                        : 
+                                        "No reviews yet"
+                                    }
                                     <p>{truck.cuisine.join(', ')}</p>
                                 <p><FontAwesomeIcon className={styles.Icon} icon="fa-solid fa-clock" /> Wait time</p>
                                 <p><img src="/assets/tiny_truck.png" width='20px'></img> {truck.location.street}, {truck.location.city} </p>

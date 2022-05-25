@@ -13,6 +13,7 @@ export default function SidesList({ foodTruck }) {
                             menu.sides.map((side, idx) => {
                                 return (
                                     <div key={idx}>
+                                        <p>{side.dishName}</p>
                                         <p>{side.description}</p>
                                         <p>${side.price}</p>
                                     </div>

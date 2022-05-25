@@ -1,10 +1,13 @@
 import { useState } from "react";
 import * as usersService from "../../utilities/users-service";
 import styles from './SignInForm.module.css';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { NonceProvider } from "react-select";
 
 export default function SignInForm({ setUser }) {
+
+    const navigate = useNavigate(); 
+
     const [credentials, setCredentials] = useState({
         email: "",
         password: ""
@@ -21,6 +24,7 @@ export default function SignInForm({ setUser }) {
         try {
             const user = await usersService.login(credentials);
             setUser(user);
+            navigate("/")
         } catch {
             setError("Login Failed - Try Again")
         }
@@ -36,7 +40,7 @@ export default function SignInForm({ setUser }) {
                         <input className={styles.input} value={credentials.email} type="email" onChange={handleChange} placeholder="Email" name="email" required></input>
                         <input className={styles.input} value={credentials.password} type="password" onChange={handleChange} placeholder="Password" name="password" required></input>
                         <div>
-                            <button className={styles.button} type="submit" > <Link style={{textDecoration: "none", color: "white"}} to="/">Sign In</Link></button>
+                            <button className={styles.button} type="submit" >Sign In</button>
                         </div>
                         <p className="error-message">&nbsp;{error}</p>
                     </form>

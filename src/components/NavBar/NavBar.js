@@ -47,7 +47,7 @@ export default function NavBar({ pathname, user, setUser }) {
           <Navbar.Collapse className="justify-content-end">
                 <Navbar.Text>
                   <button className="signup-button" onClick={handleLogOut}> <Link className={styles.link} to="/">Log Out </Link></button>
-                  <a className={styles.anchor}> <img src="assets/login_user_icon.png" alt="login-icon" /> Hi, {user.firstName} </a>
+                  <a className={styles.anchor}> <img src="/assets/login_user_icon.png" alt="login-icon" /> Hi, {user.firstName} </a>
                 </Navbar.Text>
               </Navbar.Collapse> 
               </>

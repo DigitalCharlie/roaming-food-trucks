@@ -13,6 +13,7 @@ export default function EntreeList({ foodTruck }) {
                             menu.entrees.map((entree, idx) => {
                                 return (
                                     <div key={idx}>
+                                        <p>{entree.dishName}</p>
                                         <p>{entree.description}</p>
                                         <p>${entree.price}</p>
                                     </div>
