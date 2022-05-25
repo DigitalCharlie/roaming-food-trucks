@@ -58,5 +58,5 @@ export const Heading = styled.p`
   font-size: 18px;
   color: var(--black);
   margin-bottom: 10px;
-  font-weight: bold;
+  font-weight: 500;
 `;

@@ -38,20 +38,27 @@ export default function ({resultTruck, starRate, priceRate, cuisines, filteredLi
                     :
                     filteredList.map((truck) => (
                         <div key={truck._id} onClick={() => navigate(`/foodtruck/detailpage/${truck._id}`)} >
-                            <img src={truck.img} height='250' width='300' />
+                            <img src={truck.img} className={styles.truckImage} />
                             <div className={styles.Banner}>
                                 <div className={styles.BannerTitle}>
-                                    <h5>{truck.foodTruckName}</h5>
+                                    <h4>{truck.foodTruckName}</h4>
                                 </div>
-                                    {
-                                        truck.currentRating ?
-                                        <StarDisplay foodTruck={truck} options={{edit:false, displayNumber:true}} />
-                                        : 
-                                        "No reviews yet"
-                                    }
-                                    <p>{truck.cuisine.join(', ')}</p>
-                                <p><FontAwesomeIcon className={styles.Icon} icon="fa-solid fa-clock" /> Wait time</p>
-                                <p><img src="/assets/tiny_truck.png" width='20px'></img> {truck.location.street}, {truck.location.city} </p>
+                                <p className={styles.grayText}>                                {
+                                    truck.priceRating === 1 ? "$" : truck.priceRating === 2 ? "$$" : truck.priceRating === 3 ? "$$$" : "$$$$"
+                                } — {truck.cuisine.join(', ')}</p>
+                                {
+                                    truck.currentRating ?
+                                    <StarDisplay foodTruck={truck} options={{edit:false, displayNumber:true}} />
+                                    : 
+                                    <div>No reviews yet</div>
+                                }
+                                <br />
+                                <p className={styles.TruckText}>{truck.description}</p>
+                                <br />
+                                <div className={styles.TruckStats}>
+                                <p className={styles.TruckText}><FontAwesomeIcon className={styles.Icon} icon="fa-solid fa-clock" /> Wait time: None</p>
+                                <p className={styles.TruckText}><img src="/assets/tiny_truck.png" width='20px'></img> {truck.location.street}, {truck.location.city} </p>
+                                </div>
                             </div>
                         </div>
                     ))

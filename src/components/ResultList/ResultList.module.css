@@ -9,14 +9,14 @@
     border-radius: 5px;
     background-color: aliceblue;
     display: flex;
-    align-items: center;
     gap: 5px;
     border-radius: 10px;
+    height:330px;
 }
 
 .Card > div:hover{
-    border: solid;
     cursor: pointer;
+    box-shadow: 0 0 8px var(--orange);
 }
 
 .Card > div > img {
@@ -26,11 +26,25 @@
 .Banner {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 100%;
+    padding:30px 10px;
+    height:300px;
+    position:relative;
 }
 
-.Banner > p {
+.Banner h4 {
+    font-weight:800;
+    margin-bottom:0;
+}
+
+/* .Banner p {
     padding-left: 30px;
+} */
+
+.grayText {
+    color:var(--darkgray);
+    font-weight:300;
+    margin:5px 0;
 }
 
 .BannerTitle {
@@ -46,4 +60,19 @@
 
 .Icon {
     color: var(--orange);
+}
+
+.truckImage {
+    width:55%;
+    object-fit:cover;
+
+}
+
+.TruckText {
+    margin-bottom:0;
+}
+
+.TruckStats {
+    position:absolute;
+    bottom:0;
 }

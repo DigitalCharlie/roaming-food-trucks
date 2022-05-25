@@ -21,6 +21,10 @@ main {
     padding:30px 5px;
 }
 
+.heavy {
+    font-weight:700
+}
+
 .signup-button{ 
     border-radius: 10px;
     background: var(--white);

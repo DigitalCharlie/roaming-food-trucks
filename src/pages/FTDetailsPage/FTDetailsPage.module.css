@@ -20,6 +20,11 @@
     margin: 2%;
 }
 
-/* .FTDetailsPage .menuList {
-    padding-top: 10px;
-} */
+.TruckName {
+    font-weight:700;
+}
+
+.GrayText {
+    color:var(--darkgray);
+    margin-bottom:5px;
+}

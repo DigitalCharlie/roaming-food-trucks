@@ -31,7 +31,7 @@ export default function ResultsMap({resultTruck, filteredList}) {
 		} else {
 			setLoaded(true)
 		}
-	  }, [])
+	  }, [filteredList])
 
 
 	const mapMarkers = filteredList.map((truck) => (

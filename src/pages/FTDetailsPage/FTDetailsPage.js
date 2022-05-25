@@ -42,16 +42,14 @@ export default function FTDetailsPage() {
           loaded &&
           <div className={styles.FTDetailsPage}>
             {/* <h6>{foodTruck.location.city} {">"} {foodTruck.cuisine} {">"} {foodTruck.foodTruckName}</h6> */}
-            <h1>{foodTruck.foodTruckName}</h1>
-            <h6>{foodTruck.cuisine}</h6>
-            <h6>Rating</h6>
+            <h1 className={styles.TruckName}>{foodTruck.foodTruckName}</h1>
+            <p className={styles.GrayText}>{foodTruck.cuisine}</p>
             {
               foodTruck.currentRating ?
               <StarDisplay foodTruck={foodTruck} options={{edit:false, displayNumber:true}} />
               :
               "No reviews yet"
             }
-            <Link to={`/foodtruck/reviews/${id}`}>Reviews</Link>
             <div>
                 <img src={foodTruck.img} alt="foodtruckimage" className={styles.foodTruckImage}></img>
             </div>

@@ -11,7 +11,7 @@ export default function ReviewCard( {foodTruck} ) {
         <>
             <div className={styles.ReviewCard}>
                 <div>
-                    <h4>Reviews</h4>
+                    <h4 className="heavy">Reviews</h4>
                     {
                     foodTruck.reviews && foodTruck.reviews.length > 0 ?
                     foodTruck.reviews.map((review) => (

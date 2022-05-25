@@ -11,7 +11,7 @@ export default function MenuList( {foodTruck }) {
     return (
         <div className={styles.MenuList}>
             <div className={styles.menuContainer}>
-                <h4>Menu</h4>
+                <h4 className="heavy">Menu</h4>
                 <Tabs defaultActiveKey="apps" className="mb-3">
                     <Tab eventKey="apps" title="Apps">
                         <AppetizersList foodTruck={foodTruck} />
