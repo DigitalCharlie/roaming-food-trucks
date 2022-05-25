@@ -1,6 +1,10 @@
+// DEPENDNCIES
 import {useState, useEffect} from 'react'
 import { useSearchParams, useLocation } from "react-router-dom"
 import * as FoodtruckAPI from '../../utilities/foodTruck-api'
+import Spinner from 'react-bootstrap/Spinner';
+
+// COMPONENTS
 import PriceList from '../../components/PriceList/PriceList'
 import StarRating from '../../components/StarRating.js/StarRating'
 import ResultList from '../../components/ResultList/ResultList'
@@ -70,9 +74,17 @@ export default function DashboardPage() {
   }
 
   return (
+    <>
+      {
+      !loaded 
+      ?
+      <div className='spinner-div'>
+        <Spinner animation="border" className='spinner'/>
+      </div>
+      :
       <main className={styles.ResultPage}>
         {
-          loaded === true &&
+          loaded &&
           <>
           {
             resultTruck.length === 0 ?
@@ -105,5 +117,7 @@ export default function DashboardPage() {
           </>
         }
       </main>
+    }
+    </>
   );
 };

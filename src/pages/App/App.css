@@ -32,3 +32,19 @@
     margin-bottom:0;
     color:var(--darkgray)
 }
+
+/* SPINNER COMPONENT */
+
+.spinner-div {
+	width:100%;
+	text-align: center;
+	margin:220px 0;
+}
+
+.spinner-div > .spinner {
+	color:var(--orange);
+	font-size: 150px;
+    height: 150px;
+    width: 150px;
+}
+

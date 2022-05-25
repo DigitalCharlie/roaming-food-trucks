@@ -48,7 +48,6 @@
     border:2px solid var(--orange);
     background-color: white;
     font-weight:300;
-    margin-top:20px;
     padding:2px 10px;
     transition:.25s;
 }
