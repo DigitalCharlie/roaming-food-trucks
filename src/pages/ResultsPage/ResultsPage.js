@@ -17,8 +17,9 @@ export default function DashboardPage() {
   const [starRate, setStarRate] = useState(0)
   const [priceRate, setPriceRate] = useState(0)
   const [cuisines, setCuisines] = useState([])
-  const [newRadius, setNewRadius] = useState(0)
+  const [newRadius, setNewRadius] = useState(5)
   const [toggle, setToggle] = useState(false)
+  const [refresh, setRefresh] = useState(false)
   let radius = searchParams.get("radius")
   let zipcode = searchParams.get("zipcode")
   let cuisineQry = searchParams.get("cuisine")
@@ -36,13 +37,10 @@ export default function DashboardPage() {
           console.log(e)
         }
       })()
-    }, [toggle])
+    }, [refresh])
 
   const handleCuisineChange = (cuisine) => {
     const cuisineArray = [...cuisines]
-    if(cuisineQry !== 'null'){
-      cuisineArray.push(cuisineQry)
-    }
     if (cuisineArray.indexOf(cuisine) === -1) {
       cuisineArray.push(cuisine)
     } else {
@@ -55,9 +53,17 @@ export default function DashboardPage() {
     }
   }
 
+  useEffect(() => {
+    if(loaded){
+      setSearchParams({zipcode: zipcode, cuisine: cuisineQry, radius: newRadius})
+      setRefresh(!refresh)
+    }
+
+  }, [toggle])
+
+
   const handleRadiusChange = (rad) => {
     setNewRadius(rad)
-    setSearchParams({zipcode: zipcode, cuisine: cuisineQry, radius: newRadius})
     setToggle(!toggle)
   }
 
@@ -76,7 +82,7 @@ export default function DashboardPage() {
             <div>
               <div className={styles.firstColumn}>
                 <h2>Filters</h2>
-                <DistanceList const handleRadiusChange={handleRadiusChange} />
+                <DistanceList const handleRadiusChange={handleRadiusChange} newRadius={newRadius} />
                 <CuisineList  handleCuisineChange={handleCuisineChange} />
                 <StarRating starRate={starRate} setStarRate={setStarRate} />
                 <PriceList resultPageState={resultTruck} priceRate={priceRate} setPriceRate={setPriceRate} />
