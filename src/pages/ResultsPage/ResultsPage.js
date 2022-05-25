@@ -89,8 +89,8 @@ export default function DashboardPage() {
           {
             resultTruck.length === 0 ?
             <>
-              <h3>No trucks found in your area. Please try again.</h3>
-              <SearchBox />
+              <h3 className="center">No trucks found in your area. Please try again.</h3>
+              <SearchBox notHomePage={true} />
             </>
             :
             <div>

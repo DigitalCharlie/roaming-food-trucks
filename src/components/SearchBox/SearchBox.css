@@ -1,3 +1,5 @@
+/* HOME PAGE BOX */
+
 .SearchBox {
 	width:400px;
 	min-height:325px;
@@ -26,6 +28,40 @@
 }
 
 .SearchBox > .searchbar > .searchbar-form > .searchbar-input {
+	width:100%;
+	margin:0 0 12px 0;
+	height:40px;
+}
+
+/* NO RESULTS SEARCH BOX */
+
+.noResultsSearchBox {
+	width:400px;
+	margin:50px auto;
+	min-height:325px;
+	z-index:1;
+	background-color:white;
+	border-radius:20px;
+	border:1px solid var(--darkgray);
+    display: block!important;
+    padding: 20px!important;
+}
+
+.noResultsSearchBox > h2 {
+	margin-bottom:25px;
+}
+
+.noResultsSearchBox >.searchbar {
+	margin-left:0;
+
+}
+
+.noResultsSearchBox > .searchbar > .searchbar-form {
+	display:flex;
+	flex-direction:column;
+}
+
+.noResultsSearchBox > .searchbar > .searchbar-form > .searchbar-input {
 	width:100%;
 	margin:0 0 12px 0;
 	height:40px;

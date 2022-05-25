@@ -8,6 +8,7 @@ import UserContext from '../../context/UserContext'
 import styles from './DashboardPage.module.css'
 import TruckCards from '../../components/TruckCards/TruckCards'
 import StarDisplay from "../../components/StarDisplay/StarDisplay";
+import SearchBox from "../../components/SearchBox/SearchBox";
 
 export default function DashboardPage() {
 
@@ -56,7 +57,10 @@ export default function DashboardPage() {
                             favorites.length > 0 ?
                             <TruckCards truckArray={favorites} />
                             :
-                            <h3 className="center">You haven't chosen any favorites yet.<br /> Find one to review!</h3>
+                            <>
+                                <h3 className="center">You haven't chosen any favorites yet.<br /> Find one to review!</h3>
+                                <SearchBox notHomePage={true}/>
+                            </>
                         }
                     </>
                 : activeTab === 'recents'
@@ -65,7 +69,11 @@ export default function DashboardPage() {
                             recents.length > 0 ?
                             <TruckCards truckArray={recents} />
                             :
-                            <h3 className="center">You haven't visited any truck pages yet.<br /> Find one to review!</h3>
+                            <>
+                                <h3 className="center">You haven't visited any truck pages yet.<br /> Find one to review!</h3>              
+                                <SearchBox notHomePage={true} />
+                            </>
+
                         }
                     </> 
                 
@@ -85,7 +93,10 @@ export default function DashboardPage() {
                                 }
                             </div>
                             :
-                            <h3 className="center">You haven't reviewed any trucks yet.<br /> Find one to review!</h3>
+                            <>
+                                <h3 className="center">You haven't reviewed any trucks yet.<br /> Find one to review!</h3>
+                                <SearchBox notHomePage={true} />
+                            </>
                         }
                     </> 
             }
