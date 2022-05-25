@@ -1,6 +1,6 @@
 // DEPENDENCIES
 import { useEffect, useState, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import * as foodTruckAPI from "../../utilities/foodTruck-api";
 import styles from "./FTDetailsPage.module.css";
 import UserContext from '../../context/UserContext'
@@ -15,6 +15,8 @@ export default function FTDetailsPage() {
 
     const { id } = useParams();
     const userContext = useContext(UserContext);
+
+    const Navigate = useNavigate();
 
     console.log("Below is the user from UserContext")
     console.log(userContext)
@@ -49,6 +51,7 @@ export default function FTDetailsPage() {
               :
               `${foodTruck.foodTruckName} has no reviews. be the first to review it!`
             }
+            <Link to={`/foodtruck/review/create/${id}`}>Write a Review</Link>
             <div>
                 <img src={foodTruck.img} alt="foodtruckimage" className={styles.foodTruckImage}></img>
             </div>
