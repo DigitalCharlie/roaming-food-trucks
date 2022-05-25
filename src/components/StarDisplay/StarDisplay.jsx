@@ -14,12 +14,12 @@ export default function StarDisplay ({ foodTruck, review, options }) {
         if(foodTruck) setRating(foodTruck.currentRating)
 		if(review) setRating(review.rating)
 		setLoaded(true)
-    }, [])
+    }, [foodTruck])
 
 	const starRating = {
 		value: rating,
 		isHalf:true,
-		edit: options ? options.edit : false,
+		edit: false,
 		activeColor:'#F2782F'
 	}
 
