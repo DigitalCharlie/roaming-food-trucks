@@ -43,7 +43,7 @@ async function getUser(req, res) {
 // FAVORITES 
 async function getUserFavorites(req, res) {
     try {
-        const getUser = await User.findOne({ _id: req.params.id }).populate("favorites").populate("recents")
+        const getUser = await User.findOne({ _id: req.params.id }).populate("favorites").populate("recents").populate("reviews")
         if (!getUser) {
             throw new Error()
         }

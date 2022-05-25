@@ -1,0 +1,21 @@
+.MenuNav {
+    display:flex;
+    justify-content: space-around;
+    width:800px;
+    margin:0 auto;
+    padding:15px;
+    /* border-bottom:1px solid var(--darkgray) */
+}
+
+.MenuNavOption {
+    font-size:1.25em;
+    font-weight:300;
+    color:var(--darkgray);
+    padding:5px 20px 15px;
+    cursor:pointer;
+}
+
+.ActiveMenu {
+    color:var(--orange);
+    border-bottom:3px solid var(--orange);
+}
