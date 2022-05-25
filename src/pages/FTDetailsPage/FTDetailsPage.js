@@ -33,7 +33,7 @@ export default function FTDetailsPage() {
             console.log(e)
           }
         })()
-      }, [])
+    }, [])
     
     return (
       <main>

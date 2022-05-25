@@ -25,7 +25,11 @@ const userSchema = new Schema(
             required: true
         },
         favorites: [{ type: Schema.Types.ObjectId, ref: 'FoodTruck' }],
-        recents: [{ type: Schema.Types.ObjectId, ref: 'FoodTruck' }]
+        recents: [{ type: Schema.Types.ObjectId, ref: 'FoodTruck' }],
+        reviews: [{
+            type: Schema.Types.ObjectId,
+            ref: 'Review'
+        }]
     }
 );
 

@@ -1,5 +1,5 @@
 import * as reviewAPI from "../../utilities/reviews-api"
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import * as foodTruckAPI from "../../utilities/foodTruck-api";
 import styles from "./CreateReviewPage.module.css";
@@ -11,6 +11,7 @@ import { FormText } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import FormRange from "react-bootstrap/esm/FormRange";
 import { FormSelect } from "react-bootstrap";
+import UserContext from '../../context/UserContext'
 
 export default function CreateReviewPage() {
     const Navigate = useNavigate();
@@ -22,6 +23,8 @@ export default function CreateReviewPage() {
         review: "",
         waitTime: ""
     });
+
+    const userContext = useContext(UserContext);
     
     useEffect(() => {
         (async () => {
@@ -43,7 +46,8 @@ export default function CreateReviewPage() {
         evt.preventDefault()
         try {
             formData.foodTruck = id
-            // formData.user = userid need a way to access user id
+            formData.user = userContext._id
+            console.log(formData)
             const createdReview = reviewAPI.createReview(formData)
             console.log(createdReview)
             Navigate(`/foodtruck/detailpage/${id}`)
