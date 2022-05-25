@@ -67,7 +67,7 @@ export default function FTDetailsPage() {
               <>
                 <BusinessInfo foodTruck={foodTruck} />
                 <MenuList foodTruck={foodTruck} className={styles.menuList}/>
-                <ReviewCard foodTruck={foodTruck} />
+                <ReviewCard foodTruck={foodTruck}/>
                 <div className={styles.Right}><Link to={`/foodtruck/writereview/${foodTruck._id}`}><button className={styles.ReviewButton}>Write Review</button></Link></div>
               </>
             }

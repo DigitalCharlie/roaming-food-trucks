@@ -19,3 +19,22 @@
     color:var(--orange);
     border-bottom:3px solid var(--orange);
 }
+
+.ReviewContainer {
+	width:1000px;
+	max-width:100%;
+	margin:10px auto;
+}
+
+.ReviewCard {
+	border:1px solid var(--darkgray);
+	border-radius:20px;
+	padding:20px;
+	background:white;
+	margin:10px 0;
+	cursor:pointer;
+}
+
+.ReviewedTruck {
+	margin-bottom:0;
+}

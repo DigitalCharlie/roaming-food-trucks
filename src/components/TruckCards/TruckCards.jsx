@@ -19,7 +19,7 @@ export default function TruckCards({truckArray}) {
 						<div className={styles.FavoriteHeart}>
 							<FavoritesIcon truck={truck} circle={true} />
 						</div>
-						<img src={truck.img} className={styles.TruckCardImage}/>
+						<img src={truck.img} className={styles.TruckCardImage} onClick={() => navigate(`/foodtruck/detailpage/${truck._id}`)}/>
 						<div className={styles.TruckBodyContent} onClick={() => navigate(`/foodtruck/detailpage/${truck._id}`)}>
 							<div className={styles.TruckTopline}>
 								<p className="heavy">{truck.foodTruckName}</p>

@@ -13,7 +13,7 @@ import FormRange from "react-bootstrap/esm/FormRange";
 import { FormSelect } from "react-bootstrap";
 import UserContext from '../../context/UserContext'
 
-export default function CreateReviewPage() {
+export default function CreateReviewPage({}) {
     const Navigate = useNavigate();
     const { id } = useParams();
     const [reviews, setReviews] = useState([]);
@@ -48,7 +48,6 @@ export default function CreateReviewPage() {
         try {
             formData.foodTruck = id
             formData.user = user._id
-            console.log(formData)
             const createdReview = reviewAPI.createReview(formData)
             console.log(createdReview)
             Navigate(`/foodtruck/detailpage/${id}`)
@@ -56,7 +55,6 @@ export default function CreateReviewPage() {
             console.log(err)
         }
     };
-    console.log(formData);
 
     return (
         <main className={styles.CreateReviewPage}>

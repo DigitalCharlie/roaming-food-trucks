@@ -15,7 +15,7 @@ export default function ReviewCard( {foodTruck} ) {
                     {
                     foodTruck.reviews && foodTruck.reviews.length > 0 ?
                     foodTruck.reviews.map((review) => (
-                        <Card className={styles.ReviewDescription}>
+                        <Card className={styles.ReviewDescription} key={review._id}>
                            <Card.Body>
                             <StarDisplay review={review} options={{displayNumber:true}} />
                             <br />

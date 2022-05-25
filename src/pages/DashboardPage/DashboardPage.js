@@ -1,12 +1,13 @@
 import { useState, useContext, useEffect } from "react";
 import * as userApi from '../../utilities/users-api'
 import Spinner from 'react-bootstrap/Spinner';
-
+import { useNavigate } from "react-router-dom";
 
 // COMPONENTS
 import UserContext from '../../context/UserContext'
 import styles from './DashboardPage.module.css'
 import TruckCards from '../../components/TruckCards/TruckCards'
+import StarDisplay from "../../components/StarDisplay/StarDisplay";
 
 export default function DashboardPage() {
 
@@ -15,6 +16,8 @@ export default function DashboardPage() {
     const [favorites, setFavorites] = useState([])
     const [recents, setRecents] = useState([])
     const [reviews, setReviews] = useState([])
+
+    const navigate = useNavigate()
 
 	const userContext = useContext(UserContext);
 	const user = userContext.user
@@ -26,6 +29,7 @@ export default function DashboardPage() {
                 setFavorites(populatedUser.favorites)
                 setRecents(populatedUser.recents)
                 setReviews(populatedUser.reviews)
+                console.log(populatedUser)
                 setLoaded(true)
             } catch (err) {
                 console.log(err)
@@ -52,7 +56,7 @@ export default function DashboardPage() {
                             favorites.length > 0 ?
                             <TruckCards truckArray={favorites} />
                             :
-                            <h3>You haven't chosen any favorites yet.</h3>
+                            <h3 className="center">You haven't chosen any favorites yet.<br /> Find one to review!</h3>
                         }
                     </>
                 : activeTab === 'recents'
@@ -61,16 +65,27 @@ export default function DashboardPage() {
                             recents.length > 0 ?
                             <TruckCards truckArray={recents} />
                             :
-                            <h3>You haven't visited any truck pages yet.</h3>
+                            <h3 className="center">You haven't visited any truck pages yet.<br /> Find one to review!</h3>
                         }
                     </> 
                 
                 :   <>
                         {
                             reviews.length > 0 ?
-                            <h3>These are your reviews</h3>
+                            <div className={styles.ReviewContainer}>
+                                {   
+                                    reviews.map((review) => (
+                                        <div key={review._id} className={styles.ReviewCard} onClick={() => navigate(`/foodtruck/detailpage/${review.foodTruck._id}`)}>
+                                            <p className={`heavy ${styles.ReviewedTruck}`}>{review.foodTruck.foodTruckName}</p>
+                                            <StarDisplay review={review} options={{displayNumber:false}} />
+                                            <br />
+                                            <p>{review.review}</p>
+                                        </div>
+                                    ))
+                                }
+                            </div>
                             :
-                            <h3>You haven't reviewed any trucks yet.</h3>
+                            <h3 className="center">You haven't reviewed any trucks yet.<br /> Find one to review!</h3>
                         }
                     </> 
             }
