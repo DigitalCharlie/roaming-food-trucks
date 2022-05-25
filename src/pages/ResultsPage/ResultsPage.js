@@ -87,7 +87,7 @@ export default function DashboardPage() {
               <div className={styles.firstColumn}>
                 <h2>Filters</h2>
                 <DistanceList const handleRadiusChange={handleRadiusChange} newRadius={newRadius} />
-                <CuisineList  handleCuisineChange={handleCuisineChange} setCuisines={setCuisines} />
+                <CuisineList  handleCuisineChange={handleCuisineChange} setCuisines={setCuisines} cuisines={cuisines} />
                 <StarRating starRate={starRate} setStarRate={setStarRate} />
                 <PriceList resultPageState={resultTruck} priceRate={priceRate} setPriceRate={setPriceRate} />
               </div>
