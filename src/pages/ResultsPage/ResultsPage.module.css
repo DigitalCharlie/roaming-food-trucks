@@ -1,6 +1,5 @@
 .ResultPage {
     max-width:100%;
-    height:80vh
 }
 
 .ResultPage > h1{
@@ -16,15 +15,20 @@
 
 .firstColumn {
     flex: 1;
+    position:sticky;
+    top:100px;
+    align-self:flex-start
 }
 
 .secondColumn {
     flex: 3;
     overflow-y: auto;
     overflow-x:hidden;
-    height: 70vh;
 }
 
 .thirdColumn {
     flex: 2;
+    position:sticky;
+    top:100px;
+    align-self:flex-start
 } 

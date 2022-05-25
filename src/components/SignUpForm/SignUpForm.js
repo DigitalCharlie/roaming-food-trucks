@@ -32,13 +32,13 @@ export default function SignUpForm({ setUser}) {
             <div>
                 <h3 className={styles.signup}>Sign up</h3>
                 <form onSubmit={handleSubmit} method="POST">
-                    <input className={styles.input} type="text" onChange={handleChange} placeholder="First Name"  name="firstName"></input>
-                    <input className={styles.input} type="text" onChange={handleChange}  placeholder="Last Name" name="lastName"></input>
-                    <input className={styles.input} type="email" onChange={handleChange} placeholder="Email"  name="email"></input>
-                    <input className={styles.input} type="password" onChange={handleChange} placeholder="Password"  name="password"></input>
-                    <input className={styles.input} type="password" onChange={handleChange} placeholder="Confrim"  name="confirm"></input>
-                    <input className={styles.input} type="text" onChange={handleChange} placeholder="Phone Number" name="phone"></input>
-                    <input className={styles.input} type="text" onChange={handleChange} placeholder="Zip Code"  name="zipCode"></input>
+                    <input className={styles.input} type="text" onChange={handleChange} placeholder="First Name"  name="firstName" required></input>
+                    <input className={styles.input} type="text" onChange={handleChange}  placeholder="Last Name" name="lastName" required></input>
+                    <input className={styles.input} type="email" onChange={handleChange} placeholder="Email"  name="email" required></input>
+                    <input className={styles.input} type="password" onChange={handleChange} placeholder="Password"  name="password" required></input>
+                    <input className={styles.input} type="password" onChange={handleChange} placeholder="Confirm"  name="confirm" required></input>
+                    <input className={styles.input} type="text" onChange={handleChange} placeholder="Phone Number" name="phone" required></input>
+                    <input className={styles.input} type="text" onChange={handleChange} placeholder="Zip Code"  name="zipCode" required></input>
                     <div>
                         <button className={styles.button} type="submit" >Sign Up</button>
                     </div>

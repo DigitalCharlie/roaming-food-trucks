@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react'
 import * as userAPI from '../../utilities/users-api'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import StarDisplay from "../StarDisplay/StarDisplay"
+
 export default function TrendingFoodTruck({ foodTrucks, user }) {
     const [userFavorites, setUserFavorites] = useState([])
     const heartChoice = (truckId) => {
@@ -44,14 +46,12 @@ export default function TrendingFoodTruck({ foodTrucks, user }) {
                 {
                     foodTrucks.map((foodTruck, idx) => {
                         return (
-                            // returns only the first 6 food trucks
-                            idx < 6 &&
                             <div key={foodTruck._id} >
                                 <img src={foodTruck.img} height='250' width='300' />
                                 <div className={styles.Banner}>
                                     <div className={styles.BannerTitle}>
                                         <h5><Link to={`/foodtruck/detailpage/${foodTruck._id}`}>{foodTruck.foodTruckName}</Link> <FontAwesomeIcon className={styles.Icon}  icon={`${heartChoice(foodTruck._id)}`} onClick={() => { addFavorites(foodTruck._id) }} /></h5>
-                                        <p>{foodTruck.currentRating ? foodTruck.currentRating.toFixed(1) : null}</p>
+                                        <p>{foodTruck.currentRating && <StarDisplay foodTruck={foodTruck} options={{edit:false, displayNumber:true, singleStar:true}}/>}</p>
                                     </div>
                                     <p>Wait time</p>
                                     <p>{foodTruck.location.street}, {foodTruck.location.city} </p>

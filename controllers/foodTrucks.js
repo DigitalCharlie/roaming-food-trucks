@@ -4,10 +4,10 @@ const axios = require('axios')
 
 module.exports = { index, create, show, search, zipSearch };
 
-// Index Route \\
+// Index Route --> NOW TRENDING TRUCK ROUTE, SHOWS 6 HIGHEST RATED TRUCKS
 async function index(req, res) {
     try {
-        const foodTrucks = await FoodTruck.find({});
+        const foodTrucks = await FoodTruck.find({}).sort({currentRating:'desc'}).limit(6);
         res.status(200).json(foodTrucks);
     } catch (err) {
         res.status(400).json(err);
