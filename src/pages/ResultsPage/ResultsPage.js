@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import { useSearchParams } from "react-router-dom"
+import { useSearchParams, useLocation } from "react-router-dom"
 import * as FoodtruckAPI from '../../utilities/foodTruck-api'
 import PriceList from '../../components/PriceList/PriceList'
 import StarRating from '../../components/StarRating.js/StarRating'
@@ -24,6 +24,7 @@ export default function DashboardPage() {
   let radius = searchParams.get("radius")
   let zipcode = searchParams.get("zipcode")
   let cuisineQry = searchParams.get("cuisine")
+  const { search } = useLocation();
 
 
   useEffect(() => {
@@ -33,12 +34,13 @@ export default function DashboardPage() {
           // setResultTruck(data)         
           const zipRadiusData = await FoodtruckAPI.zipRadiusSearch(zipcode,radius)
           setResultTruck(zipRadiusData)
+          if (searchParams.get('cuisine')!== "null" && searchParams.get('cuisine')!== "undefined" ) setCuisines([cuisineQry])
           setLoaded(true)
         } catch(e) {
           console.log(e)
         }
       })()
-    }, [refresh])
+    }, [refresh, search])
 
   const handleCuisineChange = (cuisine) => {
     const cuisineArray = [...cuisines]
@@ -50,12 +52,7 @@ export default function DashboardPage() {
       cuisineArray.splice(toDelete, 1)
       setCuisines(cuisineArray)
     }
-    if(cuisineArray.length > 0){
-      console.log(cuisineArray)
-      setSearchParams({zipcode: zipcode, cuisine: cuisineArray.join(', '), radius: radius})
-    } else {
-      setSearchParams({zipcode: zipcode, cuisine: 'null', radius: radius})
-    }
+    setSearchParams({zipcode: zipcode, cuisine: 'null', radius: radius})
   }
 
   useEffect(() => {

@@ -29,7 +29,8 @@ export default function CuisineList({ handleCuisineChange, setCuisines, cuisines
                                     }} 
                                     name={element} 
                                     type="checkbox"
-                                    id={element}                                 
+                                    id={element}
+                                    defaultChecked={cuisines.indexOf(element) !== -1}                                 
                                 />
                                 {element}
                             </label>
