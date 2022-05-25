@@ -36,23 +36,23 @@ In The Roaming Spoon, you can sign up as a new user or login if you already have
 # **Screenshots, Trello Board, and ERD**
 
 **Landing Page**
-![landing page](/public/assets/landing-page.png)
+![landing page](/public/readmeAssets/landing-page.png)
 
 **Sign Up Page**
-![sign up page](/public/assets/signup-page.png)
+![sign up page](/public/readmeAssets/signup-page.png)
 
 **Results Page**
-![results page](/public/assets/results-page.png)
+![results page](/public/readmeAssets/results-page.png)
 
 **FoodTruck Page**
-![foodtruck page](/public/assets/detail-page-1.png)
-![foodtruck page 2](/public/assets/detail-page-2.png)
+![foodtruck page](/public/readmeAssets/detail-page-1.png)
+![foodtruck page 2](/public/readmeAssets/detail-page-2.png)
 
 **Create Review Page**
-![create review page](/public/assets/create-review.png)
+![create review page](/public/readmeAssets/create-review.png)
 
 **ERD**
-![erd](/public/assets/erd.png)
+![erd](/public/readmeAssets/erd.png)
 
 **Trello Board**
-![trello board](/public/assets/trelloboard.png)
+![trello board](/public/readmeAssets/trelloboard.png)
