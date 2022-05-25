@@ -16,6 +16,7 @@ body{
 main {
     margin:0 auto;
     width:100%;
+    min-height:60vh;
     max-width:1200px;
     padding:30px 5px;
 }
