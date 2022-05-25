@@ -1,0 +1,29 @@
+.pricelist{
+    border-top: solid grey;
+    padding: 5px 0;
+}
+
+.pricelist  > div > button {
+    color: grey;
+    border: none;
+    background: none;
+}
+
+.pricelist > div {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    justify-content: space-between;
+}
+
+.pricebutton{
+    border-radius: 20px;
+}
+
+.pricelist > button {
+    color: grey;
+    background-color: white;
+    border-radius: 10px;
+    margin-left: 2%; 
+    padding: 2px 6px;
+}
