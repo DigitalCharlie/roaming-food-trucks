@@ -20,35 +20,36 @@ import UserContext from '../../context/UserContext'
 
 function App() {
   const location = useLocation();
-  const [foodTrucks, setFoodTrucks] = useState([])
   const [user, setUser] = useState(getUser())
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const data = await FoodtruckAPI.getAll() // THIS WILL NEED TO CHANGE TO NOT BE EVERY ROUTE IN THE DB BUT IS LOW PRIORITY
-        setFoodTrucks(data)
-        console.log(location.pathname)
-      } catch (e) {
-        console.log(e)
-      }
-    })()
-  }, [])
+  function useScrollToTop() {
+    const { pathname } = useLocation();
+  
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
+  }
 
+  useScrollToTop();
 
   return (
     <div className="App">
-      <UserContext.Provider value={user}>
-        <NavBar pathname={location.pathname} user={user} />
+      <UserContext.Provider value={{user, setUser}}>
+        <NavBar pathname={location.pathname} user={user} setUser={setUser} />
         <Routes>
-          <Route path="/" element={<HomePage foodTrucks={foodTrucks} user={user} />} />
+          <Route path="/" element={<HomePage  user={user} />} />
           <Route path="/signup" element={<AuthPage user={user} setUser={setUser} />} />
           <Route path="/login" element={<LogInPage setUser={setUser} />} />
-          <Route path="/user/dashboard/:userid" element={<DashboardPage foodTrucks={foodTrucks} user={user} />} />
-          <Route path="/foodtruck/resultspage" element={<ResultsPage foodTrucks={foodTrucks} />} />
-          <Route path="/foodtruck/detailpage/:id" element={<FTDetailsPage foodTrucks={foodTrucks} />} />
-          <Route path="/foodtruck/reviews/:id" element={<FTReviewsPage foodTrucks={foodTrucks} />} />
-          <Route path="/foodtruck/review/create/:id" element={<CreateReviewPage foodTrucks={foodTrucks} />} />
+          {
+            user ?
+              <Route path="/user" element={<DashboardPage user={user} />} />
+              :
+              <Route path="/user" element={<AuthPage user={user} setUser={setUser} />} />
+          }
+          <Route path="/foodtruck/resultspage" element={<ResultsPage  />} />
+          <Route path="/foodtruck/detailpage/:id" element={<FTDetailsPage  />} />
+          <Route path="/foodtruck/reviews/:id" element={<FTReviewsPage  />} />
+          <Route path="/foodtruck/writereview/:id" element={<CreateReviewPage />} />
         </Routes>
         <Footer />
       </UserContext.Provider>

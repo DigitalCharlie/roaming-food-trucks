@@ -7,12 +7,40 @@ import styles from "./MenuList.module.css";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab"
 
+import { useState } from "react";
+
 export default function MenuList( {foodTruck }) {
+
+    const [activeTab, setActiveTab] = useState('apps')
+
     return (
-        <div className={styles.MenuList}>
+        <section className={styles.MenuList}>
             <div className={styles.menuContainer}>
-                <h4>Menu</h4>
-                <Tabs defaultActiveKey="apps" className="mb-3">
+                <h4 className="heavy">Menu</h4>
+
+                    <div className={styles.MenuNav}>
+                        <div onClick={()=>setActiveTab('apps')} className={`${styles.MenuNavOption} ${activeTab==='apps' && styles.ActiveMenu }`}>Apps</div>
+                        <div onClick={()=>setActiveTab('entrees')} className={`${styles.MenuNavOption} ${activeTab==='entrees' && styles.ActiveMenu }`}>Entrees</div>
+                        <div onClick={()=>setActiveTab('sides')} className={`${styles.MenuNavOption} ${activeTab==='sides' && styles.ActiveMenu }`}>Sides</div>
+                        <div onClick={()=>setActiveTab('drinks')} className={`${styles.MenuNavOption} ${activeTab==='drinks' && styles.ActiveMenu }`}>Drinks</div>
+                        <div onClick={()=>setActiveTab('desserts')} className={`${styles.MenuNavOption} ${activeTab==='desserts' && styles.ActiveMenu }`}>Desserts</div>
+                    </div>
+                    {
+                        activeTab === 'apps' 
+                        ? <AppetizersList foodTruck={foodTruck} />
+                        : activeTab === 'entrees'
+                        ? <EntreeList foodTruck={foodTruck} />
+                        : activeTab === 'sides'
+                        ? <SidesList foodTruck={foodTruck}/>
+                        : activeTab === 'drinks'
+                        ? <DrinksList foodTruck={foodTruck} />
+                        :<DessertsList foodTruck={foodTruck} />
+                    }
+                    <article>
+
+                    </article>
+
+                {/* <Tabs defaultActiveKey="apps" className="mb-3">
                     <Tab eventKey="apps" title="Apps">
                         <AppetizersList foodTruck={foodTruck} />
                     </Tab>
@@ -28,8 +56,8 @@ export default function MenuList( {foodTruck }) {
                     <Tab eventKey="desserts" title="Desserts">
                         <DessertsList foodTruck={foodTruck} />
                     </Tab>
-                </Tabs>
+                </Tabs> */}
             </div>
-        </div>
+        </section>
     );
 };

@@ -1,0 +1,48 @@
+.CuisineBox {
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.Cuisines {
+    height: 250px;
+    overflow: auto;
+    padding: 5px 0;
+    margin-bottom: 5px;
+}
+
+.Cuisines > div {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+}
+
+.Cuisines > div > button {
+    border: none;
+    background: none;
+}
+
+.Cuisines > div:nth-of-type(2) {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.Cuisines > div:nth-of-type(2) > p {
+    margin-bottom: 3px;
+} 
+
+.cuisineLabel {
+    cursor:pointer;
+}
+
+.cuisineLabel > input {
+    margin: 5px 5px 5px 0;
+    position:relative;
+    top:1px;
+}
+
+.clearButton {
+    color:var(--darkgray);
+    border:none;
+}

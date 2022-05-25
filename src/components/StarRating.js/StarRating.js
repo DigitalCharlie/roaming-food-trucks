@@ -11,7 +11,7 @@ export default function StarRating({starRate, setStarRate}) {
 
     useEffect(() => {
         if(clicked){
-            setColor('red')
+            setColor('#F2782F')
             setStarRate(index + 1)
         } else {
             setColor('grey')
@@ -22,7 +22,7 @@ export default function StarRating({starRate, setStarRate}) {
         <div className={styles.StarRating}>
             <div>
                 <h5>Rating</h5>
-                <button onClick={() => {setIndex(-1); setStarRate(0)} }>Clear</button>
+                <button onClick={() => {setIndex(-1); setStarRate(0)} } className={styles.clearButton}>Clear</button>
             </div>
             {
                 [...Array(5)].map((star, idx) => {

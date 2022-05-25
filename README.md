@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# **The Roaming Spoon**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Discover amazing food trucks in your area using the Roaming Spoon app! Use The Roaming Spoon is to search your favorite food trucks and see their current location. 
 
-## Available Scripts
+Find out more information for any food truck like location, phone number, business hours, and reviews. You can also filter the list based on distance, cuisine, rating, and price.
 
-In the project directory, you can run:
+## **Background**
 
-### `npm start`
+This application was built by General Assembly students in the Software Engineering Immersive Course as submission for Group Project 4. It was made in collaboration with a UI/UX team at General Assembly.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Software Engineering Team
+1. Charlie Furman
+2. Dan Nguyen
+3. Gerimae Oliva
+4. Michael Del Castillo
+5. Julio Colon
+6. Farah Yeazneen
+7. Ray Kim
+8. Lucas Carlos
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+UI/UX Team
+1. Ian Pang
+2. Christian Fajardo
+3. Tanya Sipani
 
-### `npm test`
+## **Technologies Used**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+HTML | CSS | JavaScript | MongoDB | Express | React | Node.js | Bootstrap / REACT Bootstrap | Mongoose | Axios | Bcrypt | JSON Webtoken | Google Maps API | Heroku
 
-### `npm run build`
+## **Getting Started**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Click here to launch the app: https://roaming-spoon.herokuapp.com/
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+In The Roaming Spoon, you can sign up as a new user or login if you already have an account. Use the search bar to find food trucks available in your area. Click on any food truck to show the detail page and discover what other reviewers are saying. You can also save your favorite food trucks and write reviews. Scroll through each food truck to find all their menu items. You can also filter your search list by distance, cuisine, rating, and price. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# **Screenshots, Trello Board, and ERD**
 
-### `npm run eject`
+**Landing Page**
+![landing page](/public/readmeAssets/landing-page.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Sign Up Page**
+![sign up page](/public/readmeAssets/signup-page.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Results Page**
+![results page](/public/readmeAssets/results-page.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**FoodTruck Page**
+![foodtruck page](/public/readmeAssets/detail-page-1.png)
+![foodtruck page 2](/public/readmeAssets/detail-page-2.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**Create Review Page**
+![create review page](/public/readmeAssets/create-review.png)
 
-## Learn More
+**ERD**
+![erd](/public/readmeAssets/erd.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Trello Board**
+![trello board](/public/readmeAssets/trelloboard.png)

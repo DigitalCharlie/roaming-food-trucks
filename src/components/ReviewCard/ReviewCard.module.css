@@ -1,0 +1,12 @@
+.ReviewCard {
+    border-radius: 50px;
+}
+
+.ReviewCard .ReviewDescription {
+    margin-top: 1%;
+    border-radius:20px;
+}
+
+.bold {
+    font-weight:700;
+}

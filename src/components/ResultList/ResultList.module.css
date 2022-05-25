@@ -1,0 +1,78 @@
+.Card {
+    display: grid;
+    grid-gap: 1em;
+    padding: 10px 0 0 30px;
+    width: 90%;
+}
+
+.Card > div {
+    border-radius: 5px;
+    background-color: var(--white);
+    display: flex;
+    gap: 5px;
+    border-radius: 10px;
+    height:330px;
+}
+
+.Card > div:hover{
+    cursor: pointer;
+    box-shadow: 0 0 8px var(--orange);
+}
+
+.Card > div > img {
+    border-radius: 10px 0 0 10px;
+}
+
+.Banner {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding:30px 10px;
+    height:300px;
+    position:relative;
+}
+
+.Banner h4 {
+    font-weight:800;
+    margin-bottom:0;
+}
+
+/* .Banner p {
+    padding-left: 30px;
+} */
+
+.grayText {
+    color:var(--darkgray);
+    font-weight:300;
+    margin:5px 0;
+}
+
+.BannerTitle {
+    display: flex;
+    justify-content: space-between;
+}
+
+.div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.Icon {
+    color: var(--orange);
+}
+
+.truckImage {
+    width:55%;
+    object-fit:cover;
+
+}
+
+.TruckText {
+    margin-bottom:0;
+}
+
+.TruckStats {
+    position:absolute;
+    bottom:0;
+}
