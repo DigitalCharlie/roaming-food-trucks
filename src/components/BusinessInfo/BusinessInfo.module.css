@@ -1,7 +1,19 @@
 .BusinessInfo {
     align-items: right;
+    display: flex;
+    padding-top: 2%;
 }
 
 .BusinessInfo .BusinessHours {
     list-style: none;
+}
+
+.BusinessInfo .BusinessDetails {
+    padding-left: 2%;
+}
+
+.BusinessDetails .BusinessIcons {
+    width: 5%;
+    height: 5%;
+    padding-right: 1%;
 }
