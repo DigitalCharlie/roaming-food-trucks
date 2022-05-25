@@ -18,6 +18,7 @@
     display: flex;
     align-items: baseline;
     gap: 5px;
+    justify-content: space-between;
 }
 
 .StarRating > div > button {
