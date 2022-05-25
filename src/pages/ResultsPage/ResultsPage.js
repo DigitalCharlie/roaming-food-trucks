@@ -50,6 +50,8 @@ export default function DashboardPage() {
     setCuisines(cuisineArray)
     if(cuisineArray.length > 0){
       setSearchParams({zipcode: zipcode, cuisine: cuisineArray.join(', '), radius: radius})
+    } else {
+      setSearchParams({zipcode: zipcode, cuisine: 'null', radius: radius})
     }
   }
 
