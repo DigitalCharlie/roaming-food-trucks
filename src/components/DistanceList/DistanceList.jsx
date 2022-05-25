@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import styles from './DistanceList.module.css'
 export default function DistanceList({handleRadiusChange, newRadius}) {
 useEffect(() => {
     let nearInput = document.getElementById('near')
@@ -10,13 +11,11 @@ useEffect(() => {
 })
 
     return(
-        <div>
+        <div className={styles.Distance}>
             <h5>Distance</h5>
-            <form>
-                <label><input type='checkbox' id='near' onClick={() => {handleRadiusChange(0.5, 'near')}}></input> Walking (&lt; 1 mile)</label>
-                <label><input type='checkbox' id='walk' onClick={() => {handleRadiusChange(1, 'walk')}}></input> Walking (1 mile)</label>
-                <label><input type='checkbox' id='drive' onClick={() => {handleRadiusChange(5, 'drive')}}></input> Driving (5 miles)</label>
-            </form>
+                <label className={styles.DistanceLabel}><input type='checkbox' id='near' onClick={() => {handleRadiusChange(0.5, 'near')}}></input> Walking (&lt; 1 mile)</label>
+                <label className={styles.DistanceLabel}><input type='checkbox' id='walk' onClick={() => {handleRadiusChange(1, 'walk')}}></input> Walking (1 mile)</label>
+                <label className={styles.DistanceLabel}><input type='checkbox' id='drive' onClick={() => {handleRadiusChange(5, 'drive')}}></input> Driving (5 miles)</label>
         </div>
     )
 }
