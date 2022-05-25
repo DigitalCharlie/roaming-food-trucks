@@ -1,6 +1,6 @@
 // DEPENDENCIES
 import { useEffect, useState, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import * as foodTruckAPI from "../../utilities/foodTruck-api";
 import styles from "./FTDetailsPage.module.css";
 import UserContext from '../../context/UserContext'
@@ -8,6 +8,8 @@ import UserContext from '../../context/UserContext'
 // COMPONENTS
 import MenuList from "../../components/MenuList/MenuList";
 import BusinessInfo from "../../components/BusinessInfo/BusinessInfo";
+import StarDisplay from "../../components/StarDisplay/StarDisplay";
+import ReviewCard from "../../components/ReviewCard/ReviewCard";
 
 export default function FTDetailsPage() {
     const [foodTruck, setFoodTruck] = useState({});
@@ -15,6 +17,8 @@ export default function FTDetailsPage() {
 
     const { id } = useParams();
     const userContext = useContext(UserContext);
+
+    const Navigate = useNavigate();
 
     console.log("Below is the user from UserContext")
     console.log(userContext)
@@ -39,16 +43,14 @@ export default function FTDetailsPage() {
             {/* <h6>{foodTruck.location.city} {">"} {foodTruck.cuisine} {">"} {foodTruck.foodTruckName}</h6> */}
             <h1>{foodTruck.foodTruckName}</h1>
             <h6>{foodTruck.cuisine}</h6>
-            {/* {"Rating Component"} */}<h6>Rating</h6>
-            {/* {"Reviews Button"} */}<h6>Reviews</h6>
+            <h6>Rating</h6>
             {
-              foodTruck.reviews && foodTruck.reviews.length > 0 ?
-              foodTruck.reviews.map((review) => (
-                review.review
-              ))
+              foodTruck.currentRating ?
+              <StarDisplay foodTruck={foodTruck} options={{edit:false, displayNumber:true}} />
               :
-              `${foodTruck.foodTruckName} has no reviews. be the first to review it!`
+              "No reviews yet"
             }
+            <Link to={`/foodtruck/reviews/${id}`}>Reviews</Link>
             <div>
                 <img src={foodTruck.img} alt="foodtruckimage" className={styles.foodTruckImage}></img>
             </div>
@@ -63,6 +65,7 @@ export default function FTDetailsPage() {
               <>
                 <BusinessInfo foodTruck={foodTruck} />
                 <MenuList foodTruck={foodTruck} className={styles.menuList}/>
+                <ReviewCard foodTruck={foodTruck} />
               </>
             }
         </div>

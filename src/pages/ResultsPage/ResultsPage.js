@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import { useSearchParams, useNavigate } from "react-router-dom"
+import { useSearchParams } from "react-router-dom"
 import * as FoodtruckAPI from '../../utilities/foodTruck-api'
 import PriceList from '../../components/PriceList/PriceList'
 import StarRating from '../../components/StarRating.js/StarRating'
@@ -10,7 +10,6 @@ import SearchBox from '../../components/SearchBox/SearchBox'
 import styles from './ResultsPage.module.css'
 
 export default function DashboardPage() {
-  const navigate = useNavigate()
   const [loaded, setLoaded] = useState(null)
   const [searchParams, setSearchParams] = useSearchParams()
   const [resultTruck, setResultTruck] = useState([])

@@ -1,8 +1,8 @@
 .Card {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 1em;
     padding: 10px 0 0 30px;
+    width: 90%;
 }
 
 .Card > div {
@@ -11,6 +11,7 @@
     display: flex;
     align-items: center;
     gap: 5px;
+    border-radius: 10px;
 }
 
 .Card > div:hover{
@@ -19,7 +20,7 @@
 }
 
 .Card > div > img {
-    border-radius: 5px 5px 0 0;
+    border-radius: 10px 0 0 10px;
 }
 
 .Banner {
