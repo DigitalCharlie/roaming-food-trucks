@@ -1,6 +1,23 @@
 /* .FTDetailsPage {
 } */
 
+.ToplineTitle {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:10px;
+}
+
+
+.TruckName {
+    font-weight:700;
+    margin-bottom:0;
+}
+
+.ToplineTitle > svg {
+    font-size:20px;
+}
+
 .FTDetailsPage .foodTruckImage {
     width: 100%;
     height: 450px;
@@ -19,9 +36,6 @@
     margin: 2%;
 }
 
-.TruckName {
-    font-weight:700;
-}
 
 .GrayText {
     color:var(--darkgray);

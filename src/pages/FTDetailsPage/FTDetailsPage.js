@@ -12,6 +12,7 @@ import MenuList from "../../components/MenuList/MenuList";
 import BusinessInfo from "../../components/BusinessInfo/BusinessInfo";
 import StarDisplay from "../../components/StarDisplay/StarDisplay";
 import ReviewCard from "../../components/ReviewCard/ReviewCard";
+import FavoritesIcon from "../../components/FavoritesIcon/FavoritesIcon";
 
 export default function FTDetailsPage() {
     const [foodTruck, setFoodTruck] = useState({});
@@ -43,8 +44,10 @@ export default function FTDetailsPage() {
         {
           loaded &&
           <div className={styles.FTDetailsPage}>
-            {/* <h6>{foodTruck.location.city} {">"} {foodTruck.cuisine} {">"} {foodTruck.foodTruckName}</h6> */}
-            <h1 className={styles.TruckName}>{foodTruck.foodTruckName}</h1>
+            <div className={styles.ToplineTitle}>
+              <h1 className={styles.TruckName}>{foodTruck.foodTruckName}</h1>
+              <FavoritesIcon truck={foodTruck} />
+            </div>
             <p className={styles.GrayText}>{foodTruck.cuisine}</p>
             {
               foodTruck.currentRating ?
