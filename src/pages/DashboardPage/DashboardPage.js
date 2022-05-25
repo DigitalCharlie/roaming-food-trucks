@@ -36,7 +36,7 @@ export default function DashboardPage() {
                 console.log(err)
             }
         })()
-    }, [])
+    }, [user])
 
     return (
         <main>
