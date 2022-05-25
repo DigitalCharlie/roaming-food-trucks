@@ -17,3 +17,10 @@
 .Empty:hover {
 	color:red;
 }
+
+.Circle {
+	background-color:white;
+	padding:5px;
+	border-radius:50%;
+	box-shadow: 0 0 5px var(--black);
+}

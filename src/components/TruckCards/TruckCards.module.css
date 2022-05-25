@@ -10,6 +10,10 @@
 	border-radius:25px;
 }
 
+.TruckCard:hover {
+	box-shadow: 0 0 8px var(--orange);
+}
+
 .TruckCardImage {
 	width:100%;
 	height:200px;
@@ -19,4 +23,36 @@
 
 .TruckBodyContent {
 	padding:10px;
+	cursor:pointer;
+}
+
+.TruckTopline {
+	display:flex;
+	justify-content: space-between;
+	margin-bottom:5px;
+}
+
+.TruckTopline > p {
+	margin-bottom:5px;
+}
+
+.GrayText {
+	color:var(--darkgray);
+	font-weight:200;
+}
+
+.TruckAddress {
+	display:flex;
+	align-items: center;
+	margin:5px 0;
+	font-size:.85em;
+}
+
+.Icon {
+	margin-right:15px;
+}
+
+.FavoriteHeart {
+	position:absolute;
+	margin: 15px 0 0 15px;
 }

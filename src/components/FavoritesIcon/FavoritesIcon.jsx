@@ -8,7 +8,7 @@ import UserContext from '../../context/UserContext'
 import styles from './FavoritesIcon.module.css'
 
 
-export default function FavoritesIcon ({truck}) {
+export default function FavoritesIcon ({truck, circle}) {
 
 	const userContext = useContext(UserContext);
 	const user = userContext.user
@@ -40,7 +40,7 @@ export default function FavoritesIcon ({truck}) {
 			{
 				truck &&
 				<FontAwesomeIcon 
-					className={`Icon ${whichVersion(truck._id)}`}  
+					className={`${styles.Icon} ${whichVersion(truck._id)} ${circle && styles.Circle}`}  
 					icon={whichHeart(truck._id)} 
 					onClick={() => { toggleFavorite(truck._id) }} 
 				/>
