@@ -13,6 +13,7 @@ export default function AppetizersList({ foodTruck }) {
                             menu.apps.map((app, idx) => {
                                 return (
                                     <div key={idx}>
+                                        <p>{app.dishName}</p>
                                         <p>{app.description}</p>
                                         <p>${app.price}</p>
                                     </div>

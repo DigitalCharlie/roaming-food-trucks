@@ -1,0 +1,7 @@
+.ReviewCard {
+    border-radius: 50px;
+}
+
+.ReviewCard .ReviewDescription {
+    margin-top: 1%;
+}

@@ -1,5 +1,6 @@
 .StarRating{
-    border: none;
+    border-top: solid grey;
+    padding: 5px 0;
 }
 
 .StarRating > button {
@@ -17,6 +18,7 @@
     display: flex;
     align-items: baseline;
     gap: 5px;
+    justify-content: space-between;
 }
 
 .StarRating > div > button {

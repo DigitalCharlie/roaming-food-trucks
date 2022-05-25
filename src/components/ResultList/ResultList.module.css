@@ -1,0 +1,49 @@
+.Card {
+    display: grid;
+    grid-gap: 1em;
+    padding: 10px 0 0 30px;
+    width: 90%;
+}
+
+.Card > div {
+    border-radius: 5px;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 10px;
+}
+
+.Card > div:hover{
+    border: solid;
+    cursor: pointer;
+}
+
+.Card > div > img {
+    border-radius: 10px 0 0 10px;
+}
+
+.Banner {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.Banner > p {
+    padding-left: 30px;
+}
+
+.BannerTitle {
+    display: flex;
+    justify-content: space-between;
+}
+
+.div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.Icon {
+    color: var(--orange);
+}

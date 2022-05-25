@@ -13,6 +13,7 @@ export default function DrinksList({ foodTruck }) {
                             menu.drinks.map((drink, idx) => {
                                 return (
                                     <div key={idx}>
+                                        <p>{drink.dishName}</p>
                                         <p>{drink.description}</p>
                                         <p>${drink.price}</p>
                                     </div>

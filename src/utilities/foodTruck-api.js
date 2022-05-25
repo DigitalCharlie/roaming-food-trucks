@@ -23,6 +23,10 @@ export function getResultTruck(zipcode, cuisine){
     return sendRequest(`${BASE_URL}/search?zipcode=${zipcode}&cuisine=${cuisine}`)
 }
 
+export function zipRadiusSearch(zipcode,radius){
+    return sendRequest(`${BASE_URL}/zipsearch?zipcode=${zipcode}&radius=${radius}`)
+}
+
 // //Delete food truck
 // export function getByIdAndDelete(id) {
 //     return sendRequest(`${BASE_URL}/${id}`, 'DELETE')

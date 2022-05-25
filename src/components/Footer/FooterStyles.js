@@ -32,7 +32,7 @@ export const Row = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, 
                          minmax(185px, 1fr));
-  grid-gap: 100px;
+  grid-gap: 120px;
    
   @media (max-width: 100%) {
     grid-template-columns: repeat(auto-fill, 
@@ -45,7 +45,7 @@ display: flex;
 gap: 0 10px; 
   color: var(--white);
   margin-bottom: 10px;
-  font-size: 16px;
+  font-size: 14px;
   text-decoration: none;
    
   &:hover {
@@ -55,9 +55,8 @@ gap: 0 10px;
 `;
    
 export const Heading = styled.p`
-  font-size: 20px;
+  font-size: 18px;
   color: var(--black);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-weight: bold;
-  padding-bottom: 10px
 `;

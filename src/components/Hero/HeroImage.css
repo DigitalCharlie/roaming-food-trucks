@@ -1,5 +1,5 @@
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
+.carousel-control-prev,
+.carousel-control-next, .carousel-indicators {
     display: none;
 }
 
@@ -13,4 +13,13 @@
 
 .auto {
     width: 100%
+}
+
+.carousel-inner {
+    height:100vh;
+    overflow:hidden;
+}
+
+.carousel-item {
+    top:-350px;
 }

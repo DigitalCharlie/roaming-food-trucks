@@ -4,18 +4,52 @@
 
 :root{
     --orange: #F2782F; 
-    --black: #000000; 
+    --black: #222625; 
     --white: #ffffff; 
+    --lightgray:#F0F2F1;
+    --darkgray:darkgray;
 }
 body{
     margin: 0; 
 }
 
-.button{ 
-   border-radius: 10%;
+main {
+    margin:0 auto;
+    width:100%;
+    min-height:60vh;
+    max-width:1200px;
+    padding:30px 5px;
+}
+
+.signup-button{ 
+    border-radius: 10px;
     background: var(--white);
     margin: 15px;
     border: 2px solid var(--orange);
     padding: 6px 15px;
     font-size: 15px;
+    transition:.25s;
+}
+
+.signup-button:hover, signup-button > a:hover {
+    background-color:var(--orange);
+}
+
+.button {
+    background-color:var(--orange);
+    height:38px;
+    border-radius:10px;
+    border:2px solid var(--orange);
+    transition:.25s;
+}
+
+.button:hover {
+    color:black;
+    background-color:white;
+}
+
+input[type=text] {
+    padding-left:10px;
+    border:1px solid lightgray;
+    border-radius:5px;
 }

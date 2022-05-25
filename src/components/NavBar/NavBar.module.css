@@ -12,3 +12,14 @@
 .link{
     text-decoration: none;
 }
+
+.fixedNavbar {
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom:2px solid var(--darkgray);
+    padding:0;
+    box-shadow: 0px -2px 15px var(--darkgray);
+    height:85px;
+}
