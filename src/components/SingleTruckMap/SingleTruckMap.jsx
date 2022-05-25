@@ -18,7 +18,6 @@ export default function SingleTruckMap ({foodTruck}) {
 	};
 
 	useEffect(() => {
-		console.log(foodTruck)
 		let loadingCenter = {
 			lng: foodTruck.location.geoLocation.coordinates[0],
 			lat: foodTruck.location.geoLocation.coordinates[1]

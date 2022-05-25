@@ -2,6 +2,7 @@
 import { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import * as foodTruckAPI from "../../utilities/foodTruck-api";
+import * as usersAPI from "../../utilities/users-api";
 import styles from "./FTDetailsPage.module.css";
 import UserContext from '../../context/UserContext'
 
@@ -19,15 +20,15 @@ export default function FTDetailsPage() {
     const userContext = useContext(UserContext);
 
     const Navigate = useNavigate();
-
-    console.log("Below is the user from UserContext")
-    console.log(userContext)
     
     useEffect(() => {
         (async () => {
           try {
             const data = await foodTruckAPI.getById(id)
             setFoodTruck(data)
+            if (userContext._id) {
+              const updatedUser = await usersAPI.newRecent(userContext._id, {truck: id})
+            }
             setLoaded(true)
           } catch(e) {
             console.log(e)

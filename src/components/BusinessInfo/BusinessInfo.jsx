@@ -2,7 +2,6 @@ import styles from "./BusinessInfo.module.css";
 import SingleTruckMap from "../SingleTruckMap/SingleTruckMap";
 
 export default function BusinessInfo({ foodTruck }) {
-    console.log(foodTruck.location)
     return (
         <>
         {    

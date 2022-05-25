@@ -4,6 +4,8 @@
 import styles from "./ReviewCard.module.css";
 import { Card, CardGroup } from "react-bootstrap";
 
+import StarDisplay from "../StarDisplay/StarDisplay";
+
 export default function ReviewCard( {foodTruck} ) {
     return (
         <>
@@ -15,7 +17,9 @@ export default function ReviewCard( {foodTruck} ) {
                     foodTruck.reviews.map((review) => (
                         <Card className={styles.ReviewDescription}>
                            <Card.Body>
-                               {review.review}
+                            <StarDisplay review={review} options={{displayNumber:true}} />
+                            <br />
+                            {review.review}
                             </Card.Body> 
                         </Card>  
                     ))
