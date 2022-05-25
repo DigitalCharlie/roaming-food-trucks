@@ -6,7 +6,7 @@ Find out more information for any food truck like location, phone number, busine
 
 ## **Background**
 
-This application was built by General Assembly students in the Software Engineering Immersive Course as submissive for Project 4. It was made in collaboration with a UI/UX team at General Assembly.
+This application was built by General Assembly students in the Software Engineering Immersive Course as submission for Group Project 4. It was made in collaboration with a UI/UX team at General Assembly.
 
 Software Engineering Team
 1. Charlie Furman
