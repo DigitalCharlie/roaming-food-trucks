@@ -87,14 +87,12 @@ async function addNewRecent(req, res) {
         if (updatedUser.recents.includes(req.body.truck)) {
             updatedUser.recents.splice(updatedUser.recents.indexOf(req.body.truck), 1)
             updatedUser.recents.unshift(req.body.truck)
-        }
-        if (updatedUser.recents.indexOf(req.body.truck) === -1) {
-            updatedUser.recents.push(req.body.truck)
+        } else if (updatedUser.recents.indexOf(req.body.truck) === -1) {
+            updatedUser.recents.unshift(req.body.truck)
             if (updatedUser.recents.length > 12) {
                 updatedUser.recents.pop()
             }
         }
-
         updatedUser.save()
         res.status(200).json(updatedUser)
     }

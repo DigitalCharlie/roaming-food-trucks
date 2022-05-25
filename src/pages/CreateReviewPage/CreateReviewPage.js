@@ -48,7 +48,7 @@ export default function CreateReviewPage({}) {
         try {
             formData.foodTruck = id
             formData.user = user._id
-            const createdReview = reviewAPI.createReview(formData)
+            const createdReview = await reviewAPI.createReview(formData)
             console.log(createdReview)
             Navigate(`/foodtruck/detailpage/${id}`)
         }   catch (err) {
