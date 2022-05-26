@@ -1,6 +1,6 @@
 # **The Roaming Spoon**
 
-Discover amazing food trucks in your area using the Roaming Spoon app! Use The Roaming Spoon is to search your favorite food trucks and see their current location. 
+Discover amazing food trucks in your area using the Roaming Spoon app! Use The Roaming Spoon to search your favorite food trucks and see their current location. 
 
 Find out more information for any food truck like location, phone number, business hours, and reviews. You can also filter the list based on distance, cuisine, rating, and price.
 
@@ -29,7 +29,7 @@ HTML | CSS | JavaScript | MongoDB | Express | React | Node.js | Bootstrap / REAC
 
 ## **Getting Started**
 
-Click here to launch the app: https://roaming-spoon.herokuapp.com/
+Click here to launch the app: https://roaming-spoon-2.herokuapp.com/
 
 In The Roaming Spoon, you can sign up as a new user or login if you already have an account. Use the search bar to find food trucks available in your area. Click on any food truck to show the detail page and discover what other reviewers are saying. You can also save your favorite food trucks and write reviews. Scroll through each food truck to find all their menu items. You can also filter your search list by distance, cuisine, rating, and price. 
 
