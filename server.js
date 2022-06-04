@@ -7,6 +7,7 @@ require('./config/database');
 const app = express();
 
 app.use(express.json());
+app.use(express.static('build'))
 
 app.use(require('./config/checkToken'));
 
