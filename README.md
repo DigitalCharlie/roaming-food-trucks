@@ -1,6 +1,6 @@
 # **The Roaming Spoon**
 
-Discover amazing food trucks in your area using the Roaming Spoon app! Use The Roaming Spoon is to search your favorite food trucks and see their current location. 
+Discover amazing food trucks in your area using the Roaming Spoon app! Use The Roaming Spoon to search your favorite food trucks and see their current location. 
 
 Find out more information for any food truck like location, phone number, business hours, and reviews. You can also filter the list based on distance, cuisine, rating, and price.
 
